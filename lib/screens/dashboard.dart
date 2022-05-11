@@ -3,37 +3,57 @@ import 'package:flutter/material.dart';
 import '../widgets/app_drawer.dart';
 import '../widgets/user_detail_card.dart';
 
-class DashboardHome extends StatelessWidget {
+class DashboardHome extends StatefulWidget {
   const DashboardHome({Key? key}) : super(key: key);
+
+  @override
+  State<DashboardHome> createState() => _DashboardHomeState();
+}
+
+class _DashboardHomeState extends State<DashboardHome> {
+  var _unHideDrawer = false;
 
   @override
   Widget build(BuildContext context) {
     var _screenSize = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: Colors.white70,
-      appBar: AppBar(
-        leading: Builder(builder: (BuildContext context) {
-          return IconButton(
-            onPressed: () {
-              Scaffold.of(context).openDrawer();
-            },
-            icon: const Icon(
-              Icons.menu,
-              color: Colors.green,
+    return Row(
+      children: [
+        if(_screenSize.width > 520 && _unHideDrawer)appDrawer(),
+        Expanded(
+          child: Scaffold(
+            backgroundColor: Colors.white70,
+            appBar: AppBar(
+              leading: Builder(builder: (BuildContext context) {
+                return IconButton(
+                  onPressed: () {
+                    if(_screenSize.width > 520) {
+                      setState(() {
+                        _unHideDrawer = !_unHideDrawer;
+                      });
+                    } else {
+                      Scaffold.of(context).openDrawer();
+                    }
+                  },
+                  icon: const Icon(
+                    Icons.menu,
+                    color: Colors.green,
+                  ),
+                );
+              }),
+              title: const Text(
+                'App bar',
+                style: TextStyle(color: Colors.blueGrey),
+              ),
+              backgroundColor: Colors.white70,
+              elevation: 0,
             ),
-          );
-        }),
-        title: const Text(
-          'App bar',
-          style: TextStyle(color: Colors.blueGrey),
+            drawer: appDrawer(),
+            body: Container(
+              color: Colors.redAccent,
+            ),
+          ),
         ),
-        backgroundColor: Colors.white70,
-        elevation: 0,
-      ),
-      drawer: appDrawer(),
-      body: Container(
-        color: Colors.redAccent,
-      ),
+      ],
     );
   }
 }
