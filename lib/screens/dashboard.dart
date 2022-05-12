@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../widgets/app_drawer.dart';
+import '../widgets/page_header.dart';
 import '../widgets/user_detail_card.dart';
 
 class DashboardHome extends StatefulWidget {
@@ -16,12 +17,13 @@ class _DashboardHomeState extends State<DashboardHome> {
   @override
   Widget build(BuildContext context) {
     var _screenSize = MediaQuery.of(context).size;
+    // TODO - min and max sizing as in case of desktop applications it is needed.
     return Row(
       children: [
         if(_screenSize.width > 520 && _unHideDrawer)appDrawer(),
         Expanded(
           child: Scaffold(
-            backgroundColor: Colors.white70,
+            backgroundColor: Colors.grey[300],
             appBar: AppBar(
               leading: Builder(builder: (BuildContext context) {
                 return IconButton(
@@ -48,8 +50,11 @@ class _DashboardHomeState extends State<DashboardHome> {
               elevation: 0,
             ),
             drawer: appDrawer(),
-            body: Container(
-              color: Colors.redAccent,
+            body: ListView(
+              children: const [
+                PageHeader(),
+                UserDetailCard()
+              ],
             ),
           ),
         ),
