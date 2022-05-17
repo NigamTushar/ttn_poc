@@ -12,7 +12,7 @@ class DashboardHome extends StatefulWidget {
 }
 
 class _DashboardHomeState extends State<DashboardHome> {
-  var _unHideDrawer = false;
+  var _unHideDrawer = true;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _DashboardHomeState extends State<DashboardHome> {
     // TODO - min and max sizing as in case of desktop applications it is needed.
     return Row(
       children: [
-        if(_screenSize.width > 520 && _unHideDrawer)appDrawer(),
+        if(_screenSize.width > 760 && _unHideDrawer)appDrawer(),
         Expanded(
           child: Scaffold(
             backgroundColor: Colors.grey[300],
@@ -28,9 +28,10 @@ class _DashboardHomeState extends State<DashboardHome> {
               leading: Builder(builder: (BuildContext context) {
                 return IconButton(
                   onPressed: () {
-                    if(_screenSize.width > 520) {
+                    if(_screenSize.width > 760) {
                       setState(() {
                         _unHideDrawer = !_unHideDrawer;
+                        print('Clicked the drawer ' + _unHideDrawer.toString());
                       });
                     } else {
                       Scaffold.of(context).openDrawer();
