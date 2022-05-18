@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/widgets/dashboard_info_card.dart';
 
 import '../widgets/app_drawer.dart';
 import '../widgets/page_header.dart';
@@ -54,7 +55,23 @@ class _DashboardHomeState extends State<DashboardHome> {
             body: ListView(
               children: const [
                 PageHeader(),
-                UserDetailCard()
+
+                // TODO:- Make a check in vertical mode the hieght will be 445 and in
+                // horizontal mode[Normal], it will be 300
+                // This can be done using sizing checks
+                UserDetailCard(),
+
+                // Stakeholder card
+                DashboardInfoCard(
+                  boxTitle: 'My Stakeholders',
+                  cardType: CardType.stakeholder,
+                ),
+
+                // To Do List Card
+                DashboardInfoCard(
+                  boxTitle: 'My To-Do List',
+                  cardType: CardType.toDo,
+                ),
               ],
             ),
           ),
