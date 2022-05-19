@@ -72,6 +72,24 @@ class _DashboardHomeState extends State<DashboardHome> {
                   boxTitle: 'My To-Do List',
                   cardType: CardType.toDo,
                 ),
+
+                // TeamInfo card
+                DashboardInfoCard(
+                  boxTitle: 'My Project Team - HARK Audio T&M-1',
+                  cardType: CardType.myTeam,
+                ),
+
+                // Watchlist
+                DashboardInfoCard(
+                  boxTitle: 'My Watchlist',
+                  cardType: CardType.watchList,
+                ),
+
+                // Bookmark
+                DashboardInfoCard(
+                  boxTitle: 'Bookmarks',
+                  cardType: CardType.bookmarks
+                ),
               ],
             ),
           ),
