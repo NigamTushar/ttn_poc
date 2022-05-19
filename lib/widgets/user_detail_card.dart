@@ -44,18 +44,20 @@ class UserDetailCard extends StatelessWidget {
               ],
             ),
 
-            GridView.count(
-              physics: const NeverScrollableScrollPhysics(),
-              shrinkWrap: true,
-              padding: EdgeInsets.all(breakpoint.gutters),
-              crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
-              crossAxisSpacing: breakpoint.gutters,
-              mainAxisSpacing: breakpoint.gutters,
-              childAspectRatio: (300 / 215),
-              children: <Widget>[
-                userDetailContact(),
-                userDetailDescription(size.width)
-              ],
+            IgnorePointer(
+              child: GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: EdgeInsets.all(breakpoint.gutters),
+                crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
+                crossAxisSpacing: breakpoint.gutters,
+                mainAxisSpacing: breakpoint.gutters,
+                childAspectRatio: (300 / 215),
+                children: <Widget>[
+                  userDetailContact(),
+                  userDetailDescription(size.width)
+                ],
+              ),
             ),
 
             // Contact and upper part of the user detail card
