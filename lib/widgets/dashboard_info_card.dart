@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/widgets/clickable_list.dart';
 import 'package:newers_world/widgets/stakeholder_list.dart';
 
 import 'dashboard_cardList.dart';
+import 'team_list.dart';
 
 enum CardType {
   stakeholder,
   toDo,
   watchList,
   bookmarks,
+  myTeam,
 }
 
 class DashboardInfoCard extends StatelessWidget {
@@ -60,6 +63,11 @@ class DashboardInfoCard extends StatelessWidget {
             const StakeholdersList()
           ] else if (cardType == CardType.toDo) ...[
             const DashboardCardList()
+          ] else if (cardType == CardType.myTeam) ...[
+            const TeamList()
+          ] else if (cardType == CardType.bookmarks ||
+              cardType == CardType.watchList) ...[
+            ClickableList(cardType: cardType)
           ] else ...[
             Container(
               color: Colors.blueAccent,

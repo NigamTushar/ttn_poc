@@ -16,7 +16,7 @@ class StakeholdersList extends StatelessWidget {
           subtitle: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
-              Text('Technilcal Lead'),
+              Text('Technical Lead'),
               Text('Mentoring and Reporting Manager'),
             ],
           ),

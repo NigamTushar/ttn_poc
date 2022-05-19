@@ -9,6 +9,7 @@ class UserDetailCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       final Breakpoint breakpoint = Breakpoint.fromConstraints(
@@ -44,13 +45,17 @@ class UserDetailCard extends StatelessWidget {
             ),
 
             GridView.count(
+              physics: const NeverScrollableScrollPhysics(),
               shrinkWrap: true,
               padding: EdgeInsets.all(breakpoint.gutters),
               crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
               crossAxisSpacing: breakpoint.gutters,
               mainAxisSpacing: breakpoint.gutters,
-              // childAspectRatio: (300 / 215),
-              children: <Widget>[userDetailContact(), userDetailDescription()],
+              childAspectRatio: (300 / 215),
+              children: <Widget>[
+                userDetailContact(),
+                userDetailDescription(size.width)
+              ],
             ),
 
             // Contact and upper part of the user detail card
@@ -93,6 +98,7 @@ class UserDetailCard extends StatelessWidget {
 // MARK: - user detail contact UI - upper part
 Container userDetailContact() {
   return Container(
+    // color: Colors.red,
     height: 215,
     width: 300,
     child: Column(
@@ -149,13 +155,17 @@ Container userDetailContact() {
 }
 
 // MARK:- user detail description - lower part
-Container userDetailDescription() {
+Container userDetailDescription(double size) {
   return Container(
-    constraints:const  BoxConstraints(minWidth: 300),
+    // color: Colors.green,
+    constraints: const BoxConstraints(
+      minWidth: 300,
+      minHeight: 300,
+    ),
     height: 215,
     padding: const EdgeInsets.all(8.0),
     margin: const EdgeInsets.only(top: 10.0, left: 10.0),
-    width: 300,
+    width: size * 0.25,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: const [
@@ -175,37 +185,50 @@ Container userDetailDescription() {
           height: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0,vertical: -4),
+          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
           leading: Icon(Icons.house_outlined),
-          title: Text('To The New Private Limited', style: TextStyle(fontSize: 16.0),),
+          title: Text(
+            'To The New Private Limited',
+            style: TextStyle(fontSize: 16.0),
+          ),
           iconColor: Colors.black,
-          contentPadding: EdgeInsets.zero,// EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
+          contentPadding: EdgeInsets
+              .zero, // EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0,vertical: -4),
+          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
           leading: Icon(Icons.business),
-          title: Text('Digital Native Businesses(DNB)', style: TextStyle(fontSize: 16.0),),
+          title: Text(
+            'Digital Native Businesses(DNB)',
+            style: TextStyle(fontSize: 16.0),
+          ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0,vertical: -4),
+          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
           leading: Icon(Icons.business_center_outlined),
-          title: Text('iOS', style: TextStyle(fontSize: 16.0),),
+          title: Text(
+            'iOS',
+            style: TextStyle(fontSize: 16.0),
+          ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets.only(left: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0,vertical: -4),
+          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
           leading: Icon(Icons.card_membership),
-          title: Text('4659', style: TextStyle(fontSize: 16.0),),
+          title: Text(
+            '4659',
+            style: TextStyle(fontSize: 16.0),
+          ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets.only(left: 0.0),
           minLeadingWidth: 15,
