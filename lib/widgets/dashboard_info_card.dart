@@ -25,12 +25,12 @@ class DashboardInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       constraints: const BoxConstraints(
-        maxHeight: 300,
+        maxHeight: 400,
         minHeight: 250,
         minWidth: 225,
         maxWidth: 380,
       ),
-      height: 300,
+      // height: 400,
       width: 380,
       decoration: const BoxDecoration(
         color: Colors.white,
