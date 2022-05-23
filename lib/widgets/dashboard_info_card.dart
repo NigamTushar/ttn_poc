@@ -35,7 +35,7 @@ class DashboardInfoCard extends StatelessWidget {
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
-      margin: const EdgeInsets.all(20),
+      margin: EdgeInsets.zero,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
