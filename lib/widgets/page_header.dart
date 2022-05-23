@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class PageHeader extends StatelessWidget {
-  const PageHeader({
+  double width;
+  PageHeader({
     Key? key,
+    required this.width
   }) : super(key: key);
 
   @override
@@ -10,6 +12,7 @@ class PageHeader extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 10.0),
       height: 80,
+      width: width,
       color: Colors.white,
       child: Column(
         children: const [

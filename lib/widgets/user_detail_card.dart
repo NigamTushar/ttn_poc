@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../helper/breakpoint.dart';
 
 class UserDetailCard extends StatelessWidget {
-  const UserDetailCard({
+  double width;
+  UserDetailCard({
     Key? key,
+    required this.width,
   }) : super(key: key);
 
   @override
@@ -21,7 +24,8 @@ class UserDetailCard extends StatelessWidget {
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
-        margin: const EdgeInsets.all(20),
+        width: width,
+        margin: EdgeInsets.zero,
         child: Column(
           children: [
             const SizedBox(
@@ -44,20 +48,36 @@ class UserDetailCard extends StatelessWidget {
               ],
             ),
 
-            IgnorePointer(
-              child: GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: EdgeInsets.all(breakpoint.gutters),
-                crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
-                crossAxisSpacing: breakpoint.gutters,
-                mainAxisSpacing: breakpoint.gutters,
-                childAspectRatio: (300 / 215),
-                children: <Widget>[
-                  userDetailContact(),
-                  userDetailDescription(size.width)
-                ],
-              ),
+            // IgnorePointer(
+            //   child: GridView.count(
+            //     physics: const NeverScrollableScrollPhysics(),
+            //     shrinkWrap: true,
+            //     padding: EdgeInsets.all(breakpoint.gutters),
+            //     crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
+            //     crossAxisSpacing: breakpoint.gutters,
+            //     mainAxisSpacing: breakpoint.gutters,
+            //     childAspectRatio: (300 / 215),
+            //     children: <Widget>[
+            //       userDetailContact(),
+            //       userDetailDescription(size.width)
+            //     ],
+            //   ),
+            // ),
+
+            StaggeredGrid.count(
+              crossAxisCount: 3,
+              children: [
+                StaggeredGridTile.count(
+                  crossAxisCellCount: 1,
+                  mainAxisCellCount: 1,
+                  child: userDetailContact(),
+                ),
+                StaggeredGridTile.count(
+                  crossAxisCellCount: 2,
+                  mainAxisCellCount: 1,
+                  child: userDetailDescription(size.width),
+                ),
+              ],
             ),
 
             // Contact and upper part of the user detail card
