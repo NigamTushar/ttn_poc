@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:newers_world/helper/constants.dart';
 
 import '../helper/breakpoint.dart';
 
@@ -21,6 +22,11 @@ class UserDetailCard extends StatelessWidget {
       );
       // final double width = constraints.maxWidth.roundToDouble();
       return Container(
+        // constraints: BoxConstraints(
+        //   minHeight: constraints.minHeight,
+        //   maxWidth: constraints.maxWidth,
+        //   minWidth: constraints.minWidth,
+        // ),
         decoration: const BoxDecoration(
           color: Colors.white,
         ),
@@ -48,37 +54,37 @@ class UserDetailCard extends StatelessWidget {
               ],
             ),
 
-            // IgnorePointer(
-            //   child: GridView.count(
-            //     physics: const NeverScrollableScrollPhysics(),
-            //     shrinkWrap: true,
-            //     padding: EdgeInsets.all(breakpoint.gutters),
-            //     crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
-            //     crossAxisSpacing: breakpoint.gutters,
-            //     mainAxisSpacing: breakpoint.gutters,
-            //     childAspectRatio: (300 / 215),
-            //     children: <Widget>[
-            //       userDetailContact(),
-            //       userDetailDescription(size.width)
-            //     ],
-            //   ),
-            // ),
-
-            StaggeredGrid.count(
-              crossAxisCount: 3,
-              children: [
-                StaggeredGridTile.count(
-                  crossAxisCellCount: 1,
-                  mainAxisCellCount: 1,
-                  child: userDetailContact(),
-                ),
-                StaggeredGridTile.count(
-                  crossAxisCellCount: 2,
-                  mainAxisCellCount: 1,
-                  child: userDetailDescription(size.width),
-                ),
-              ],
+            IgnorePointer(
+              child: GridView.count(
+                physics: const NeverScrollableScrollPhysics(),
+                shrinkWrap: true,
+                padding: EdgeInsets.all(breakpoint.gutters),
+                crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
+                crossAxisSpacing: breakpoint.gutters,
+                mainAxisSpacing: breakpoint.gutters,
+                childAspectRatio: (300 / 215),
+                children: <Widget>[
+                  userDetailContact(),
+                  userDetailDescription(size.width)
+                ],
+              ),
             ),
+
+            // StaggeredGrid.count(
+            //   crossAxisCount: (size.width > 520) ? 3 : 1,
+            //   children: [
+            //     StaggeredGridTile.count(
+            //       crossAxisCellCount: 1,
+            //       mainAxisCellCount: 1,
+            //       child: userDetailContact(),
+            //     ),
+            //     StaggeredGridTile.count(
+            //       crossAxisCellCount: 2,
+            //       mainAxisCellCount: 1,
+            //       child: userDetailDescription(size.width),
+            //     ),
+            //   ],
+            // ),
 
             // Contact and upper part of the user detail card
             // userDetailContact(),
@@ -190,17 +196,17 @@ Container userDetailDescription(double size) {
     width: size * 0.25,
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children: const [
+      children: [
         Text(
           'Rahul Sharma',
           style: TextStyle(
-            fontSize: 30,
+            fontSize: Constants.headingFontSize,
           ),
         ),
         Text(
           'Software Engineer',
           style: TextStyle(
-            fontSize: 18,
+            fontSize: Constants.subHheadingFontSize,
           ),
         ),
         SizedBox(
@@ -212,7 +218,7 @@ Container userDetailDescription(double size) {
           leading: Icon(Icons.house_outlined),
           title: Text(
             'To The New Private Limited',
-            style: TextStyle(fontSize: 16.0),
+            style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets
@@ -225,7 +231,7 @@ Container userDetailDescription(double size) {
           leading: Icon(Icons.business),
           title: Text(
             'Digital Native Businesses(DNB)',
-            style: TextStyle(fontSize: 16.0),
+            style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
@@ -237,7 +243,7 @@ Container userDetailDescription(double size) {
           leading: Icon(Icons.business_center_outlined),
           title: Text(
             'iOS',
-            style: TextStyle(fontSize: 16.0),
+            style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets.only(left: 0.0),
@@ -249,7 +255,7 @@ Container userDetailDescription(double size) {
           leading: Icon(Icons.card_membership),
           title: Text(
             '4659',
-            style: TextStyle(fontSize: 16.0),
+            style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
           contentPadding: EdgeInsets.only(left: 0.0),
