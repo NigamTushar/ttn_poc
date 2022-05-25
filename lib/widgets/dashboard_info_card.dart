@@ -45,7 +45,7 @@ class DashboardInfoCard extends StatelessWidget {
             child: Text(
               boxTitle,
               style: const TextStyle(
-                  color: Colors.blueGrey,
+                  // color: Colors.green,
                   fontWeight: FontWeight.bold,
                   fontSize: 17),
             ),
