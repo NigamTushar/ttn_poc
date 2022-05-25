@@ -23,6 +23,13 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blueGrey,
+        textTheme: const TextTheme(
+          bodyText1: TextStyle(),
+          bodyText2: TextStyle(),
+        ).apply(
+          bodyColor: Colors.blueGrey,
+          displayColor: Colors.blueGrey,
+        ),
       ),
       home: const DashboardHome(),
       debugShowCheckedModeBanner: false,

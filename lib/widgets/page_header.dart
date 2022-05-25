@@ -21,7 +21,7 @@ class PageHeader extends StatelessWidget {
             child: Text(
               'Dashboard',
               style: TextStyle(
-                color: Colors.blueGrey,
+                // color: Colors.blueGrey,
                 fontWeight: FontWeight.w300,
                 fontSize: 26,
               ),

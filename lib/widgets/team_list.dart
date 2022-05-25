@@ -38,7 +38,7 @@ class TeamList extends StatelessWidget {
                     Text(
                       (index + 1).toString(),
                       style: const TextStyle(
-                          color: Colors.blueGrey,
+                          // color: Colors.blueGrey,
                           fontWeight: FontWeight.bold,
                           fontSize: 17),
                     ),
