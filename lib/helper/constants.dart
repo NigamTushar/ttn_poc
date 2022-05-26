@@ -2,7 +2,7 @@ import 'package:sizer/sizer.dart';
 
 
 class Constants {
-  static const headingFontSize = 30.0;
-  static const subHheadingFontSize = 18.0; 
-  static const normalTextFontSize = 16.0; 
+  static double headingFontSize = 5.sp;
+  static double subHheadingFontSize = 3.sp; 
+  static double normalTextFontSize = 2.5.sp; 
 }
