@@ -24,12 +24,12 @@ class UserDetailCard extends StatelessWidget {
       return Container(
         // constraints: BoxConstraints(
         //   minHeight: constraints.minHeight,
+        //   maxHeight: constraints.maxHeight,
         //   maxWidth: constraints.maxWidth,
         //   minWidth: constraints.minWidth,
         // ),
-        decoration: const BoxDecoration(
-          color: Colors.white,
-        ),
+        height: 380,
+        decoration: const BoxDecoration(color: Colors.white),
         width: width,
         margin: EdgeInsets.zero,
         child: Column(
@@ -54,45 +54,15 @@ class UserDetailCard extends StatelessWidget {
               ],
             ),
 
-            IgnorePointer(
-              child: GridView.count(
-                physics: const NeverScrollableScrollPhysics(),
-                shrinkWrap: true,
-                padding: EdgeInsets.all(breakpoint.gutters),
-                crossAxisCount: Breakpoint.useColumns(breakpoint.columns, 3),
-                crossAxisSpacing: breakpoint.gutters,
-                mainAxisSpacing: breakpoint.gutters,
-                childAspectRatio: (300 / 215),
-                children: <Widget>[
-                  userDetailContact(),
-                  userDetailDescription(size.width)
-                ],
-              ),
+            // Employee Details
+            OverflowBar(
+              children: [
+                userDetailContact(),
+                userDetailDescription(size.width),
+              ],
             ),
 
-            // StaggeredGrid.count(
-            //   crossAxisCount: (size.width > 520) ? 3 : 1,
-            //   children: [
-            //     StaggeredGridTile.count(
-            //       crossAxisCellCount: 1,
-            //       mainAxisCellCount: 1,
-            //       child: userDetailContact(),
-            //     ),
-            //     StaggeredGridTile.count(
-            //       crossAxisCellCount: 2,
-            //       mainAxisCellCount: 1,
-            //       child: userDetailDescription(size.width),
-            //     ),
-            //   ],
-            // ),
-
-            // Contact and upper part of the user detail card
-            // userDetailContact(),
-
-            // user detail - description about the user
-            // userDetailDescription(),
-
-            // profile and org chart buttons
+            // profile and organisation buttons
             Container(
               padding: const EdgeInsets.only(
                   bottom: 10.0,

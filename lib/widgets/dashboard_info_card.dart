@@ -16,9 +16,10 @@ enum CardType {
 class DashboardInfoCard extends StatelessWidget {
   final String boxTitle;
   final CardType cardType;
+  final double? width;
 
   const DashboardInfoCard(
-      {Key? key, required this.boxTitle, required this.cardType})
+      {Key? key, required this.boxTitle, required this.cardType, this.width})
       : super(key: key);
 
   @override
@@ -30,8 +31,8 @@ class DashboardInfoCard extends StatelessWidget {
         minWidth: 225,
         maxWidth: 380,
       ),
-      // height: 400,
-      width: 380,
+      height: 380,
+      width: (cardType == CardType.stakeholder)? width : null,
       decoration: const BoxDecoration(
         color: Colors.white,
       ),
