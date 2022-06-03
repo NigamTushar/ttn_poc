@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/widgets/clickable_list.dart';
+import 'package:newers_world/widgets/recognize_newer.dart';
 import 'package:newers_world/widgets/stakeholder_list.dart';
 
 import 'dashboard_cardList.dart';
@@ -11,6 +12,7 @@ enum CardType {
   watchList,
   bookmarks,
   myTeam,
+  newerRecognition,
 }
 
 class DashboardInfoCard extends StatelessWidget {
@@ -69,6 +71,8 @@ class DashboardInfoCard extends StatelessWidget {
           ] else if (cardType == CardType.bookmarks ||
               cardType == CardType.watchList) ...[
             ClickableList(cardType: cardType)
+          ] else if (cardType == CardType.newerRecognition) ...[
+            NewerRecognitionContentCard(width: width!,)
           ] else ...[
             Container(
               color: Colors.blueAccent,
