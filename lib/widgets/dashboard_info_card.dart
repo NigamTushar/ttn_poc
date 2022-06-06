@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/widgets/clickable_list.dart';
+import 'package:newers_world/widgets/newi_notifications_card.dart';
 import 'package:newers_world/widgets/recognize_newer.dart';
 import 'package:newers_world/widgets/stakeholder_list.dart';
 
-import 'dashboard_cardList.dart';
+import 'dashboard_card_list.dart';
 import 'team_list.dart';
 
 enum CardType {
@@ -13,6 +14,7 @@ enum CardType {
   bookmarks,
   myTeam,
   newerRecognition,
+  newiNotifications,
 }
 
 class DashboardInfoCard extends StatelessWidget {
@@ -73,6 +75,8 @@ class DashboardInfoCard extends StatelessWidget {
             ClickableList(cardType: cardType)
           ] else if (cardType == CardType.newerRecognition) ...[
             NewerRecognitionContentCard(width: width!,)
+          ] else if (cardType == CardType.newiNotifications) ...[
+            const NewiNotificationCardContent()
           ] else ...[
             Container(
               color: Colors.blueAccent,

@@ -1,12 +1,12 @@
+
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:newers_world/helper/constants.dart';
 
 import '../helper/breakpoint.dart';
 
 class UserDetailCard extends StatelessWidget {
-  double width;
-  UserDetailCard({
+  final double width;
+  const UserDetailCard({
     Key? key,
     required this.width,
   }) : super(key: key);
@@ -61,31 +61,6 @@ class UserDetailCard extends StatelessWidget {
                 userDetailDescription(size.width),
               ],
             ),
-
-            // profile and organisation buttons
-            Container(
-              padding: const EdgeInsets.only(
-                  bottom: 10.0,
-                  right: 10.0), // To hide the button focus area in case of web.
-              width: double.infinity,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      print('Organisation chart');
-                    },
-                    icon: const Icon(Icons.bakery_dining),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      print('Employee profile page');
-                    },
-                    icon: const Icon(Icons.person_outline_rounded),
-                  ),
-                ],
-              ),
-            )
           ],
         ),
       );
@@ -179,13 +154,13 @@ Container userDetailDescription(double size) {
             fontSize: Constants.subHheadingFontSize,
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
-          leading: Icon(Icons.house_outlined),
+          leading: const Icon(Icons.house_outlined),
           title: Text(
             'To The New Private Limited',
             style: TextStyle(fontSize: Constants.normalTextFontSize),
@@ -196,41 +171,66 @@ Container userDetailDescription(double size) {
           minLeadingWidth: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
-          leading: Icon(Icons.business),
+          leading: const Icon(Icons.business),
           title: Text(
             'Digital Native Businesses(DNB)',
             style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
-          contentPadding: EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
+          contentPadding: const EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
-          leading: Icon(Icons.business_center_outlined),
+          leading: const Icon(Icons.business_center_outlined),
           title: Text(
             'iOS',
             style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
-          contentPadding: EdgeInsets.only(left: 0.0),
+          contentPadding: const EdgeInsets.only(left: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
-          visualDensity: VisualDensity(horizontal: 0, vertical: -4),
+          visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
           dense: true,
-          leading: Icon(Icons.card_membership),
+          leading: const Icon(Icons.card_membership),
           title: Text(
             '4659',
             style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
-          contentPadding: EdgeInsets.only(left: 0.0),
+          contentPadding: const EdgeInsets.only(left: 0.0),
           minLeadingWidth: 15,
         ),
+
+        // profile and organisation buttons
+            Container(
+              padding: const EdgeInsets.only(
+                  bottom: 10.0,
+                  right: 10.0), // To hide the button focus area in case of web.
+              width: double.infinity,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  IconButton(
+                    onPressed: () {
+                      print('Organisation chart');
+                    },
+                    icon: const Icon(Icons.bakery_dining),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      print('Employee profile page');
+                    },
+                    icon: const Icon(Icons.person_outline_rounded),
+                  ),
+                ],
+              ),
+            )
       ],
     ),
   );

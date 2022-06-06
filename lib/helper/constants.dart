@@ -1,4 +1,3 @@
-import 'package:sizer/sizer.dart';
 
 
 class Constants {

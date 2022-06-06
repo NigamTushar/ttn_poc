@@ -1,8 +1,5 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
-import 'package:window_size/window_size.dart';
 import 'package:newers_world/screens/dashboard.dart';
 
 void main() {
@@ -20,24 +17,23 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return Sizer(
-      builder: (context, orientation, deviceType) {
-        return MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-            primarySwatch: Colors.blueGrey,
-            textTheme: const TextTheme(
-              bodyText1: TextStyle(),
-              bodyText2: TextStyle(),
-            ).apply(
-              bodyColor: Colors.blueGrey,
-              displayColor: Colors.blueGrey,
-            ),
+    return SizedBox(
+      width: 500,
+      child: MaterialApp(
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blueGrey,
+          textTheme: const TextTheme(
+            bodyText1: TextStyle(),
+            bodyText2: TextStyle(),
+          ).apply(
+            bodyColor: Colors.blueGrey,
+            displayColor: Colors.blueGrey,
           ),
-          home: const DashboardHome(),
-          debugShowCheckedModeBanner: false,
-        );
-      }
+        ),
+        home: const DashboardHome(),
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }

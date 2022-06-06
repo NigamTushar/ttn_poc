@@ -21,7 +21,6 @@ class _DashboardHomeState extends State<DashboardHome> {
   @override
   Widget build(BuildContext context) {
     var _screenSize = MediaQuery.of(context).size;
-    // TODO - min and max sizing as in case of desktop applications it is needed.
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
       final Breakpoint breakpoint =
@@ -159,6 +158,17 @@ class _DashboardHomeState extends State<DashboardHome> {
                             child: DashboardInfoCard(
                                 boxTitle: 'Bookmarks',
                                 cardType: CardType.bookmarks),
+                          ),
+
+                          // Newi Notification card
+                          StaggeredGridTile.count(
+                            crossAxisCellCount:
+                                (_screenSize.width > 980) ? 2 : 1,
+                            mainAxisCellCount: 1,
+                            child: const DashboardInfoCard(
+                              boxTitle: 'Subscribe to Newi Notifications',
+                              cardType: CardType.newiNotifications,
+                            ),
                           ),
                         ],
                       ),
