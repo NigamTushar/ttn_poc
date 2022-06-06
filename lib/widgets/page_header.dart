@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class PageHeader extends StatelessWidget {
-  double width;
-  PageHeader({
+  final double width;
+  const PageHeader({
     Key? key,
     required this.width
   }) : super(key: key);
