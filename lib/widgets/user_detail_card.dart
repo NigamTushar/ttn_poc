@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:newers_world/helper/constants.dart';
 
@@ -6,6 +5,7 @@ import '../helper/breakpoint.dart';
 
 class UserDetailCard extends StatelessWidget {
   final double width;
+
   const UserDetailCard({
     Key? key,
     required this.width,
@@ -20,38 +20,36 @@ class UserDetailCard extends StatelessWidget {
         constraints,
         type: BreakType.material,
       );
-      // final double width = constraints.maxWidth.roundToDouble();
       return Container(
-        // constraints: BoxConstraints(
-        //   minHeight: constraints.minHeight,
-        //   maxHeight: constraints.maxHeight,
-        //   maxWidth: constraints.maxWidth,
-        //   minWidth: constraints.minWidth,
-        // ),
-        height: 380,
         decoration: const BoxDecoration(color: Colors.white),
         width: width,
         margin: EdgeInsets.zero,
-        child: Column(
+        child: Wrap(
           children: [
             const SizedBox(
-              height: 10.0,
+              height: 20.0,
             ),
 
             // Employee Experience
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  margin: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: const Text('0y 9m'),
-                  decoration: const BoxDecoration(
-                    color: Colors.grey,
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Container(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    margin: const EdgeInsets.symmetric(horizontal: 8.0),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: Text('0y 9m'),
+                    ),
+                    decoration: const BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.all(Radius.circular(20)),
+                    ),
+                  )
+                ],
+              ),
             ),
 
             // Employee Details
@@ -61,6 +59,7 @@ class UserDetailCard extends StatelessWidget {
                 userDetailDescription(size.width),
               ],
             ),
+            SizedBox(height: 50,)
           ],
         ),
       );
@@ -166,8 +165,8 @@ Container userDetailDescription(double size) {
             style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
-          contentPadding: EdgeInsets
-              .zero, // EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
+          contentPadding: EdgeInsets.zero,
+          // EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
@@ -179,7 +178,8 @@ Container userDetailDescription(double size) {
             style: TextStyle(fontSize: Constants.normalTextFontSize),
           ),
           iconColor: Colors.black,
-          contentPadding: const EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
+          contentPadding:
+              const EdgeInsets.only(left: 0.0, top: 0.0, bottom: 0.0),
           minLeadingWidth: 15,
         ),
         ListTile(
@@ -208,29 +208,29 @@ Container userDetailDescription(double size) {
         ),
 
         // profile and organisation buttons
-            Container(
-              padding: const EdgeInsets.only(
-                  bottom: 10.0,
-                  right: 10.0), // To hide the button focus area in case of web.
-              width: double.infinity,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      print('Organisation chart');
-                    },
-                    icon: const Icon(Icons.bakery_dining),
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      print('Employee profile page');
-                    },
-                    icon: const Icon(Icons.person_outline_rounded),
-                  ),
-                ],
+        Container(
+          padding: const EdgeInsets.only(
+              bottom: 10.0,
+              right: 10.0), // To hide the button focus area in case of web.
+          width: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                onPressed: () {
+                  print('Organisation chart');
+                },
+                icon: const Icon(Icons.bakery_dining),
               ),
-            )
+              IconButton(
+                onPressed: () {
+                  print('Employee profile page');
+                },
+                icon: const Icon(Icons.person_outline_rounded),
+              ),
+            ],
+          ),
+        )
       ],
     ),
   );
