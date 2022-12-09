@@ -1,8 +1,10 @@
-
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:newers_world/dashboard_screens/dashboard_home_screen.dart';
 import 'package:newers_world/helper/breakpoint.dart';
 import 'package:newers_world/widgets/dashboard_info_card.dart';
+import 'package:newers_world/widgets/stakeholder_list.dart';
 
 import '../widgets/app_drawer.dart';
 import '../widgets/page_header.dart';
@@ -23,8 +25,6 @@ class _DashboardHomeState extends State<DashboardHome> {
     var _screenSize = MediaQuery.of(context).size;
     return LayoutBuilder(
         builder: (BuildContext context, BoxConstraints constraints) {
-      final Breakpoint breakpoint =
-          Breakpoint.fromConstraints(constraints, type: BreakType.large);
       return Row(
         children: [
           if (_screenSize.width > 760 && _unHideDrawer) appDrawer(),
@@ -57,124 +57,36 @@ class _DashboardHomeState extends State<DashboardHome> {
                 elevation: 0,
               ),
               drawer: appDrawer(),
-              body: ListView(
-                children: [
-                  PageHeader(
-                    width: _screenSize.width,
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(20.0),
-                    width: _screenSize.width,
-                    height:
-                        _screenSize.height - AppBar().preferredSize.height - 80,
-                    child: SingleChildScrollView(
-                      child: StaggeredGrid.count(
-                        mainAxisSpacing: breakpoint.gutters, // 20.0,
-                        crossAxisSpacing: breakpoint.gutters, //20.0,
-                        crossAxisCount: Breakpoint.useColumns(
-                            breakpoint.columns,
-                            4), // (_screenSize.width > 980) ? 3 : 1,
-                        children: [
-                          // TODO:- Make a check in vertical mode the hieght will be 445 and in
-                          // horizontal mode[Normal], it will be 300
-                          // This can be done using sizing checks
-                          StaggeredGridTile.count(
-                            crossAxisCellCount:
-                                (_screenSize.width > 980) ? 2 : 1,
-                            mainAxisCellCount: 1,
-                            child: UserDetailCard(
-                              width: _screenSize.width * 0.66,
-                            ),
-                          ),
-                          // UserDetailCard(width: _screenSize.width * 0.66,),
-
-                          // Stakeholder card
-                          const StaggeredGridTile.count(
-                            crossAxisCellCount: 1,
-                            mainAxisCellCount: 1,
-                            child: DashboardInfoCard(
-                              boxTitle: 'My Stakeholders',
-                              cardType: CardType.stakeholder,
-                              // width: _screenSize.width * 0.33,
-                            ),
-                          ),
-
-                          // To Do List Card
-                          StaggeredGridTile.count(
-                            crossAxisCellCount:
-                                (_screenSize.width > 980) ? 2 : 1,
-                            mainAxisCellCount: 1,
-                            child: const DashboardInfoCard(
-                              boxTitle: 'My To-Do List',
-                              cardType: CardType.toDo,
-                            ),
-                          ),
-
-                          // invisible Card
-                          if (_screenSize.width > 760)
-                            const StaggeredGridTile.count(
-                              crossAxisCellCount: 1,
-                              mainAxisCellCount: 1,
-                              child: SizedBox(),
-                            ),
-
-                          // TeamInfo card
-                          StaggeredGridTile.count(
-                            crossAxisCellCount:
-                                (_screenSize.width > 980) ? 2 : 1,
-                            mainAxisCellCount: 1,
-                            child: const DashboardInfoCard(
-                              boxTitle: 'My Project Team - HARK Audio T&M-1',
-                              cardType: CardType.myTeam,
-                            ),
-                          ),
-
-                          // Watchlist
-                          const StaggeredGridTile.count(
-                            crossAxisCellCount: 1,
-                            mainAxisCellCount: 1,
-                            child: DashboardInfoCard(
-                              boxTitle: 'My Watchlist',
-                              cardType: CardType.watchList,
-                            ),
-                          ),
-
-                          // Newer Recognition
-                          StaggeredGridTile.count(
-                            crossAxisCellCount:
-                                (_screenSize.width > 980) ? 2 : 1,
-                            mainAxisCellCount: 1,
-                            child: DashboardInfoCard(
-                              boxTitle: 'Recognize a Newer - ',
-                              cardType: CardType.newerRecognition,
-                              width: _screenSize.width,
-                            ),
-                          ),
-
-                          // Bookmark
-                          const StaggeredGridTile.count(
-                            crossAxisCellCount: 1,
-                            mainAxisCellCount: 1,
-                            child: DashboardInfoCard(
-                                boxTitle: 'Bookmarks',
-                                cardType: CardType.bookmarks),
-                          ),
-
-                          // Newi Notification card
-                          StaggeredGridTile.count(
-                            crossAxisCellCount:
-                                (_screenSize.width > 980) ? 2 : 1,
-                            mainAxisCellCount: 1,
-                            child: const DashboardInfoCard(
-                              boxTitle: 'Subscribe to Newi Notifications',
-                              cardType: CardType.newiNotifications,
-                            ),
-                          ),
-                        ],
-                      ),
+              body: SingleChildScrollView(
+                controller: ScrollController(),
+                child: Wrap(
+                  children: [
+                    PageHeader(
+                      width: _screenSize.width,
                     ),
-                  ),
-                ],
+                    Container(
+                      color: Colors.white,
+                      margin: const EdgeInsets.only(top: 20,left: 20),
+                      padding: const EdgeInsets.all(20.0),
+                      child: const DashboardHomeScreen(),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20,left: 20),
+                      color: Colors.white,
+                      padding: const EdgeInsets.all(20.0),
+                      child: Container(
+                        height: 300.h,
+                          constraints: BoxConstraints(maxWidth: 300,maxHeight: 300),
+                          child: const StakeholdersList()),
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(top: 20,left: 20),
+                      color: Colors.white,
+                      padding: const EdgeInsets.all(20.0),
+                      child: const DashboardHomeScreen(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
