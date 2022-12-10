@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/helper/breakpoint.dart';
 
-import '../helper/breakpoint.dart';
 
 class TeamList extends StatelessWidget {
   const TeamList({Key? key}) : super(key: key);

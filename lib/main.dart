@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newers_world/screens/dashboard.dart';
+import 'package:newers_world/drawer/screen/drawer_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
                   displayColor: Colors.blueGrey,
                 ),
               ),
-              home: const DashboardHome(),
+              home: const DrawerScreen(),
               debugShowCheckedModeBanner: false,
             ),
           );

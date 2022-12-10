@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:newers_world/widgets/dashboard_info_card.dart';
+import 'package:newers_world/dashboard/widgets/dashboard_info_card.dart';
 
 class ClickableList extends StatelessWidget {
   final CardType cardType;

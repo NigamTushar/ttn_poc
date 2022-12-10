@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/helper/breakpoint.dart';
 import 'package:newers_world/helper/constants.dart';
-
-import '../helper/breakpoint.dart';
 
 class UserDetailCard extends StatelessWidget {
   final double width;
@@ -59,7 +58,9 @@ class UserDetailCard extends StatelessWidget {
                 userDetailDescription(size.width),
               ],
             ),
-            SizedBox(height: 50,)
+            SizedBox(
+              height: 50,
+            )
           ],
         ),
       );
