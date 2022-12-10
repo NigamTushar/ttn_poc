@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:newers_world/widgets/clickable_list.dart';
-import 'package:newers_world/widgets/newi_notifications_card.dart';
-import 'package:newers_world/widgets/recognize_newer.dart';
-import 'package:newers_world/widgets/stakeholder_list.dart';
+import 'package:newers_world/dashboard/widgets/clickable_list.dart';
+import 'package:newers_world/dashboard/widgets/newi_notifications_card.dart';
+import 'package:newers_world/dashboard/widgets/recognize_newer.dart';
+import 'package:newers_world/dashboard/widgets/stakeholder_list.dart';
 
 import 'dashboard_card_list.dart';
 import 'team_list.dart';

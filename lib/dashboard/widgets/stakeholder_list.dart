@@ -8,6 +8,7 @@ class StakeholdersList extends StatelessWidget {
     return SingleChildScrollView(
       controller: ScrollController(),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ListTile(
             leading: const CircleAvatar(
@@ -24,7 +25,6 @@ class StakeholdersList extends StatelessWidget {
             ),
           ),
           Container(
-            margin: const EdgeInsets.only(right: 30.0),
             child: const Divider(
               indent: 30.0,
               color: Colors.blueGrey,

@@ -8,30 +8,53 @@ class DashboardHomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      constraints: const BoxConstraints(minWidth: 100, maxWidth: 900),
-      child: OverflowBar(
-        children: [
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 100, maxWidth: 300),
-            child: Align(
-                alignment: ResponsiveWidget.isSmallScreen(context)?Alignment.topCenter:Alignment.centerLeft,
-                child: userDetailContact()),
+    return ConstrainedBox(
+        child: Container(
+          margin: const EdgeInsets.all(20),
+          color: Colors.white,
+          width: double.infinity,
+          child: Stack(
+            children: [
+              const Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text('0y 9m'),
+                  )),
+              Flex(
+                direction: ResponsiveWidget.isLargeScreen(context)
+                    ? Axis.horizontal
+                    : Axis.vertical,
+                children: [
+                  Align(
+                      alignment: ResponsiveWidget.isLargeScreen(context)
+                          ? Alignment.centerLeft
+                          : Alignment.center,
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 10.w),
+                        child: userDetailContact(),
+                      )),
+                  Expanded(
+                    child: Center(
+                        child: Padding(
+                      padding: EdgeInsets.only(top: 10.w, left: 20),
+                      child: userDetailDescription(),
+                    )),
+                  ),
+                ],
+              ),
+              Align(
+                  alignment: Alignment.bottomRight, child: getProfileButton()),
+            ],
           ),
-          ConstrainedBox(
-            constraints: const BoxConstraints(minWidth: 100, maxWidth: 300),
-            child: Container(
-                height: 300,
-                margin: EdgeInsets.only(
-                    left: ResponsiveWidget.isSmallScreen(context) ? 20 : 0),
-                child: userDetailDescription()),
-          ),
-        ],
-      ),
-    );
+        ),
+        constraints: BoxConstraints(
+            minWidth: 200,
+            maxWidth: 800,
+            maxHeight: ResponsiveWidget.isLargeScreen(context) ? 400 : 600,
+            minHeight: ResponsiveWidget.isLargeScreen(context) ? 400 : 600));
   }
 
-  // MARK: - user detail contact UI - upper part
   Widget userDetailContact() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -81,7 +104,7 @@ class DashboardHomeScreen extends StatelessWidget {
           height: 2.0,
           width: 150,
         ),
-        SizedBox(
+        const SizedBox(
           height: 40,
         )
       ],
@@ -90,7 +113,6 @@ class DashboardHomeScreen extends StatelessWidget {
 
   Widget userDetailDescription() {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
       children: [
         Expanded(
           child: Column(
@@ -166,7 +188,6 @@ class DashboardHomeScreen extends StatelessWidget {
             ],
           ),
         ),
-        Align(alignment: Alignment.bottomCenter, child: getProfileButton()),
       ],
     );
   }
