@@ -1,0 +1,104 @@
+import 'package:flutter/material.dart';
+import 'package:newers_world/helper/constants.dart';
+import 'package:newers_world/helper/responsive_widget.dart';
+
+class ProfileHeader extends StatelessWidget {
+  const ProfileHeader({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      constraints: const BoxConstraints(minWidth: 100),
+      decoration: const BoxDecoration(color: Colors.white),
+      child: SizedBox(
+        height: ResponsiveWidget.isLargeScreen(context) ? 200 : 400,
+        child: Stack(
+          children: <Widget>[
+            Container(
+              height: ResponsiveWidget.isLargeScreen(context) ? 80 : 20,
+              padding: const EdgeInsets.all(5.0),
+              decoration: const BoxDecoration(color: Colors.white),
+            ),
+            Container(
+              height: ResponsiveWidget.isLargeScreen(context) ? 120 : 240,
+              padding: const EdgeInsets.all(5.0),
+              alignment: Alignment.bottomCenter,
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: <Color>[
+                    Colors.black12,
+                    Colors.black26,
+                    Colors.black45
+                  ],
+                ),
+              ),
+            ),
+            Positioned(
+              top: ResponsiveWidget.isLargeScreen(context) ? 60 : 160,
+              left: ResponsiveWidget.isLargeScreen(context) ? 140 : 25,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Rahul Sharma',
+                    style: TextStyle(
+                        fontSize: Constants.headingFontSize,
+                        color: Colors.white),
+                  ),
+                  Text(
+                    'Software Engineer',
+                    style: TextStyle(
+                        fontSize: Constants.subHheadingFontSize,
+                        color: Colors.white),
+                  ),
+                ],
+              ),
+            ),
+            Positioned(
+              top: ResponsiveWidget.isLargeScreen(context) ? 50 : 40,
+              left: ResponsiveWidget.isLargeScreen(context) ? 0 : 20,
+              child: Column(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(width: 5, color: Colors.white),
+                      borderRadius: BorderRadius.circular(100), //<-- SEE HERE
+                    ),
+                    child: const CircleAvatar(
+                      radius: 55,
+                      backgroundImage:
+                          NetworkImage('https://picsum.photos/250?image=2'),
+                    ),
+                  ),
+                  if (ResponsiveWidget.isLargeScreen(context)) ...[
+                    Row(
+                      children: [
+                        Container(
+                          margin: const EdgeInsets.only(top: 5, left: 10),
+                          decoration: const BoxDecoration(color: Colors.green),
+                          height: 5.0,
+                          width: 90,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 2, left: 5),
+                          child: Text(
+                            '94%',
+                            style: TextStyle(
+                                fontSize: Constants.normalTextFontSize,
+                                color: Colors.black87),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ]
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
