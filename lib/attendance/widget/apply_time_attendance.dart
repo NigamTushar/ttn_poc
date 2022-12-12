@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:newers_world/attendance/widget/info.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 
@@ -10,41 +11,49 @@ class ApplyTimeType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ExpansionTile(
-        title: Text('Apply Time Type'),
+        title: const Text(
+          'Apply Time Type',
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
         initiallyExpanded: true,
         children: [
-          Container(
+          SizedBox(
+              height: 450,
               width: double.infinity,
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey.shade300,
-                  )
-                ],
-                border: Border.all(color: Colors.grey.shade300),
-                color: Colors.white,
-              ),
-              child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Divider(
-                      height: 1,
-                      color: Colors.black38,
-                    ),
-                    _Body(),
-                    Divider(
-                      height: 1,
-                      color: Colors.grey.shade300,
-                    ),
-                    Container(
-                        alignment: Alignment.centerRight,
-                        padding: const EdgeInsets.all(8),
-                        child: ElevatedButton(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                controller: ScrollController(),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      const Divider(
+                        height: 1,
+                        color: Colors.black38,
+                      ),
+                      _Body(),
+                      // const Expanded(child: SizedBox.expand()),
+                      // const Spacer(),
+                      Divider(
+                        height: 1,
+                        color: Colors.grey.shade300,
+                      ),
+                      Align(
+                        alignment: Alignment.bottomRight,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 15, vertical: 15),
+                          child: ElevatedButton(
                             onPressed: () {},
                             child: const Text('Submit'),
                             style: ElevatedButton.styleFrom(
-                                primary: Colors.teal[400])))
-                  ]))
+                                backgroundColor: Colors.teal[400]),
+                          ),
+                        ),
+                      )
+                    ]),
+              ))
         ]);
   }
 }
@@ -91,32 +100,32 @@ class _BodyState extends State<_Body> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Info(
               message:
-                  'All Time types except "Work From Home" can be marked from this table. For applying "Work From Home", please ensure that you fill your timesheet.'),
+              'All Time types except "Work From Home" can be marked from this table. For applying "Work From Home", please ensure that you fill your timesheet.'),
           FormWidget(
             title: 'Time Type',
             child: Container(
-              padding: EdgeInsets.all(8),
+              padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                   border: Border.all(width: 1, color: Colors.grey.shade500),
-                  borderRadius: BorderRadius.all(Radius.circular(5))),
+                  borderRadius: const BorderRadius.all(Radius.circular(5))),
               child: DropdownButton(
-                underline: SizedBox.shrink(),
+                underline: const SizedBox.shrink(),
                 isDense: true,
                 borderRadius: BorderRadius.circular(10.0),
                 isExpanded: true,
                 value: timeType,
                 items:
-                    timeTypeList.map<DropdownMenuItem<String>>((String value) {
+                timeTypeList.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     child: Text(
                       value,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 14, fontWeight: FontWeight.normal),
                     ),
                     value: value,
@@ -135,10 +144,10 @@ class _BodyState extends State<_Body> {
           FormWidget(
               title: 'Reason',
               child: Container(
-                padding: EdgeInsets.all(8),
+                padding: const EdgeInsets.all(8),
                 decoration: BoxDecoration(
                     border: Border.all(width: 1, color: Colors.grey.shade500),
-                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                    borderRadius: const BorderRadius.all(Radius.circular(5))),
                 child: DropdownButton(
                   underline: const SizedBox.shrink(),
                   isDense: true,
@@ -149,7 +158,7 @@ class _BodyState extends State<_Body> {
                     return DropdownMenuItem<String>(
                       child: Text(
                         value,
-                        style: TextStyle(
+                        style: const TextStyle(
                             fontSize: 14, fontWeight: FontWeight.normal),
                       ),
                       value: value,
@@ -290,7 +299,7 @@ class _DateState extends State<_Date> {
                   color: Colors.white,
                   child: Text(
                     date,
-                    style: TextStyle(color: Colors.black87),
+                    style: const TextStyle(color: Colors.black87),
                   ))
             ],
           ),
@@ -307,7 +316,7 @@ class _DateState extends State<_Date> {
       setState(() {
         selectedDate = picked;
         date =
-            '${selectedDate.day}-${getMonth(selectedDate.month)}-${selectedDate.year}';
+        '${selectedDate.day}-${getMonth(selectedDate.month)}-${selectedDate.year}';
       });
     }
   }
