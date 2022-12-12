@@ -2,9 +2,13 @@ import 'package:flutter/material.dart';
 
 class PageHeader extends StatelessWidget {
   final double width;
+  final String title;
+  final String subtitle;
   const PageHeader({
     Key? key,
-    required this.width
+    required this.width,
+    required this.title,
+    required this.subtitle,
   }) : super(key: key);
 
   @override
@@ -15,12 +19,12 @@ class PageHeader extends StatelessWidget {
       width: width,
       color: Colors.white,
       child: Column(
-        children: const [
+        children:  [
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0,),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0,),
             child: Text(
-              'Dashboard',
-              style: TextStyle(
+              title,
+              style: const TextStyle(
                 // color: Colors.blueGrey,
                 fontWeight: FontWeight.w300,
                 fontSize: 26,
@@ -28,8 +32,8 @@ class PageHeader extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0,),
-            child: Text('Home / Dashboard'),
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0,),
+            child: Text(subtitle),
           )
         ],
         crossAxisAlignment: CrossAxisAlignment.start,
