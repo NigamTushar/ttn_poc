@@ -37,8 +37,11 @@ class DrawerBody extends StatelessWidget {
                 title: Text(state.tabName),
                 leading: const DrawerMenu(),
               ),
-              body: DrawerPages(
-                pageName: state.tabName,
+              body: Container(
+                color: Colors.grey[300],
+                child: DrawerPages(
+                  pageName: state.tabName,
+                ),
               ),
               drawer: const DrawerListContainerView(),
             ),
