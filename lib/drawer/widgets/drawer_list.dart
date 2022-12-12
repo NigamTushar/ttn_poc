@@ -96,58 +96,61 @@ class MenuItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isActive = drawerItems[itemCount - 1].isActive == true;
-    return InkWell(
-      onTap: () {
-        widget.itemClick(drawerItems[itemCount - 1].name);
-      },
-      onHover: (val) {
-        if (val) {
-          widget.onHover(drawerItems[itemCount - 1].name, true);
-        } else {
-          widget.onHover(drawerItems[itemCount - 1].name, false);
-        }
-      },
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Container(
-            color: const Color(0xff293846),
-            child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Row(
-                    children: [
-                      Icon(
-                        drawerItems[itemCount - 1].icon,
-                        color: Colors.white,
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Text(
-                        drawerItems[itemCount - 1].name,
-                        style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.white,
-                            decoration:
-                                drawerItems[itemCount - 1].isHover == true
-                                    ? TextDecoration.underline
-                                    : TextDecoration.none),
-                      ),
-                    ],
-                  ),
-                ],
+    final isHover = drawerItems[itemCount - 1].isHover == true;
+    return Container(
+      child: InkWell(
+        onTap: () {
+          widget.itemClick(drawerItems[itemCount - 1].name);
+        },
+        onHover: (val) {
+          if (val) {
+            widget.onHover(drawerItems[itemCount - 1].name, true);
+          } else {
+            widget.onHover(drawerItems[itemCount - 1].name, false);
+          }
+        },
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              color: isHover?const Color(0xff000614):const Color(0xff293846),
+              child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(
+                          drawerItems[itemCount - 1].icon,
+                          color: Colors.white,
+                        ),
+                        const SizedBox(
+                          width: 10,
+                        ),
+                        Text(
+                          drawerItems[itemCount - 1].name,
+                          style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.white,
+                              decoration:
+                                  drawerItems[itemCount - 1].isHover == true
+                                      ? TextDecoration.underline
+                                      : TextDecoration.none),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          const Divider(
-            height: 1,
-            color: Colors.black,
-          )
-        ],
+            const Divider(
+              height: 1,
+              color: Colors.black,
+            )
+          ],
+        ),
       ),
     );
   }
