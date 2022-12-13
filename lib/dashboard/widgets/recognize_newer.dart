@@ -97,19 +97,17 @@ class _NewerRecognitionContentCardState
             const SizedBox(height: 20),
             SizedBox(
               height: 150.0,
-              child: Expanded(
-                child: TextField(
-                  controller: _textEditingController,
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(4.0),
-                      ),
+              child: TextField(
+                controller: _textEditingController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(4.0),
                     ),
                   ),
-                  keyboardType: TextInputType.multiline,
-                  maxLines: 5,
                 ),
+                keyboardType: TextInputType.multiline,
+                maxLines: 5,
               ),
             ),
           ],
