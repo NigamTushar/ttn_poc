@@ -73,13 +73,28 @@ class _ProfileListViewState extends State<ProfileListView> {
       title: _buildHeader(),
       tilePadding: EdgeInsets.only(left: 20),
       children: [
-        SingleChildScrollView(
+        Align(
+          alignment: Alignment.topLeft,
+          child: SingleChildScrollView(
 
-            scrollDirection: Axis.horizontal,
-            child:
-            Container(
+              scrollDirection: Axis.horizontal,
+              child:
+              _buildList()
+
+          ),
+        ),
+      ],
+    );
+    /*return ExpansionTile(initiallyExpanded: true,title: _buildHeader(),children: [Container(
+      height: 1,
+      color: Colors.black12,),
+      _buildList(),],);*/
+  }
+
+  Container _buildList() {
+    return Container(
               constraints: BoxConstraints(maxWidth: 1800,
-                  minWidth: 1500,
+                  minWidth: 1200,
                   minHeight: 500,
                   maxHeight: 500),
               /*constraints: BoxConstraints.expand(
@@ -117,15 +132,7 @@ class _ProfileListViewState extends State<ProfileListView> {
                 )
                     .toList(),
               ),
-            )
-
-        ),
-      ],
-    );
-    /*return ExpansionTile(initiallyExpanded: true,title: _buildHeader(),children: [Container(
-      height: 1,
-      color: Colors.black12,),
-      _buildList(),],);*/
+            );
   }
 
   Container _buildHeader() {
