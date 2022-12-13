@@ -11,11 +11,11 @@ class ProfileHeader extends StatelessWidget {
       constraints: const BoxConstraints(minWidth: 100),
       decoration: const BoxDecoration(color: Colors.white),
       child: SizedBox(
-        height: ResponsiveWidget.isLargeScreen(context) ? 200 : 400,
+        height: ResponsiveWidget.isLargeScreen(context) ? 200 : 300,
         child: Stack(
           children: <Widget>[
             Container(
-              height: ResponsiveWidget.isLargeScreen(context) ? 80 : 20,
+              height: ResponsiveWidget.isLargeScreen(context) ? 80 : 10,
               padding: const EdgeInsets.all(5.0),
               decoration: const BoxDecoration(color: Colors.white),
             ),
@@ -35,6 +35,12 @@ class ProfileHeader extends StatelessWidget {
                 ),
               ),
             ),
+            ResponsiveWidget.isLargeScreen(context)
+                ? getOrgChar(context)
+                : Align(
+                    alignment: Alignment.topRight,
+                    child: getOrgChar(context),
+                  ),
             Positioned(
               top: ResponsiveWidget.isLargeScreen(context) ? 60 : 160,
               left: ResponsiveWidget.isLargeScreen(context) ? 140 : 25,
@@ -98,6 +104,17 @@ class ProfileHeader extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget getOrgChar(BuildContext context) {
+    return Positioned(
+      top: ResponsiveWidget.isLargeScreen(context) ? 50 : 40,
+      left: ResponsiveWidget.isLargeScreen(context) ? 320 : 20,
+      child: const Padding(
+        padding: EdgeInsets.all(10),
+        child: Icon(Icons.add_chart),
       ),
     );
   }
