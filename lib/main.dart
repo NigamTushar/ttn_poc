@@ -8,7 +8,7 @@ void main() {
   //   setWindowMaxSize(const Size(1024, 768));
   //   setWindowMinSize(const Size(512, 384));
   // }
-  runApp(const MyApp());
+  runApp(MaterialApp(home: MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
             child: MaterialApp(
               title: 'Flutter Demo',
               theme: ThemeData(
+                dividerColor: Colors.transparent,
                 primarySwatch: Colors.blueGrey,
                 textTheme: const TextTheme(
                   bodyText1: TextStyle(),
