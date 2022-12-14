@@ -105,18 +105,15 @@ class _ProfileListViewState extends State<ProfileListView> {
         ),*/
               child: DataTable(
                 border: TableBorder(horizontalInside: BorderSide(width: .5, color: Colors.grey.shade300, style: BorderStyle.solid)),
-                columns: const [
-                  DataColumn(label: Text('Patch11',      style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: headingColor))),
-                  DataColumn(label: Text('Version',      style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: headingColor))),
-                  DataColumn(label: Text('Ready',      style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: headingColor))),
-                  DataColumn(label: Text('Ready1',      style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: headingColor))),
-                  DataColumn(label: Text('Ready2',      style: const TextStyle(
-                      fontWeight: FontWeight.bold, color: headingColor))),
-                ],
+                columns:
+                widget.heading.map((title) => DataColumn(label: Expanded(
+                  child: Container(
+                      constraints: BoxConstraints(
+                          minWidth: 100, maxWidth: 150),
+                    child: Text(title,      style: const TextStyle(
+                        fontWeight: FontWeight.bold, color: headingColor)),
+                  ),
+                ))).toList(),
                 rows:
                 widget
                     .profileInfoMap // Loops through dataColumnText, each iteration assigning the value to element
@@ -128,13 +125,13 @@ class _ProfileListViewState extends State<ProfileListView> {
                             child: Container(
                                 constraints: BoxConstraints(
                                     minWidth: 100, maxWidth: 150),
-                                child: Text(element["Name"]!)),
+                                child: Text(element["first_column"]!)),
                           )),
                           //Extracting from Map element the value
-                          DataCell(Text(element["Number"]!)),
-                          DataCell(Text(element["State"]!)),
-                          DataCell(Text(element["State"]!)),
-                          DataCell(Text(element["State"]!)),
+                          DataCell(Text(element["second_column"]!)),
+                          DataCell(Text(element["third_column"]!)),
+                          DataCell(Text(element["fourth_column"]!)),
+                          DataCell(Text(element["fifth_column"]!)),
                         ],
                       )),
                 )
