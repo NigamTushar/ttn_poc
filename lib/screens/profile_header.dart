@@ -2,12 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:newers_world/helper/constants.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 
-class ProfileHeader extends StatelessWidget {
-  const ProfileHeader({Key? key}) : super(key: key);
+class ProfileHeader extends StatefulWidget {
+  final Function(int)? onTabChange;
+
+  const ProfileHeader({Key? key,this.onTabChange}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => ProfileHeaderState(onTabChange);
+}
+
+class ProfileHeaderState extends State<ProfileHeader>
+    with TickerProviderStateMixin {
+  late TabController _tabController;
+  final Function(int)? onTabChange;
+
+  ProfileHeaderState(this.onTabChange);
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this, initialIndex: 0);
+    _tabController.addListener((){
+      if(onTabChange != null){
+        onTabChange!(_tabController.index);
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
       constraints: const BoxConstraints(minWidth: 100),
       decoration: const BoxDecoration(color: Colors.white),
       child: SizedBox(
@@ -15,7 +46,7 @@ class ProfileHeader extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(
-              height: ResponsiveWidget.isLargeScreen(context) ? 80 : 10,
+              height: ResponsiveWidget.isLargeScreen(context) ? 80 : 00,
               padding: const EdgeInsets.all(5.0),
               decoration: const BoxDecoration(color: Colors.white),
             ),
@@ -28,9 +59,9 @@ class ProfileHeader extends StatelessWidget {
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
                   colors: <Color>[
-                    Colors.black12,
                     Colors.black26,
-                    Colors.black45
+                    Colors.black45,
+                    Colors.black54
                   ],
                 ),
               ),
@@ -99,6 +130,30 @@ class ProfileHeader extends StatelessWidget {
                       ],
                     ),
                   ]
+                ],
+              ),
+            ),
+            Positioned(
+              height: ResponsiveWidget.isLargeScreen(context) ? 50 : 45,
+              top: ResponsiveWidget.isLargeScreen(context) ? 150 : 255,
+              left: ResponsiveWidget.isLargeScreen(context) ? 150 : 20,
+              child: TabBar(
+                isScrollable: true,
+                unselectedLabelColor: Colors.grey,
+                indicatorColor: Colors.green,
+                indicatorWeight: 3,
+                labelColor: Colors.green,
+                controller: _tabController,
+                tabs: const [
+                  Text(
+                    'Employment Information',
+                  ),
+                  Text(
+                    'Personal Information',
+                  ),
+                  Text(
+                    'Profile Details',
+                  ),
                 ],
               ),
             ),
