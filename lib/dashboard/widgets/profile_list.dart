@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../helper/responsive_widget.dart';
+
 /*class ProfileExpandableList extends StatelessWidget {
   const ProfileExpandableList({Key? key}) : super(key: key);
 
@@ -73,26 +75,47 @@ class _ProfileListViewState extends State<ProfileListView> {
       title: _buildHeader(),
       tilePadding: EdgeInsets.only(left: 20),
       children: [
-        SingleChildScrollView(
+        Align(
+          alignment: Alignment.topLeft,
+          child: ResponsiveWidget.isLargeScreen(context) ? Container(child: _buildList(),):SingleChildScrollView(
 
-            scrollDirection: Axis.horizontal,
-            child:
-            Container(
-              constraints: BoxConstraints(maxWidth: 1800,
-                  minWidth: 1500,
+              scrollDirection: Axis.horizontal,
+              child:
+              _buildList()
+
+          ),
+        ),
+      ],
+    );
+    /*return ExpansionTile(initiallyExpanded: true,title: _buildHeader(),children: [Container(
+      height: 1,
+      color: Colors.black12,),
+      _buildList(),],);*/
+  }
+
+  Container _buildList() {
+    return Container(
+      width:ResponsiveWidget.isSmallScreen(context)?  800:MediaQuery.of(context).size.width,
+              /*constraints: BoxConstraints(maxWidth: 1800,
+                  minWidth: 1200,
                   minHeight: 500,
-                  maxHeight: 500),
+                  maxHeight: 500),*/
               /*constraints: BoxConstraints.expand(
             width: MediaQuery.of(context).size.width
         ),*/
               child: DataTable(
-                border: TableBorder(horizontalInside: BorderSide(width: 1, color: Colors.black26, style: BorderStyle.solid)),
+                border: TableBorder(horizontalInside: BorderSide(width: .5, color: Colors.grey.shade300, style: BorderStyle.solid)),
                 columns: const [
-                  DataColumn(label: Text('Patch11')),
-                  DataColumn(label: Text('Version')),
-                  DataColumn(label: Text('Ready')),
-                  DataColumn(label: Text('Ready1')),
-                  DataColumn(label: Text('Ready2')),
+                  DataColumn(label: Text('Patch11',      style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: headingColor))),
+                  DataColumn(label: Text('Version',      style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: headingColor))),
+                  DataColumn(label: Text('Ready',      style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: headingColor))),
+                  DataColumn(label: Text('Ready1',      style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: headingColor))),
+                  DataColumn(label: Text('Ready2',      style: const TextStyle(
+                      fontWeight: FontWeight.bold, color: headingColor))),
                 ],
                 rows:
                 widget
@@ -104,7 +127,7 @@ class _ProfileListViewState extends State<ProfileListView> {
                           DataCell(Expanded(
                             child: Container(
                                 constraints: BoxConstraints(
-                                    minWidth: 100, maxWidth: 120),
+                                    minWidth: 100, maxWidth: 150),
                                 child: Text(element["Name"]!)),
                           )),
                           //Extracting from Map element the value
@@ -117,15 +140,7 @@ class _ProfileListViewState extends State<ProfileListView> {
                 )
                     .toList(),
               ),
-            )
-
-        ),
-      ],
-    );
-    /*return ExpansionTile(initiallyExpanded: true,title: _buildHeader(),children: [Container(
-      height: 1,
-      color: Colors.black12,),
-      _buildList(),],);*/
+            );
   }
 
   Container _buildHeader() {

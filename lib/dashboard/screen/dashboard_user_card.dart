@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:newers_world/dashboard/utils/style_utils.dart';
 import 'package:newers_world/helper/constants.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 
-class DashboardHomeScreen extends StatelessWidget {
-  const DashboardHomeScreen({Key? key}) : super(key: key);
+class DashboardUserCard extends StatelessWidget {
+  const DashboardUserCard({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
         child: Container(
           margin: const EdgeInsets.all(20),
-          color: Colors.white,
+          decoration: StyleUtils.cardDecoration,
           width: double.infinity,
           child: Stack(
             children: [
