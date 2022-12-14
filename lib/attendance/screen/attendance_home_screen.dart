@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:newers_world/attendance/widget/apply_time_attendance.dart';
 import 'package:newers_world/attendance/widget/my_info_attendance.dart';
+import 'package:newers_world/dashboard/utils/style_utils.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
 
 class AttendanceHomeScreen extends StatelessWidget {
@@ -32,8 +33,8 @@ class ConstrainedTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
         child: Container(
+            decoration: StyleUtils.cardDecoration,
             margin: const EdgeInsets.all(20),
-            color: Colors.white,
             width: double.infinity,
             child: child),
         constraints: const BoxConstraints(minWidth: 200, maxWidth: 680));
