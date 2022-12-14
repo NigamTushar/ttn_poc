@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:newers_world/attendance/widget/info.dart';
-import 'package:newers_world/attendance/widget/section_header.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 
 class ApplyTimeType extends StatelessWidget {
@@ -9,38 +9,44 @@ class ApplyTimeType extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: double.infinity,
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade300,
-            )
-          ],
-          border: Border.all(color: Colors.grey.shade300),
-          color: Colors.white,
-        ),
-        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const SectionHeader(title: 'Apply Time Type'),
-          const Divider(
-            height: 1,
-            color: Colors.black38,
-          ),
-          _Body(),
-          Divider(
-            height: 1,
-            color: Colors.grey.shade300,
-          ),
+    return ExpansionTile(
+        title: Text('Apply Time Type'),
+        initiallyExpanded: true,
+        children: [
           Container(
-              alignment: Alignment.centerRight,
-              padding: const EdgeInsets.all(8),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Text('Submit'),
-                style:
-                    ElevatedButton.styleFrom(backgroundColor: Colors.teal[400]),
-              ))
-        ]));
+              width: double.infinity,
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.shade300,
+                  )
+                ],
+                border: Border.all(color: Colors.grey.shade300),
+                color: Colors.white,
+              ),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Divider(
+                      height: 1,
+                      color: Colors.black38,
+                    ),
+                    _Body(),
+                    Divider(
+                      height: 1,
+                      color: Colors.grey.shade300,
+                    ),
+                    Container(
+                        alignment: Alignment.centerRight,
+                        padding: const EdgeInsets.all(8),
+                        child: ElevatedButton(
+                          onPressed: () {},
+                          child: const Text('Submit'),
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.teal[400]),
+                        ))
+                  ]))
+        ]);
   }
 }
 
@@ -50,7 +56,10 @@ class _Body extends StatefulWidget {
 }
 
 class _BodyState extends State<_Body> {
+  String reason = 'Select';
+  String timeType = 'Select';
   final timeTypeList = [
+    'Select',
     'Extra Working',
     'Casual',
     'Sick',
@@ -63,6 +72,7 @@ class _BodyState extends State<_Body> {
   ];
 
   final reasons = [
+    'Select',
     'Planned Holiday',
     'Family Member Unwell',
     'Unwell/Doctor Visit',
@@ -78,8 +88,6 @@ class _BodyState extends State<_Body> {
     'Home Shifting',
     'Others'
   ];
-  String reason = 'Planned Holiday';
-  String timeType = 'Extra Working';
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +111,7 @@ class _BodyState extends State<_Body> {
                 isDense: true,
                 borderRadius: BorderRadius.circular(10.0),
                 isExpanded: true,
-                hint: const Text('Select'),
+                value: timeType,
                 items:
                     timeTypeList.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
@@ -137,7 +145,7 @@ class _BodyState extends State<_Body> {
                   isDense: true,
                   borderRadius: BorderRadius.circular(10.0),
                   isExpanded: true,
-                  hint: const Text('Select'),
+                  value: reason,
                   items: reasons.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       child: Text(
@@ -158,15 +166,15 @@ class _BodyState extends State<_Body> {
           FormWidget(
               title: 'Comment',
               child: Container(
-                  padding: EdgeInsets.all(8),
+                  padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                      border: Border.all(width: 1, color: Colors.grey.shade500),
-                      borderRadius: BorderRadius.all(Radius.circular(5))),
-                  child: TextField(
+                    border: Border.all(width: 1, color: Colors.grey.shade500),
+                  ),
+                  child: const TextField(
                     minLines: 3,
                     maxLines: 3,
                     style: TextStyle(fontSize: 14),
-                    decoration: new InputDecoration.collapsed(hintText: ''),
+                    decoration: InputDecoration.collapsed(hintText: ''),
                   )))
         ],
       ),
@@ -254,12 +262,17 @@ class _Date extends StatefulWidget {
 
 class _DateState extends State<_Date> {
   String date = '12-Dec-2022';
+  DateTime selectedDate = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
         onTap: () {
-          bottomSheet(context, datePicker());
+          if (defaultTargetPlatform == TargetPlatform.iOS) {
+            bottomSheet(context, datePicker());
+          } else {
+            _selectDate(context);
+          }
         },
         child: Container(
           decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
@@ -283,6 +296,21 @@ class _DateState extends State<_Date> {
             ],
           ),
         ));
+  }
+
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2101));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+        date =
+            '${selectedDate.day}-${getMonth(selectedDate.month)}-${selectedDate.year}';
+      });
+    }
   }
 
   Future<void> bottomSheet(BuildContext context, Widget child,

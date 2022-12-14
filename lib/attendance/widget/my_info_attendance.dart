@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/attendance/screen/attendence_pending.dart';
-import 'package:newers_world/attendance/widget/section_header.dart';
 
 class MyInfo extends StatelessWidget {
   const MyInfo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.shade300,
-            )
-          ],
-          border: Border.all(color: Colors.grey.shade300),
-          color: Colors.white,
-        ),
-        width: double.infinity,
-        child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              SectionHeader(title: 'My Information'),
-              Divider(
-                height: 1,
-                color: Colors.black38,
-              ),
-              PageItems(),
-            ]));
+    return ExpansionTile(title: Text('My Information'), children: [
+      Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade300,
+              )
+            ],
+            border: Border.all(color: Colors.grey.shade300),
+            color: Colors.white,
+          ),
+          width: double.infinity,
+          child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: const [
+                Divider(
+                  height: 1,
+                  color: Colors.black38,
+                ),
+                PageItems(),
+              ]))
+    ]);
   }
 }
 
