@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newers_world/dashboard/screen/dashboard_stake_holder_card.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
+import 'package:newers_world/screens/profile_header.dart';
 /*import 'package:newers_world/dashboard_screens/dashboard_home_screen.dart';
 import 'package:newers_world/widgets/app_drawer.dart';
 import 'package:newers_world/widgets/page_header.dart';
@@ -62,6 +63,7 @@ class _ProfileState extends State<Profile> {
       controller: ScrollController(),
       child: Wrap(
         children:  [
+          ProfileHeader(),
           ConstrainedBox(
             constraints: BoxConstraints(
                 minWidth: ResponsiveWidget.isLargeScreen(context) ? 400 : 600,
