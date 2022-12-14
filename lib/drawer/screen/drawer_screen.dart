@@ -38,7 +38,7 @@ class DrawerBody extends StatelessWidget {
                 leading: const DrawerMenu(),
               ),
               body: Container(
-                color: Colors.grey[300],
+                color: Colors.grey[100],
                 child: DrawerPages(
                   pageName: state.tabName,
                 ),
