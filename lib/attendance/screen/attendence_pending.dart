@@ -8,8 +8,8 @@ class Pending extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-        height: 380,
+    return Container(
+      height: 330,
         child: SingleChildScrollView(
           controller: ScrollController(),
           padding: const EdgeInsets.only(right: 8.0),
