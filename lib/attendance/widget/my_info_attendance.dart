@@ -6,7 +6,9 @@ class MyInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ExpansionTile(title: Text('My Information'), children: [
+    return ExpansionTile(
+        initiallyExpanded: true,
+        title: Text('My Information'), children: [
       Container(
           decoration: BoxDecoration(
             boxShadow: [
