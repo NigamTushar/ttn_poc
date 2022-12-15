@@ -70,12 +70,19 @@ class _ExpandableListViewState extends State<ExpandableListView> {
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(key,
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: headingColor)),
-                          Text(widget.profileInfoMap[key] ?? '',
-                              style: const TextStyle(color: headingColor)),
+                          Flexible(
+                            child: Text(key,
+                                overflow: TextOverflow.ellipsis,
+
+                                style: const TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: headingColor)),
+                          ),
+                          Flexible(
+                            child: Text(widget.profileInfoMap[key] ?? '',
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(color: headingColor)),
+                          ),
                         ]),
                   ),
                 ),
