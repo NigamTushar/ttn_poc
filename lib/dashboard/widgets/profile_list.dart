@@ -2,14 +2,6 @@ import 'package:flutter/material.dart';
 
 import '../../helper/responsive_widget.dart';
 
-/*class ProfileExpandableList extends StatelessWidget {
-  const ProfileExpandableList({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}*/
 final List<Map<String, String>> listOfColumns = [
   {
     "Name": "quick brown frog jump over the lazy dog",
@@ -57,7 +49,10 @@ class ProfileListView extends StatefulWidget {
   final List<String> heading;
 
   const ProfileListView(
-      {Key? key, required this.title, required this.profileInfoMap, required this.heading})
+      {Key? key,
+      required this.title,
+      required this.profileInfoMap,
+      required this.heading})
       : super(key: key);
 
   @override
@@ -77,13 +72,12 @@ class _ProfileListViewState extends State<ProfileListView> {
       children: [
         Align(
           alignment: Alignment.topLeft,
-          child: ResponsiveWidget.isLargeScreen(context) ? Container(child: _buildList(),):SingleChildScrollView(
-
-              scrollDirection: Axis.horizontal,
-              child:
-              _buildList()
-
-          ),
+          child: ResponsiveWidget.isLargeScreen(context)
+              ? Container(
+                  child: _buildList(),
+                )
+              : SingleChildScrollView(
+                  scrollDirection: Axis.horizontal, child: _buildList()),
         ),
       ],
     );
@@ -95,49 +89,48 @@ class _ProfileListViewState extends State<ProfileListView> {
 
   Container _buildList() {
     return Container(
-      width:ResponsiveWidget.isSmallScreen(context)?  800:MediaQuery.of(context).size.width,
-              /*constraints: BoxConstraints(maxWidth: 1800,
-                  minWidth: 1200,
-                  minHeight: 500,
-                  maxHeight: 500),*/
-              /*constraints: BoxConstraints.expand(
-            width: MediaQuery.of(context).size.width
-        ),*/
-              child: DataTable(
-                border: TableBorder(horizontalInside: BorderSide(width: .5, color: Colors.grey.shade300, style: BorderStyle.solid)),
-                columns:
-                widget.heading.map((title) => DataColumn(label: Expanded(
+      width: ResponsiveWidget.isSmallScreen(context)
+          ? 800
+          : MediaQuery.of(context).size.width,
+      child: DataTable(
+        border: TableBorder(
+            horizontalInside: BorderSide(
+                width: .5,
+                color: Colors.grey.shade300,
+                style: BorderStyle.solid)),
+        columns: widget.heading
+            .map((title) => DataColumn(
+                    label: Expanded(
                   child: Container(
-                      constraints: BoxConstraints(
-                          minWidth: 100, maxWidth: 150),
-                    child: Text(title,      style: const TextStyle(
-                        fontWeight: FontWeight.bold, color: headingColor)),
+                    constraints: BoxConstraints(minWidth: 100, maxWidth: 150),
+                    child: Text(title,
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, color: headingColor)),
                   ),
-                ))).toList(),
-                rows:
-                widget
-                    .profileInfoMap // Loops through dataColumnText, each iteration assigning the value to element
-                    .map(
-                  ((element) =>
-                      DataRow(
-                        cells: <DataCell>[
-                          DataCell(Expanded(
-                            child: Container(
-                                constraints: BoxConstraints(
-                                    minWidth: 100, maxWidth: 150),
-                                child: Text(element["first_column"]!)),
-                          )),
-                          //Extracting from Map element the value
-                          DataCell(Text(element["second_column"]!)),
-                          DataCell(Text(element["third_column"]!)),
-                          DataCell(Text(element["fourth_column"]!)),
-                          DataCell(Text(element["fifth_column"]!)),
-                        ],
+                )))
+            .toList(),
+        rows: widget
+            .profileInfoMap // Loops through dataColumnText, each iteration assigning the value to element
+            .map(
+              ((element) => DataRow(
+                    cells: <DataCell>[
+                      DataCell(Expanded(
+                        child: Container(
+                            constraints:
+                                BoxConstraints(minWidth: 100, maxWidth: 150),
+                            child: Text(element["first_column"]!)),
                       )),
-                )
-                    .toList(),
-              ),
-            );
+                      //Extracting from Map element the value
+                      DataCell(Text(element["second_column"]!)),
+                      DataCell(Text(element["third_column"]!)),
+                      DataCell(Text(element["fourth_column"]!)),
+                      DataCell(Text(element["fifth_column"]!)),
+                    ],
+                  )),
+            )
+            .toList(),
+      ),
+    );
   }
 
   Container _buildHeader() {
@@ -155,110 +148,8 @@ class _ProfileListViewState extends State<ProfileListView> {
                   fontWeight: FontWeight.bold, color: headingColor),
             ),
           ),
-          /* IconButton(
-              icon:   SizedBox(
-                height: 50.0,
-                width: 50.0,
-                child:   Center(
-                  child:   Icon(
-                    expandFlag ? Icons.keyboard_arrow_up : Icons.keyboard_arrow_down,
-                    color: Colors.black54,
-                    size: 30.0,
-                  ),
-                ),
-              ),
-              onPressed: () {
-                setState(() {
-                  expandFlag = !expandFlag;
-                });
-              }),*/
         ],
       ),
     );
   }
 }
-
-  /*Widget _buildList() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
-      child: ExpandableContainer(
-        expanded: expandFlag,
-        child: Row(
-          children: [
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: widget.profileInfoMap.keys
-                    .toList()
-                    .map(
-                      (key) => Expanded(
-                        child: Container(
-                    decoration: const BoxDecoration(
-                          border: Border(
-                              bottom:
-                              BorderSide(width: .2, color: Colors.grey)),
-                          color: Colors.white),
-                    child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 10),
-                        child: Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(key,
-                                  style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: headingColor)),
-                              ...[
-                                ...widget.profileInfoMap[key]!
-                                    .map((value) => Wrap(
-                                  children: [Container(decoration: const BoxDecoration(
-                        border: Border(
-                        bottom:
-                        BorderSide(width: .2, color: Colors.grey)),
-                    color: Colors.white),child: Text(value))],
-                                ))
-                                    .toList()
-                              ],
-                            ]),
-                    ),
-                  ),
-                      ),
-                )
-                    .toList(),
-              ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ExpandableContainer extends StatelessWidget {
-  final bool expanded;
-  final double? collapsedHeight;
-  final double? expandedHeight;
-  final Widget child;
-
-  ExpandableContainer({
-    required this.child,
-    this.collapsedHeight = 0.0,
-    this.expandedHeight = 50.0,
-    this.expanded = true,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      // color: Colors.blueAccent,
-      // duration:   Duration(milliseconds: 500),
-      // curve: Curves.easeInOut,
-      // width: MediaQuery.of(context).size.width,
-      // height: expanded ? expandedHeight : collapsedHeight,
-      child: Container(
-        child: child,
-        // decoration:   BoxDecoration(border:   Border.all(width: .5, color: Colors.black26)),
-      ),
-    );
-  }
-}*/
