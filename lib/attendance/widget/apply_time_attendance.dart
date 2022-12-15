@@ -48,7 +48,7 @@ class ApplyTimeType extends StatelessWidget {
                             onPressed: () {},
                             child: const Text('Submit'),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.teal[400]),
+                                primary: Colors.teal[400]),
                           ),
                         ),
                       )
