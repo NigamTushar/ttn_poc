@@ -141,8 +141,7 @@ class AttendanceItem extends StatelessWidget {
                 )),
             Expanded(
                 flex: 1,
-                child: Padding(
-                  padding: EdgeInsets.all(8.0),
+                child: Container(
                   child: Row(
                     children: [
                       Icon(
