@@ -17,8 +17,8 @@ class TeamList extends StatelessWidget {
         child: GridView.builder(
             itemCount: 7,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: ResponsiveWidget.isLargeScreen(context) ? 3 : 2,
-                childAspectRatio: 1.2),
+                crossAxisCount: ResponsiveWidget.isLargeScreen(context) ? 3 : MediaQuery.of(context).size.width<500?1:2,
+                childAspectRatio: MediaQuery.of(context).size.width<500?1.6:1.2),
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 children: [

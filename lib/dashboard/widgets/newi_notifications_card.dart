@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
+import 'package:newers_world/helper/responsive_widget.dart';
 
 class NewiNotificationCardContent extends StatefulWidget {
   const NewiNotificationCardContent({Key? key}) : super(key: key);
@@ -33,128 +35,28 @@ class _NewiNotificationCardContentState
                   style: TextStyle(fontSize: 16),
                 ),
               ),
-              buildCheckBoxTile(
-                const Text('Important Announcements'),
-              ),
+              buildCheckBoxTile('Important Announcements', null, null),
               const SizedBox(
                 height: 10,
               ),
-              buildCheckBoxTile(
-                Row(
-                  children: [
-                    const Text('My To-do'),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    buildTag(
-                      tagColor: Colors.teal,
-                      tagString: 'All Days',
-                      tagIcon: Icons.calendar_month,
-                    ),
-                    buildTag(
-                      tagColor: Colors.orange,
-                      tagString: '11:00 AM',
-                      tagIcon: Icons.access_time,
-                    ),
-                  ],
-                ),
-              ),
+              buildCheckBoxTile('My To-do', 'All Days', '11:00 AM'),
               const SizedBox(
                 height: 10,
               ),
-              buildCheckBoxTile(
-                Row(
-                  children: [
-                    const Expanded(child: Text('Inform my Absences')),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    buildTag(
-                      tagColor: Colors.teal,
-                      tagString: 'All Days',
-                      tagIcon: Icons.calendar_month,
-                    ),
-                    buildTag(
-                      tagColor: Colors.orange,
-                      tagString: '2:00 PM',
-                      tagIcon: Icons.access_time,
-                    ),
-                  ],
-                ),
-              ),
+              buildCheckBoxTile('Inform my Absences', 'All Days', '2:00 PM'),
               const SizedBox(
                 height: 10,
               ),
-              buildCheckBoxTile(
-                Row(
-                  children: [
-                    const Expanded(child: Text('Quote of the Week')),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    buildTag(
-                      tagColor: Colors.teal,
-                      tagString: 'Mon',
-                      tagIcon: Icons.calendar_month,
-                    ),
-                    buildTag(
-                      tagColor: Colors.orange,
-                      tagString: '10:00 AM',
-                      tagIcon: Icons.access_time,
-                    ),
-                  ],
-                ),
-              ),
+              buildCheckBoxTile('Quote of the Week', 'Mon', '10:00 AM'),
               const SizedBox(
                 height: 10,
               ),
-              buildCheckBoxTile(
-                Row(
-                  children: [
-                    const Text('Joke of the Week'),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    buildTag(
-                      tagColor: Colors.teal,
-                      tagString: 'Fri',
-                      tagIcon: Icons.calendar_month,
-                    ),
-                    buildTag(
-                      tagColor: Colors.orange,
-                      tagString: '4:00 PM',
-                      tagIcon: Icons.access_time,
-                    ),
-                  ],
-                ),
-              ),
+              buildCheckBoxTile('Joke of the Week', 'Fri', '4:00 PM'),
               const SizedBox(
                 height: 10,
               ),
-              buildCheckBoxTile(
-                Row(
-                  children: [
-                    const Expanded(
-                      child: Text(
-                        'Birthday and Work Anniversaries in my team',
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 20,
-                    ),
-                    buildTag(
-                      tagColor: Colors.teal,
-                      tagString: 'All Days',
-                      tagIcon: Icons.calendar_month,
-                    ),
-                    buildTag(
-                      tagColor: Colors.orange,
-                      tagString: '7:30 AM',
-                      tagIcon: Icons.access_time,
-                    ),
-                  ],
-                ),
-              ),
+              buildCheckBoxTile('Birthday and Work Anniversaries in my team',
+                  'All Days', '7:30 AM'),
             ],
           ),
         ),
@@ -167,9 +69,9 @@ class _NewiNotificationCardContentState
       required String tagString,
       required IconData tagIcon}) {
     return Container(
-      // width: 100,
       padding: const EdgeInsets.all(5.0),
       margin: const EdgeInsets.all(5.0),
+      constraints: const BoxConstraints(minWidth: 80),
       decoration: BoxDecoration(
         color: tagColor,
         borderRadius: BorderRadius.circular(2.5),
@@ -192,7 +94,7 @@ class _NewiNotificationCardContentState
     );
   }
 
-  Container buildCheckBoxTile(Widget titleWidget) {
+  Container buildCheckBoxTile1(Widget titleWidget) {
     return Container(
       padding: const EdgeInsets.only(left: 12.0),
       margin: const EdgeInsets.only(bottom: 10),
@@ -218,5 +120,41 @@ class _NewiNotificationCardContentState
                 })),
       ),
     );
+  }
+
+  Widget buildCheckBoxTile(
+      String title, String? firstButtonText, String? secondButtonText) {
+    return Container(
+        padding: const EdgeInsets.all(12),
+        margin: const EdgeInsets.only(bottom: 10),
+        constraints: BoxConstraints(
+            minWidth: ResponsiveWidget.isLargeScreen(context) ? 800 : 400),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: Colors.grey[350],
+        ),
+        child: SingleChildScrollView(
+          scrollDirection: Axis.horizontal,
+          child: Row(
+            children: [
+              Checkbox(value: false, onChanged: (val) {}),
+              Text(title),
+              firstButtonText == null
+                  ? const SizedBox.shrink()
+                  : buildTag(
+                      tagColor: Colors.teal,
+                      tagString: firstButtonText,
+                      tagIcon: Icons.calendar_month,
+                    ),
+              secondButtonText == null
+                  ? const SizedBox.shrink()
+                  : buildTag(
+                      tagColor: Colors.orange,
+                      tagString: secondButtonText,
+                      tagIcon: Icons.access_time,
+                    ),
+            ],
+          ),
+        ));
   }
 }
