@@ -157,7 +157,7 @@ class ProfileHeaderState extends State<ProfileHeader>
                 Positioned(
                   height: ResponsiveWidget.isLargeScreen(context) ? 50 : 45,
                   top: ResponsiveWidget.isLargeScreen(context) ? 150 : 255,
-                  left: ResponsiveWidget.isLargeScreen(context) ? 150 : 20,
+                  left: ResponsiveWidget.isLargeScreen(context) ? 150 : 0,
                   child: TabBar(
                     isScrollable: true,
                     unselectedLabelColor: Colors.grey,
