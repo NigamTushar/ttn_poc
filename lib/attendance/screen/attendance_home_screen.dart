@@ -4,7 +4,9 @@ import 'package:newers_world/attendance/screen/leave_balance.dart';
 import 'package:newers_world/attendance/screen/my_calendar.dart';
 import 'package:newers_world/attendance/widget/apply_time_attendance.dart';
 import 'package:newers_world/attendance/widget/my_info_attendance.dart';
+import 'package:newers_world/dashboard/utils/style_utils.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
+import 'package:newers_world/helper/responsive_widget.dart';
 
 class AttendanceHomeScreen extends StatelessWidget {
   const AttendanceHomeScreen({Key? key}) : super(key: key);
@@ -13,7 +15,7 @@ class AttendanceHomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
         controller: ScrollController(),
-        child: Wrap(children: const [
+        child: Wrap(children:  [
           PageHeader(
             width: double.infinity,
             title: 'Attendance',
