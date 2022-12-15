@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:newers_world/screens/dashboard.dart';
+import 'package:newers_world/drawer/screen/drawer_screen.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,7 +8,7 @@ void main() {
   //   setWindowMaxSize(const Size(1024, 768));
   //   setWindowMinSize(const Size(512, 384));
   // }
-  runApp(const MyApp());
+  runApp(MaterialApp(home: MyApp(),));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
             child: MaterialApp(
               title: 'Flutter Demo',
               theme: ThemeData(
+                dividerColor: Colors.transparent,
                 primarySwatch: Colors.blueGrey,
                 textTheme: const TextTheme(
                   bodyText1: TextStyle(),
@@ -34,7 +35,7 @@ class MyApp extends StatelessWidget {
                   displayColor: Colors.blueGrey,
                 ),
               ),
-              home: const DashboardHome(),
+              home: const DrawerScreen(),
               debugShowCheckedModeBanner: false,
             ),
           );
