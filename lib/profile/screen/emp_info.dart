@@ -57,9 +57,7 @@ class EmployeeInfo extends StatelessWidget {
     return ConstrainedBox(
       constraints: BoxConstraints(
           minWidth: ResponsiveWidget.isLargeScreen(context) ? 400 : 600,
-          maxWidth: 600,
-          maxHeight: ResponsiveWidget.isLargeScreen(context) ? 400 : 400,
-          minHeight: ResponsiveWidget.isLargeScreen(context) ? 400 : 400),
+          maxWidth: 600,),
       child: child,
     );
   }

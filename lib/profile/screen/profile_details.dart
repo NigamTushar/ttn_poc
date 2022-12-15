@@ -1,12 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
-import 'package:newers_world/dashboard/widgets/profile_expandable_list.dart';
 import 'package:newers_world/dashboard/widgets/profile_list.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
-final newersName = {'Name': 'Lokesh Kumar Prajapati','Desigation':'Senior Software Engineer','Experience':'5 Years'};
-final dobInformation = {'Date of Birth': '25-Dec-1993','I prefer to receive B\'day wishes on':'25-Dec','Country of Birth':'India','State of Birth':'Delhi','Place of Birth':'New Delhi'};
-final contactInformation = {'Business Email': 'lokesh.prajapati@tothenew.com','Personal Email':'lokeshkp007@gmail.com','Mobile Number':'+91 9971057150'};
-final basicInfo = {'Newer ID': '1111','Father\'s Name':'Suresh Kumar Prajapati','Nationality':'India'};
+
+final newersName = {
+  'Name': 'Lokesh Kumar Prajapati',
+  'Desigation': 'Senior Software Engineer',
+  'Experience': '5 Years'
+};
+final dobInformation = {
+  'Date of Birth': '25-Dec-1993',
+  'I prefer to receive B\'day wishes on': '25-Dec',
+  'Country of Birth': 'India',
+  'State of Birth': 'Delhi',
+  'Place of Birth': 'New Delhi'
+};
+final contactInformation = {
+  'Business Email': 'lokesh.prajapati@tothenew.com',
+  'Personal Email': 'lokeshkp007@gmail.com',
+  'Mobile Number': '+91 9971057150'
+};
+final basicInfo = {
+  'Newer ID': '1111',
+  'Father\'s Name': 'Suresh Kumar Prajapati',
+  'Nationality': 'India'
+};
 final List<Map<String, String>> empInfo = [
   {
     "first_column": "18-Nov-2019",
@@ -39,14 +57,15 @@ final List<Map<String, String>> eduInfo = [
     "fourth_column": "Science",
     "fifth_column": "68"
   },
-{
-"first_column": "10th",
-"second_column": "New Holy Public School",
-"third_column": "Central Board of Secondary Education",
-"fourth_column": "Other",
-"fifth_column": "8.2"
-},
+  {
+    "first_column": "10th",
+    "second_column": "New Holy Public School",
+    "third_column": "Central Board of Secondary Education",
+    "fourth_column": "Other",
+    "fifth_column": "8.2"
+  },
 ];
+
 class ProfileDetails extends StatelessWidget {
   const ProfileDetails({Key? key}) : super(key: key);
 
@@ -55,25 +74,48 @@ class ProfileDetails extends StatelessWidget {
     return SingleChildScrollView(
       controller: ScrollController(),
       child: Wrap(
-        children:  [
-        constrainedWidget(context,Container(
+        children: [
+          constrainedWidget(
+            context,
+            Container(
               decoration: StyleUtils.cardDecoration,
               // width: _screenSize.width,
               // color: Colors.white,
-              margin: const EdgeInsets.only(top: 20,left: 20, right: 20),
+              margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
               padding: const EdgeInsets.all(20.0),
-              child: ProfileListView(title: "Previous Employment", profileInfoMap: empInfo,heading: ['Start Date','End Date','Company Name','Last Designation','Type of Business'],),
+              child: ProfileListView(
+                title: "Previous Employment",
+                profileInfoMap: empInfo,
+                heading: [
+                  'Start Date',
+                  'End Date',
+                  'Company Name',
+                  'Last Designation',
+                  'Type of Business'
+                ],
+              ),
             ),
           ),
-
-          constrainedWidget(context,Container(
-            decoration: StyleUtils.cardDecoration,
-            // width: _screenSize.width,
-            // color: Colors.white,
-            margin: const EdgeInsets.only(top: 20,left: 20, right: 20),
-            padding: const EdgeInsets.all(20.0),
-            child: ProfileListView(title: "Formal Education", profileInfoMap: eduInfo,heading: ['Education','School/ College','Board/ University','Specialization','%/ CGPA'],),
-          ),
+          constrainedWidget(
+            context,
+            Container(
+              decoration: StyleUtils.cardDecoration,
+              // width: _screenSize.width,
+              // color: Colors.white,
+              margin: const EdgeInsets.only(top: 20, left: 20, right: 20),
+              padding: const EdgeInsets.all(20.0),
+              child: ProfileListView(
+                title: "Formal Education",
+                profileInfoMap: eduInfo,
+                heading: [
+                  'Education',
+                  'School/ College',
+                  'Board/ University',
+                  'Specialization',
+                  '%/ CGPA'
+                ],
+              ),
+            ),
           ),
         ],
       ),
@@ -81,10 +123,12 @@ class ProfileDetails extends StatelessWidget {
   }
 
   Widget constrainedWidget(BuildContext context, Widget child) {
-    return ConstrainedBox(constraints: BoxConstraints(
-      minWidth: ResponsiveWidget.isLargeScreen(context) ? 400 : 200,
-      maxWidth: MediaQuery.of(context).size.width,),
-      child:child,
-      );
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        minWidth: ResponsiveWidget.isLargeScreen(context) ? 400 : 200,
+        maxWidth: MediaQuery.of(context).size.width,
+      ),
+      child: child,
+    );
   }
 }
