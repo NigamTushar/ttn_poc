@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/attendance/screen/attendence_absence.dart';
 import 'package:newers_world/attendance/screen/attendence_pending.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
 
@@ -99,7 +100,7 @@ class _PageItemsState extends State<PageItems> {
             color: Colors.grey[300],
           ),
           selected == 'Absences'
-              ? const Pending(showInfoMessage: false)
+              ? const Absences()
               : Pending(
             showInfoMessage: selected == 'Pending',
           )
