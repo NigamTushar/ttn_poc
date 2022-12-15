@@ -72,7 +72,6 @@ class _ProfileState extends State<Profile> {
       controller: ScrollController(),
       child: Wrap(
         children: [
-          ProfileHeader(onTabChange: (index) {}),
           ConstrainedBox(
             constraints: BoxConstraints(
                 minWidth: ResponsiveWidget.isLargeScreen(context) ? 400 : 600,
