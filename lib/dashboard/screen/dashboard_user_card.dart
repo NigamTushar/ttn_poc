@@ -64,8 +64,9 @@ class DashboardUserCard extends StatelessWidget {
           height: 5.0,
         ),
         const CircleAvatar(
-          backgroundColor: Colors.black,
-          radius: 60.0,
+          radius: 55,
+          backgroundImage:
+          NetworkImage('https://picsum.photos/250?image=2'),
         ),
         const SizedBox(
           height: 25.0,
