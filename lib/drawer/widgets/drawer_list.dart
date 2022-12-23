@@ -36,7 +36,8 @@ class _DrawerListState extends State<DrawerList> {
                   SizedBox(height: 20,),
                   CircleAvatar(
                     radius: 40,
-                    backgroundColor: Colors.red,
+                    backgroundImage:
+                    NetworkImage('https://picsum.photos/250?image=2'),
                   ),
                   SizedBox(
                     height: 10,
