@@ -100,5 +100,18 @@
       loadMainDartJs();
     }
   </script>
+  <script>
+      import("./scripts/botd-1.1.0.js")
+        .then((botd) => botd.load())
+        .then((botd) => botd.detect())
+        .then(function (result) {
+        console.log( window.flutterWebRenderer );
+          if (result.bot) {
+            window.flutterWebRenderer = "html";
+          }
+        });
+
+
+</script>
 </body>
 </html>

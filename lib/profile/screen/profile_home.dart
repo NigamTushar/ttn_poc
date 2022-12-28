@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/dashboard/widgets/page_header.dart';
 import 'package:newers_world/screens/profile_header.dart';
+import 'package:newers_world/seoWidget/app_meta.dart';
+import 'package:seo_service/html/seo_controller.dart';
+import 'package:seo_service/html/tree/widget_tree.dart';
 /*import 'package:newers_world/dashboard_screens/dashboard_home_screen.dart';
 import 'package:newers_world/widgets/app_drawer.dart';
 import 'package:newers_world/widgets/page_header.dart';
@@ -55,13 +59,32 @@ class ProfileHome extends StatefulWidget {
 class _ProfileHomeState extends State<ProfileHome> {
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: MediaQuery.of(context).size.height,
-      child: SingleChildScrollView(
-        controller: ScrollController(),
-        child: const Padding(
-          padding: EdgeInsets.only(bottom: 20.0),
-          child: ProfileHeader(),
+    return Scaffold(
+      body: SeoController(
+        tree: WidgetTree(context: context),
+        child: AppMeta(
+          title: 'Newers Profile',
+          description: 'Newers Profile Description',
+          author: 'Rahul Sharma',
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: SingleChildScrollView(
+              controller: ScrollController(),
+              child: Wrap(
+                children: const [
+                  PageHeader(
+                    width: double.infinity,
+                    title: 'Profile',
+                    subtitle: 'Home / Profile',
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(bottom: 20.0),
+                    child: ProfileHeader(),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

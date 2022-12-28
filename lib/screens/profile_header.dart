@@ -4,6 +4,7 @@ import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/profile/screen/emp_info.dart';
 import 'package:newers_world/profile/screen/personal_info.dart';
 import 'package:newers_world/profile/screen/profile_details.dart';
+import 'package:newers_world/seoWidget/app_text.dart';
 
 class ProfileHeader extends StatefulWidget {
   const ProfileHeader({Key? key}) : super(key: key);
@@ -97,14 +98,14 @@ class ProfileHeaderState extends State<ProfileHeader>
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        'Rahul Sharma',
+                      AppText(
+                        text: 'Rahul Sharma',
                         style: TextStyle(
                             fontSize: Constants.headingFontSize,
                             color: Colors.white),
                       ),
-                      Text(
-                        'Software Engineer',
+                      AppText(
+                        text: 'Software Engineer',
                         style: TextStyle(
                             fontSize: Constants.subHheadingFontSize,
                             color: Colors.white),
