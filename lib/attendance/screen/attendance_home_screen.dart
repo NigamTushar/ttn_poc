@@ -7,25 +7,41 @@ import 'package:newers_world/attendance/widget/my_info_attendance.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
+import 'package:newers_world/seoWidget/app_meta.dart';
+import 'package:seo_service/html/seo_controller.dart';
+import 'package:seo_service/html/tree/widget_tree.dart';
 
 class AttendanceHomeScreen extends StatelessWidget {
   const AttendanceHomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        controller: ScrollController(),
-        child: Wrap(children:  [
-          PageHeader(
-            width: double.infinity,
-            title: 'Attendance',
-            subtitle: 'Home / Attendance',
+    return Scaffold(
+      body: SeoController(
+        tree: WidgetTree(context: context),
+        child: AppMeta(
+          title: 'Newers Attendance',
+          description: 'Newers Attendance Description',
+          author: 'Rahul Sharma',
+          child: SingleChildScrollView(
+            controller: ScrollController(),
+            child: Wrap(
+              children: [
+                const PageHeader(
+                  width: double.infinity,
+                  title: 'Attendance',
+                  subtitle: 'Home / Attendance',
+                ),
+                const ConstrainedTile(child: ApplyTimeType()),
+                const ConstrainedTile(child: MyInfo()),
+                ConstrainedTile(child: MyCalendar()),
+                const ConstrainedTile(child: LeaveBalance())
+              ],
+            ),
           ),
-          const ConstrainedTile(child: ApplyTimeType()),
-          const ConstrainedTile(child: MyInfo()),
-          ConstrainedTile(child: MyCalendar()),
-          const ConstrainedTile(child: LeaveBalance())
-        ]));
+        ),
+      ),
+    );
   }
 }
 
