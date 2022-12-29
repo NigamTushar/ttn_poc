@@ -20,14 +20,14 @@ class DashboardListView extends StatelessWidget {
       body: SeoController(
         tree: WidgetTree(context: context),
         child: AppMeta(
-          title: 'Newers Dashboard',
-          description: 'Newers Dashboard Description',
+          title: "Newer Dashboard",
+          description: 'Dashboard, Profile, Attendance and leave management system and other important links for a newer. TO THE NEW',
           ogTags: const [
-            MetaNameTag(name:"twitter:title" ,content:"TITLE OF POST OR PAGE"),
-            MetaNameTag(name:"twitter:description" ,content:"DESCRIPTION OF PAGE CONTENT"),
-            MetaNameTag(name:"twitter:image" ,content:"LINK TO IMAGE"),
+            MetaNameTag(name:"twitter:title" ,content:"Newer Dashboard"),
+            MetaNameTag(name:"twitter:description" ,content:"Dashboard, Profile, Attendance and leave management system and other important links for a newer. TO THE NEW"),
+            MetaNameTag(name:"twitter:image" ,content:"https://picsum.photos/250?image=2"),
             MetaNameTag(name:"twitter:site" ,content:"@Site"),
-            MetaNameTag(name:"twitter:creator" ,content:"@USERNAME"),
+            MetaNameTag(name:"twitter:creator" ,content:"To The New"),
           ],
           child: SingleChildScrollView(
             controller: ScrollController(),

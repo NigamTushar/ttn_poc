@@ -21,9 +21,9 @@ class AttendanceHome extends StatelessWidget {
       body: SeoController(
         tree: WidgetTree(context: context),
         child: AppMeta(
-          title: 'Newers Attendance',
-          description: 'Newers Attendance Description',
-          author: 'Rahul Sharma',
+          title: 'Newer Attendance',
+          description: 'Newer Attendance and Leave management, Apply Leave, Check Leave Balance, Personal Calendar.',
+          author: 'To The New',
           child: SingleChildScrollView(
             controller: ScrollController(),
             child: Wrap(

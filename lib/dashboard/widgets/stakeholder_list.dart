@@ -16,7 +16,7 @@ class StakeholdersList extends StatelessWidget {
             leading: const AppImage(
               radius: 40,
               src: 'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x',
-              alt: 'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x',
+              alt: 'Stakeholder Profile Image',
             ),
             title: const AppText(text: 'Ankit Nigam', style: TextStyle()),
             subtitle: Column(

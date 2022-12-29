@@ -129,7 +129,7 @@ class ProfileHeaderState extends State<ProfileHeader>
                         child: const AppImage(
                           radius: 55,
                           src: 'https://picsum.photos/250?image=2',
-                          alt: 'https://picsum.photos/250?image=2',
+                          alt: 'Newer Profile Image',
                         ),
                       ),
                       if (ResponsiveWidget.isLargeScreen(context)) ...[

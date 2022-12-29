@@ -64,9 +64,9 @@ class _ProfileHomeState extends State<ProfileHome> {
       body: SeoController(
         tree: WidgetTree(context: context),
         child: AppMeta(
-          title: 'Newers Profile',
-          description: 'Newers Profile Description',
-          author: 'Rahul Sharma',
+          title: 'Newer Profile',
+          description: 'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details',
+          author: 'To The New',
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: SingleChildScrollView(

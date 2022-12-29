@@ -68,7 +68,7 @@ class DashboardUserCard extends StatelessWidget {
         const AppImage(
           radius: 55,
           src: 'https://picsum.photos/250?image=2',
-          alt: 'https://picsum.photos/250?image=2',
+          alt: 'Newer Profile Image',
         ),
         const SizedBox(
           height: 25.0,
