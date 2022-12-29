@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newers_world/drawer/screen/drawer_screen.dart';
+import 'main_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -8,12 +9,40 @@ void main() {
   //   setWindowMaxSize(const Size(1024, 768));
   //   setWindowMinSize(const Size(512, 384));
   // }
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  App({super.key});
 
+  final _router = MainRouter();
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp.router(
+      theme: Theme.of(context).copyWith(
+        scaffoldBackgroundColor: const Color(0xFFEEEEEE),
+        textTheme: Theme.of(context)
+            .textTheme
+            .copyWith(
+          headline5: const TextStyle(fontWeight: FontWeight.w600),
+          headline6: const TextStyle(fontWeight: FontWeight.w600),
+        )
+            .apply(
+          displayColor: Colors.black,
+          bodyColor: Colors.black,
+        ),
+      ),
+      routerDelegate: _router.delegate(),
+      routeInformationParser: _router.defaultRouteParser(),
+    );
+  }
+}
+
+
+class MyApp extends StatelessWidget {
+   MyApp({Key? key}) : super(key: key);
+  final _router = MainRouter();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -22,7 +51,7 @@ class MyApp extends StatelessWidget {
         builder: (BuildContext context, Widget? child) {
           return SizedBox(
             width: 500,
-            child: MaterialApp(
+            child: MaterialApp.router(
               title: 'Flutter Demo',
               theme: ThemeData(
                 dividerColor: Colors.transparent,
@@ -35,8 +64,10 @@ class MyApp extends StatelessWidget {
                   displayColor: Colors.blueGrey,
                 ),
               ),
-              home: const DrawerScreen(),
+              // home: const DrawerScreen(),
               debugShowCheckedModeBanner: false,
+              routerDelegate: _router.delegate(),
+              routeInformationParser: _router.defaultRouteParser(),
             ),
           );
         });

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:newers_world/dashboard/screen/dashboard_list_view.dart';
 import 'package:newers_world/drawer/bloc/drawer_cubit.dart';
 import 'package:newers_world/drawer/bloc/drawer_state.dart';
 import 'package:newers_world/drawer/widgets/drawer_list_container_view.dart';
@@ -39,9 +40,10 @@ class DrawerBody extends StatelessWidget {
               ),
               body: Container(
                 color: Colors.grey[100],
-                child: DrawerPages(
+                child: DashboardListView(),
+                /*DrawerPages(
                   pageName: state.tabName,
-                ),
+                )*/
               ),
               drawer: const DrawerListContainerView(),
             ),

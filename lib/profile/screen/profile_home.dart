@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
 import 'package:newers_world/screens/profile_header.dart';
 import 'package:newers_world/seoWidget/app_meta.dart';
+import 'package:newers_world/widgets/container_screen.dart';
 import 'package:seo_service/html/seo_controller.dart';
 import 'package:seo_service/html/tree/widget_tree.dart';
 /*import 'package:newers_world/dashboard_screens/dashboard_home_screen.dart';
@@ -59,7 +60,7 @@ class ProfileHome extends StatefulWidget {
 class _ProfileHomeState extends State<ProfileHome> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return ContainerScreen(child: Scaffold(
       body: SeoController(
         tree: WidgetTree(context: context),
         child: AppMeta(
@@ -87,6 +88,6 @@ class _ProfileHomeState extends State<ProfileHome> {
           ),
         ),
       ),
-    );
+    ),);
   }
 }

@@ -18,7 +18,7 @@ class DrawerPages extends StatelessWidget {
       case DrawerConst.myProfile:
         return const ProfileHome();
       case DrawerConst.attendanceMenu:
-        return const AttendanceHomeScreen();
+        return const AttendanceHome();
     }
     return const DashboardListView();
   }
