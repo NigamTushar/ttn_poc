@@ -3,6 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
 import 'package:newers_world/helper/constants.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
+import 'package:newers_world/seoWidget/app_image.dart';
+import 'package:newers_world/seoWidget/app_text.dart';
 
 class DashboardUserCard extends StatelessWidget {
   const DashboardUserCard({Key? key}) : super(key: key);
@@ -63,10 +65,10 @@ class DashboardUserCard extends StatelessWidget {
         const SizedBox(
           height: 5.0,
         ),
-        const CircleAvatar(
+        const AppImage(
           radius: 55,
-          backgroundImage:
-          NetworkImage('https://picsum.photos/250?image=2'),
+          src: 'https://picsum.photos/250?image=2',
+          alt: 'https://picsum.photos/250?image=2',
         ),
         const SizedBox(
           height: 25.0,
@@ -120,14 +122,15 @@ class DashboardUserCard extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Rahul Sharma',
+              AppText(
+                text: 'Rahul Sharma',
                 style: TextStyle(
                   fontSize: Constants.headingFontSize,
                 ),
               ),
-              Text(
-                'Software Engineer',
+              AppText(
+                text: 'Software Engineer',
+                headingElement: HeadingText.h2,
                 style: TextStyle(
                   fontSize: Constants.subHheadingFontSize,
                 ),
@@ -139,8 +142,9 @@ class DashboardUserCard extends StatelessWidget {
                 visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                 dense: true,
                 leading: const Icon(Icons.house_outlined),
-                title: Text(
-                  'To The New Private Limited',
+                title: AppText(
+                  text: 'To The New Private Limited',
+                  headingElement: HeadingText.h2,
                   style: TextStyle(fontSize: Constants.normalTextFontSize),
                 ),
                 iconColor: Colors.black,
@@ -152,8 +156,9 @@ class DashboardUserCard extends StatelessWidget {
                 visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                 dense: true,
                 leading: const Icon(Icons.business),
-                title: Text(
-                  'Digital Native Businesses(DNB)',
+                title: AppText(
+                  text: 'Digital Native Businesses(DNB)',
+                  headingElement: HeadingText.h2,
                   style: TextStyle(fontSize: Constants.normalTextFontSize),
                 ),
                 iconColor: Colors.black,
@@ -165,8 +170,9 @@ class DashboardUserCard extends StatelessWidget {
                 visualDensity: const VisualDensity(horizontal: 0, vertical: -4),
                 dense: true,
                 leading: const Icon(Icons.business_center_outlined),
-                title: Text(
-                  'iOS',
+                title: AppText(
+                  text: 'iOS',
+                  headingElement: HeadingText.h2,
                   style: TextStyle(fontSize: Constants.normalTextFontSize),
                 ),
                 iconColor: Colors.black,

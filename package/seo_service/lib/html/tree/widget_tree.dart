@@ -73,6 +73,8 @@ class _Node with SeoTreeNode {
 
     if (tag is TextTag) {
       return 'text: ${tag.text}';
+    } else if (tag is TextH2Tag) {
+      return 'text: ${tag.text}';
     } else if (tag is ImageTag) {
       return 'image: ${tag.alt} | url: ${tag.src}';
     } else if (tag is LinkTag) {
@@ -95,6 +97,14 @@ class _Node with SeoTreeNode {
     if (tag is TextTag) {
       return html.copyWith(
         body: text(
+          text: tag.text,
+          content: html.body,
+        ),
+      );
+    }
+    if (tag is TextH2Tag) {
+      return html.copyWith(
+        body: textH2(
           text: tag.text,
           content: html.body,
         ),

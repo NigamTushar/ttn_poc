@@ -4,6 +4,7 @@ import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/profile/screen/emp_info.dart';
 import 'package:newers_world/profile/screen/personal_info.dart';
 import 'package:newers_world/profile/screen/profile_details.dart';
+import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 
 class ProfileHeader extends StatefulWidget {
@@ -106,6 +107,7 @@ class ProfileHeaderState extends State<ProfileHeader>
                       ),
                       AppText(
                         text: 'Software Engineer',
+                        headingElement: HeadingText.h2,
                         style: TextStyle(
                             fontSize: Constants.subHheadingFontSize,
                             color: Colors.white),
@@ -124,10 +126,10 @@ class ProfileHeaderState extends State<ProfileHeader>
                           borderRadius:
                               BorderRadius.circular(100), //<-- SEE HERE
                         ),
-                        child: const CircleAvatar(
+                        child: const AppImage(
                           radius: 55,
-                          backgroundImage:
-                              NetworkImage('https://picsum.photos/250?image=2'),
+                          src: 'https://picsum.photos/250?image=2',
+                          alt: 'https://picsum.photos/250?image=2',
                         ),
                       ),
                       if (ResponsiveWidget.isLargeScreen(context)) ...[
@@ -167,15 +169,10 @@ class ProfileHeaderState extends State<ProfileHeader>
                     labelColor: Colors.green,
                     controller: _tabController,
                     tabs: const [
-                      Text(
-                        'Employment Information',
-                      ),
-                      Text(
-                        'Personal Information',
-                      ),
-                      Text(
-                        'Profile Details',
-                      ),
+                      AppText(
+                          text: 'Employment Information', style: TextStyle()),
+                      AppText(text: 'Personal Information', style: TextStyle()),
+                      AppText(text: 'Profile Details', style: TextStyle()),
                     ],
                   ),
                 ),

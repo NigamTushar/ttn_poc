@@ -12,6 +12,14 @@ class TextTag extends SeoTag {
   });
 }
 
+class TextH2Tag extends SeoTag {
+  final String text;
+
+  const TextH2Tag({
+    required this.text,
+  });
+}
+
 class ButtonTag extends SeoTag {
   final String text;
 

@@ -9,6 +9,7 @@ import 'package:newers_world/dashboard/widgets/team_list.dart';
 import 'package:newers_world/seoWidget/app_meta.dart';
 import 'package:seo_service/html/seo_controller.dart';
 import 'package:seo_service/html/tree/widget_tree.dart';
+import 'package:seo_service/html/widget/meta_tag.dart';
 
 class DashboardListView extends StatelessWidget {
   const DashboardListView({Key? key}) : super(key: key);
@@ -21,6 +22,13 @@ class DashboardListView extends StatelessWidget {
         child: AppMeta(
           title: 'Newers Dashboard',
           description: 'Newers Dashboard Description',
+          ogTags: const [
+            MetaNameTag(name:"twitter:title" ,content:"TITLE OF POST OR PAGE"),
+            MetaNameTag(name:"twitter:description" ,content:"DESCRIPTION OF PAGE CONTENT"),
+            MetaNameTag(name:"twitter:image" ,content:"LINK TO IMAGE"),
+            MetaNameTag(name:"twitter:site" ,content:"@Site"),
+            MetaNameTag(name:"twitter:creator" ,content:"@USERNAME"),
+          ],
           child: SingleChildScrollView(
             controller: ScrollController(),
             child: Wrap(

@@ -17,13 +17,19 @@ class TeamList extends StatelessWidget {
         child: GridView.builder(
             itemCount: 7,
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: ResponsiveWidget.isLargeScreen(context) ? 3 : MediaQuery.of(context).size.width<500?1:2,
-                childAspectRatio: MediaQuery.of(context).size.width<500?1.6:1.2),
+                crossAxisCount: ResponsiveWidget.isLargeScreen(context)
+                    ? 3
+                    : MediaQuery.of(context).size.width < 500
+                        ? 1
+                        : 2,
+                childAspectRatio:
+                    MediaQuery.of(context).size.width < 500 ? 1.6 : 1.2),
             itemBuilder: (BuildContext context, int index) {
               return Column(
                 children: [
                   const CircleAvatar(
-                    backgroundColor: Colors.black,
+                    backgroundImage: NetworkImage(
+                        'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=wavatar&r=x'),
                     // child: Text('${index + 1}'),
                     radius: 30.0,
                   ),
