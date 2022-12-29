@@ -7,6 +7,8 @@ class AppImage extends StatelessWidget {
 
   final double? width;
   final double? height;
+  final double? radius;
+  final bool? isCircular;
 
   const AppImage({
     super.key,
@@ -14,6 +16,8 @@ class AppImage extends StatelessWidget {
     required this.src,
     this.width,
     this.height,
+    this.radius,
+    this.isCircular = true,
   });
 
   @override
@@ -21,11 +25,18 @@ class AppImage extends StatelessWidget {
     return Seo.image(
       alt: alt,
       src: src,
-      child: Image.network(
-        src,
-        width: width,
-        height: height,
-      ),
+      child: isCircular == true
+          ? CircleAvatar(
+              radius: radius,
+              backgroundImage: NetworkImage(
+                src,
+              ),
+            )
+          : Image.network(
+              src,
+              width: width ?? 100,
+              height: height ?? 100,
+            ),
     );
   }
 }

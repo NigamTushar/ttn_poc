@@ -152,6 +152,7 @@ class _SeoControllerState extends State<SeoController> {
         ..allowHtml5(uriPolicy: _AllowAllUriPolicy())
         ..allowCustomElement('flt-seo')
         ..allowCustomElement('noscript')
+        ..allowCustomElement('h2',attributes: ['style'])
         ..allowCustomElement('h1', attributes: ['style']),
     );
   }

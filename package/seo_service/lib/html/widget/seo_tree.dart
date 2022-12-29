@@ -26,6 +26,13 @@ abstract class SeoTreeNode {
     return '<h1 style="color:black;">$text</h1>$content';
   }
 
+  String textH2({
+    required String text,
+    required String content,
+  }) {
+    return '<h2 style="color:black;">$text</h2>$content';
+  }
+
   String button({
     required String text,
     required String content,

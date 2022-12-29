@@ -14,6 +14,12 @@ class Seo extends StatelessWidget {
     required this.child,
   }) : tag = TextTag(text: text);
 
+  Seo.textH2({
+    super.key,
+    required String text,
+    required this.child,
+  }) : tag = TextH2Tag(text: text);
+
   Seo.button({
     super.key,
     required String text,

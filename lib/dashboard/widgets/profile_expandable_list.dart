@@ -73,7 +73,6 @@ class _ExpandableListViewState extends State<ExpandableListView> {
                           Flexible(
                             child: Text(key,
                                 overflow: TextOverflow.ellipsis,
-
                                 style: const TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: headingColor)),
