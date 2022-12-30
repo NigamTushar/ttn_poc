@@ -1,35 +1,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>base_url/#/dashboard</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/dashboard</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/myProfile</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/myProfile</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/profile/1</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/profile/1</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/profile/2</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/profile/2</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/profile/3</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/profile/3</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/profile/4</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/profile/4</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/profile/5</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/profile/5</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/attendance</loc>
+        <loc>https://ttn-world.000webhostapp.com/#/attendance</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
 </urlset>
