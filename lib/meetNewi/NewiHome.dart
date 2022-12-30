@@ -6,6 +6,7 @@ class NewiHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComingSoon();
+    return const ComingSoon(title: 'Newers Newi Home', description: 'Newers Newi Home, Newi Home, Boat, Chat, Information', author: 'To The New');
+
   }
 }

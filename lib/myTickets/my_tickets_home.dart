@@ -6,6 +6,7 @@ class MyTicketsHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComingSoon();
+    return const ComingSoon(title: 'Newers My Ticket Home', description: 'Newers My Tickets, Tickets, All Tickets,', author: 'To The New');
+
   }
 }

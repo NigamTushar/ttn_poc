@@ -6,6 +6,6 @@ class NewersActionsHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComingSoon();
+    return const ComingSoon(title: 'Newers action home', description: 'Newers action home, Home, Action Item, Planned Item', author: 'To The New');
   }
 }
