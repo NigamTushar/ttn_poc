@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:newers_world/dashboard/utils/style_utils.dart';
+import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 import 'package:newers_world/helper/constants.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_image.dart';
@@ -67,7 +68,7 @@ class DashboardUserCard extends StatelessWidget {
         ),
         const AppImage(
           radius: 55,
-          src: 'https://picsum.photos/250?image=2',
+          src: dashboardProfileImage,
           alt: 'Newer Profile Image',
         ),
         const SizedBox(
@@ -123,7 +124,7 @@ class DashboardUserCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               AppText(
-                text: 'Rahul Sharma',
+                text: dashboardProfileName,
                 style: TextStyle(
                   fontSize: Constants.headingFontSize,
                 ),

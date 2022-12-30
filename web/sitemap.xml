@@ -5,7 +5,27 @@
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>base_url/#/profile</loc>
+        <loc>base_url/#/MyProfile</loc>
+        <lastmod>2022-12-29T20:30:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>base_url/#/profile/1</loc>
+        <lastmod>2022-12-29T20:30:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>base_url/#/profile/2</loc>
+        <lastmod>2022-12-29T20:30:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>base_url/#/profile/3</loc>
+        <lastmod>2022-12-29T20:30:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>base_url/#/profile/4</loc>
+        <lastmod>2022-12-29T20:30:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>base_url/#/profile/5</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>

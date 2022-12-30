@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:newers_world/drawer/bloc/drawer_cubit.dart';
 import 'package:newers_world/drawer/bloc/drawer_state.dart';
 import 'package:newers_world/drawer/model/drawer_model.dart';
+import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 
 class DrawerList extends StatefulWidget {
   final Function(String) itemClick;
@@ -33,11 +34,12 @@ class _DrawerListState extends State<DrawerList> {
             if (itemCount == 0) {
               return Column(
                 children: const [
-                  SizedBox(height: 20,),
+                  SizedBox(
+                    height: 20,
+                  ),
                   CircleAvatar(
                     radius: 40,
-                    backgroundImage:
-                    NetworkImage('https://picsum.photos/250?image=2'),
+                    backgroundImage: NetworkImage(dashboardProfileImage),
                   ),
                   SizedBox(
                     height: 10,
@@ -50,7 +52,7 @@ class _DrawerListState extends State<DrawerList> {
                   SizedBox(
                     height: 10,
                   ),
-                  Text('Tushar@tothenew.com',
+                  Text(dashboardProfileEmail,
                       style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -114,7 +116,8 @@ class MenuItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
-              color: isHover?const Color(0xff000614):const Color(0xff293846),
+              color:
+                  isHover ? const Color(0xff000614) : const Color(0xff293846),
               child: Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 8.0, vertical: 16),
@@ -155,5 +158,4 @@ class MenuItem extends StatelessWidget {
       ),
     );
   }
-
 }

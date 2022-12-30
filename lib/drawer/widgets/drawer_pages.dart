@@ -2,8 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:newers_world/attendance/screen/attendance_home_screen.dart';
 import 'package:newers_world/dashboard/screen/dashboard_list_view.dart';
 import 'package:newers_world/drawer/utils/drawer_const.dart';
+import 'package:newers_world/profile/screen/my_profile.dart';
 import 'package:newers_world/profile/screen/profile_home.dart';
-import 'package:newers_world/screens/profile.dart';
+
+const dashboardProfileName = 'Rahul Sharma';
+const profileDesignation = 'Senior Software Engineer';
+const dashboardProfileEmail = 'rahulsharma@tothenew.com';
+const dashboardProfileImage = 'https://picsum.photos/250?image=2';
 
 class DrawerPages extends StatelessWidget {
   final String pageName;
@@ -16,7 +21,11 @@ class DrawerPages extends StatelessWidget {
       case DrawerConst.myDashBoardMenu:
         return const DashboardListView();
       case DrawerConst.myProfile:
-        return const ProfileHome();
+        return const MyProfile(
+          profileName: dashboardProfileName,
+          profileDesignation: profileDesignation,
+          profileImageUrl: dashboardProfileImage,
+        );
       case DrawerConst.attendanceMenu:
         return const AttendanceHome();
     }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 
 SizedBox appDrawer() {
   return SizedBox(
@@ -20,7 +21,7 @@ SizedBox appDrawer() {
                   backgroundColor: Colors.black,
                 ),
                 Text(
-                  'Rahul Sharma',
+                  dashboardProfileName,
                   style: TextStyle(color: Colors.white60, fontSize: 14),
                 ),
               ],

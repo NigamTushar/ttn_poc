@@ -23,16 +23,35 @@ class _$MainRouter extends RootStackRouter {
         child: const DrawerScreen(),
       );
     },
-    ProfileHomeRoute.name: (routeData) {
-      return AdaptivePage<dynamic>(
-        routeData: routeData,
-        child: const ProfileHome(),
-      );
-    },
     AttendanceHomeRoute.name: (routeData) {
       return AdaptivePage<dynamic>(
         routeData: routeData,
         child: const AttendanceHome(),
+      );
+    },
+    MyProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<MyProfileRouteArgs>();
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: MyProfile(
+          key: args.key,
+          profileName: args.profileName,
+          profileDesignation: args.profileDesignation,
+          profileImageUrl: args.profileImageUrl,
+        ),
+      );
+    },
+    ProfileHomeRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileHomeRouteArgs>();
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: ProfileHome(
+          key: args.key,
+          profileId: args.profileId,
+          profileName: args.profileName,
+          profileDesignation: args.profileDesignation,
+          profileImageUrl: args.profileImageUrl,
+        ),
       );
     },
   };
@@ -50,12 +69,16 @@ class _$MainRouter extends RootStackRouter {
           path: '/dashboard',
         ),
         RouteConfig(
-          ProfileHomeRoute.name,
-          path: '/profile',
-        ),
-        RouteConfig(
           AttendanceHomeRoute.name,
           path: '/attendance',
+        ),
+        RouteConfig(
+          MyProfileRoute.name,
+          path: '/myProfile',
+        ),
+        RouteConfig(
+          ProfileHomeRoute.name,
+          path: '/profile/:id',
         ),
         RouteConfig(
           '*#redirect',
@@ -79,18 +102,6 @@ class DrawerScreenRoute extends PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [ProfileHome]
-class ProfileHomeRoute extends PageRouteInfo<void> {
-  const ProfileHomeRoute()
-      : super(
-          ProfileHomeRoute.name,
-          path: '/profile',
-        );
-
-  static const String name = 'ProfileHomeRoute';
-}
-
-/// generated route for
 /// [AttendanceHome]
 class AttendanceHomeRoute extends PageRouteInfo<void> {
   const AttendanceHomeRoute()
@@ -100,4 +111,98 @@ class AttendanceHomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AttendanceHomeRoute';
+}
+
+/// generated route for
+/// [MyProfile]
+class MyProfileRoute extends PageRouteInfo<MyProfileRouteArgs> {
+  MyProfileRoute({
+    Key? key,
+    required String profileName,
+    required String profileDesignation,
+    required String profileImageUrl,
+  }) : super(
+          MyProfileRoute.name,
+          path: '/myProfile',
+          args: MyProfileRouteArgs(
+            key: key,
+            profileName: profileName,
+            profileDesignation: profileDesignation,
+            profileImageUrl: profileImageUrl,
+          ),
+        );
+
+  static const String name = 'MyProfileRoute';
+}
+
+class MyProfileRouteArgs {
+  const MyProfileRouteArgs({
+    this.key,
+    required this.profileName,
+    required this.profileDesignation,
+    required this.profileImageUrl,
+  });
+
+  final Key? key;
+
+  final String profileName;
+
+  final String profileDesignation;
+
+  final String profileImageUrl;
+
+  @override
+  String toString() {
+    return 'MyProfileRouteArgs{key: $key, profileName: $profileName, profileDesignation: $profileDesignation, profileImageUrl: $profileImageUrl}';
+  }
+}
+
+/// generated route for
+/// [ProfileHome]
+class ProfileHomeRoute extends PageRouteInfo<ProfileHomeRouteArgs> {
+  ProfileHomeRoute({
+    Key? key,
+    required int profileId,
+    required String profileName,
+    required String profileDesignation,
+    required String profileImageUrl,
+  }) : super(
+          ProfileHomeRoute.name,
+          path: '/profile/:id',
+          args: ProfileHomeRouteArgs(
+            key: key,
+            profileId: profileId,
+            profileName: profileName,
+            profileDesignation: profileDesignation,
+            profileImageUrl: profileImageUrl,
+          ),
+          rawPathParams: {'id': profileId},
+        );
+
+  static const String name = 'ProfileHomeRoute';
+}
+
+class ProfileHomeRouteArgs {
+  const ProfileHomeRouteArgs({
+    this.key,
+    required this.profileId,
+    required this.profileName,
+    required this.profileDesignation,
+    required this.profileImageUrl,
+  });
+
+  final Key? key;
+
+  final int profileId;
+
+  final String profileName;
+
+  final String profileDesignation;
+
+  final String profileImageUrl;
+
+  @override
+  String toString() {
+    return 'ProfileHomeRouteArgs{key: $key, profileId: $profileId, profileName: $profileName, profileDesignation: $profileDesignation, profileImageUrl: $profileImageUrl}';
+  }
 }
