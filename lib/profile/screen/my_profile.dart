@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
+import 'package:newers_world/screens/coming_soon.dart';
 import 'package:newers_world/screens/profile_header.dart';
 import 'package:newers_world/seoWidget/app_meta.dart';
 import 'package:newers_world/widgets/container_screen.dart';
