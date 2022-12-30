@@ -8,6 +8,7 @@ import 'package:newers_world/drawer/widgets/drawer_list.dart';
 import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/main_router.dart';
+import 'package:newers_world/resume/resume_home.dart';
 
 class DrawerListContainerView extends StatelessWidget {
   const DrawerListContainerView({Key? key}) : super(key: key);
@@ -32,6 +33,28 @@ class DrawerListContainerView extends StatelessWidget {
               break;
             case DrawerConst.attendanceMenu:
               context.router.push(const AttendanceHomeRoute());
+              break;
+            case DrawerConst.myResume:
+              context.router.push(const ResumeHomeRoute());
+              break;
+            case DrawerConst.whatsNewMenu:
+              context.router.push(const WhatsNewHomeRoute());
+              break;
+            case DrawerConst.importantLinksMenu:
+              context.router.push(const ImportantLinksHomeRoute());
+              break;
+            case DrawerConst.meetNewMenu:
+              context.router.push(const NewiHomeRoute());
+              break;
+            case DrawerConst.myTicketsMenu:
+              context.router.push(const MyTicketsHomeRoute());
+              break;
+            case DrawerConst.newerActionMenu:
+              context.router.push(const NewersActionsHomeRoute());
+              break;
+            case DrawerConst.orgChartMenu:
+              context.router.push(const OrgChartsRoute());
+              break;
           }
           if (ResponsiveWidget.isSmallScreen(context)) {
             Scaffold.of(context).closeDrawer();

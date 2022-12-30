@@ -41,6 +41,48 @@ class _$MainRouter extends RootStackRouter {
         ),
       );
     },
+    ResumeHomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ResumeHome(),
+      );
+    },
+    WhatsNewHomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const WhatsNewHome(),
+      );
+    },
+    NewiHomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const NewiHome(),
+      );
+    },
+    ImportantLinksHomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const ImportantLinksHome(),
+      );
+    },
+    MyTicketsHomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const MyTicketsHome(),
+      );
+    },
+    NewersActionsHomeRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const NewersActionsHome(),
+      );
+    },
+    OrgChartsRoute.name: (routeData) {
+      return AdaptivePage<dynamic>(
+        routeData: routeData,
+        child: const OrgCharts(),
+      );
+    },
     ProfileHomeRoute.name: (routeData) {
       final args = routeData.argsAs<ProfileHomeRouteArgs>();
       return AdaptivePage<dynamic>(
@@ -75,6 +117,34 @@ class _$MainRouter extends RootStackRouter {
         RouteConfig(
           MyProfileRoute.name,
           path: '/myProfile',
+        ),
+        RouteConfig(
+          ResumeHomeRoute.name,
+          path: '/resume',
+        ),
+        RouteConfig(
+          WhatsNewHomeRoute.name,
+          path: '/whatsNew',
+        ),
+        RouteConfig(
+          NewiHomeRoute.name,
+          path: '/meetNewi',
+        ),
+        RouteConfig(
+          ImportantLinksHomeRoute.name,
+          path: '/importantLinks',
+        ),
+        RouteConfig(
+          MyTicketsHomeRoute.name,
+          path: '/myTickets',
+        ),
+        RouteConfig(
+          NewersActionsHomeRoute.name,
+          path: '/newersActions',
+        ),
+        RouteConfig(
+          OrgChartsRoute.name,
+          path: '/orgCharts',
         ),
         RouteConfig(
           ProfileHomeRoute.name,
@@ -158,6 +228,90 @@ class MyProfileRouteArgs {
 }
 
 /// generated route for
+/// [ResumeHome]
+class ResumeHomeRoute extends PageRouteInfo<void> {
+  const ResumeHomeRoute()
+      : super(
+          ResumeHomeRoute.name,
+          path: '/resume',
+        );
+
+  static const String name = 'ResumeHomeRoute';
+}
+
+/// generated route for
+/// [WhatsNewHome]
+class WhatsNewHomeRoute extends PageRouteInfo<void> {
+  const WhatsNewHomeRoute()
+      : super(
+          WhatsNewHomeRoute.name,
+          path: '/whatsNew',
+        );
+
+  static const String name = 'WhatsNewHomeRoute';
+}
+
+/// generated route for
+/// [NewiHome]
+class NewiHomeRoute extends PageRouteInfo<void> {
+  const NewiHomeRoute()
+      : super(
+          NewiHomeRoute.name,
+          path: '/meetNewi',
+        );
+
+  static const String name = 'NewiHomeRoute';
+}
+
+/// generated route for
+/// [ImportantLinksHome]
+class ImportantLinksHomeRoute extends PageRouteInfo<void> {
+  const ImportantLinksHomeRoute()
+      : super(
+          ImportantLinksHomeRoute.name,
+          path: '/importantLinks',
+        );
+
+  static const String name = 'ImportantLinksHomeRoute';
+}
+
+/// generated route for
+/// [MyTicketsHome]
+class MyTicketsHomeRoute extends PageRouteInfo<void> {
+  const MyTicketsHomeRoute()
+      : super(
+          MyTicketsHomeRoute.name,
+          path: '/myTickets',
+        );
+
+  static const String name = 'MyTicketsHomeRoute';
+}
+
+/// generated route for
+/// [NewersActionsHome]
+class NewersActionsHomeRoute extends PageRouteInfo<void> {
+  const NewersActionsHomeRoute()
+      : super(
+          NewersActionsHomeRoute.name,
+          path: '/newersActions',
+        );
+
+  static const String name = 'NewersActionsHomeRoute';
+}
+
+/// generated route for
+/// [OrgCharts]
+class OrgChartsRoute extends PageRouteInfo<void> {
+  const OrgChartsRoute()
+      : super(
+          OrgChartsRoute.name,
+          path: '/orgCharts',
+        );
+
+  static const String name = 'OrgChartsRoute';
+}
+
+/// generated route for
 /// [ProfileHome]
 class ProfileHomeRoute extends PageRouteInfo<ProfileHomeRouteArgs> {
   ProfileHomeRoute({
@@ -176,7 +330,6 @@ class ProfileHomeRoute extends PageRouteInfo<ProfileHomeRouteArgs> {
             profileDesignation: profileDesignation,
             profileImageUrl: profileImageUrl,
           ),
-          rawPathParams: {'id': profileId},
         );
 
   static const String name = 'ProfileHomeRoute';
