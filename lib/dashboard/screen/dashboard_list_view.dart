@@ -20,7 +20,7 @@ class DashboardListView extends StatelessWidget {
       body: SeoController(
         tree: WidgetTree(context: context),
         child: AppMeta(
-          title: "Newer Dashboard",
+          title: "Newer Dashboard and other details for a newer. TO THE NEW",
           description: 'Dashboard, Profile, Attendance and leave management system and other important links for a newer. TO THE NEW',
           ogTags: const [
             MetaNameTag(name:"twitter:title" ,content:"Newer Dashboard"),

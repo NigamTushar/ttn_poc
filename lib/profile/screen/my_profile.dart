@@ -74,9 +74,9 @@ class _MyProfileState extends State<MyProfile> {
         body: SeoController(
           tree: WidgetTree(context: context),
           child: AppMeta(
-            title: 'Newer Profile',
+            title: 'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
             description:
-                'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details',
+                'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
             author: 'To The New',
             child: SizedBox(
               height: MediaQuery.of(context).size.height,

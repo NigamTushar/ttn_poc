@@ -15,23 +15,21 @@ class StakeholdersList extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           ListTile(
+            onTap: () {
+              context.router.push(ProfileHomeRoute(
+                  profileId: 1,
+                  profileName: 'Ankit Nigam',
+                  profileDesignation: 'Technical Lead',
+                  profileImageUrl:
+                      'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'));
+            },
             leading: const AppImage(
               radius: 40,
               src:
                   'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x',
               alt: 'Stakeholder Profile Image',
             ),
-            title: GestureDetector(
-              child: const AppText(text: 'Ankit Nigam', style: TextStyle()),
-              onTap: () {
-                context.router.push(ProfileHomeRoute(
-                    profileId: 1,
-                    profileName: 'Kritika Anand',
-                    profileDesignation: 'Executive - Human Resource',
-                    profileImageUrl:
-                        'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'));
-              },
-            ),
+            title: const AppText(text: 'Ankit Nigam', style: TextStyle()),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -55,22 +53,20 @@ class StakeholdersList extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              context.router.push(ProfileHomeRoute(
+                  profileId: 2,
+                  profileName: 'Kritika Anand',
+                  profileDesignation: 'Executive - Human Resource',
+                  profileImageUrl:
+                      'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'));
+            },
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
               radius: 40.0,
             ),
-            title: GestureDetector(
-              child: const Text('Kritika Anand'),
-              onTap: () {
-                context.router.push(ProfileHomeRoute(
-                    profileId: 2,
-                    profileName: 'Kritika Anand',
-                    profileDesignation: 'Executive - Human Resource',
-                    profileImageUrl:
-                        'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'));
-              },
-            ),
+            title: const Text('Kritika Anand'),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -95,22 +91,20 @@ class StakeholdersList extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              context.router.push(ProfileHomeRoute(
+                  profileId: 3,
+                  profileName: 'Saurabh Sablok',
+                  profileDesignation: 'Project Manager',
+                  profileImageUrl:
+                      'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'));
+            },
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'),
               radius: 40.0,
             ),
-            title: GestureDetector(
-              child: const Text('Saurabh Sablok'),
-              onTap: () {
-                context.router.push(ProfileHomeRoute(
-                    profileId: 3,
-                    profileName: 'Saurabh Sablok',
-                    profileDesignation: 'Project Manager',
-                    profileImageUrl:
-                        'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'));
-              },
-            ),
+            title: const Text('Saurabh Sablok'),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -127,22 +121,20 @@ class StakeholdersList extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              context.router.push(ProfileHomeRoute(
+                  profileId: 4,
+                  profileName: 'Ashish Kumar',
+                  profileDesignation: 'Associate Tech Lead',
+                  profileImageUrl:
+                      'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'));
+            },
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'),
               radius: 40.0,
             ),
-            title: GestureDetector(
-              child: const Text('Ashish Kumar'),
-              onTap: () {
-                context.router.push(ProfileHomeRoute(
-                    profileId: 4,
-                    profileName: 'Ashish Kumar',
-                    profileDesignation: 'Associate Tech Lead',
-                    profileImageUrl:
-                        'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'));
-              },
-            ),
+            title: const Text('Ashish Kumar'),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -159,22 +151,20 @@ class StakeholdersList extends StatelessWidget {
             ),
           ),
           ListTile(
+            onTap: () {
+              context.router.push(ProfileHomeRoute(
+                  profileId: 5,
+                  profileName: 'Lokesh Kumar',
+                  profileDesignation: 'Associate Tech Lead',
+                  profileImageUrl:
+                      'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'));
+            },
             leading: const CircleAvatar(
               backgroundImage: NetworkImage(
                   'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'),
               radius: 40.0,
             ),
-            title: GestureDetector(
-              child: const Text('Lokesh Kumar'),
-              onTap: () {
-                context.router.push(ProfileHomeRoute(
-                    profileId: 5,
-                    profileName: 'Lokesh Kumar',
-                    profileDesignation: 'Associate Tech Lead',
-                    profileImageUrl:
-                        'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'));
-              },
-            ),
+            title: const Text('Lokesh Kumar'),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
