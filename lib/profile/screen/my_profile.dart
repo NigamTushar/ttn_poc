@@ -1,17 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
+import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 import 'package:newers_world/screens/coming_soon.dart';
 import 'package:newers_world/screens/profile_header.dart';
 import 'package:newers_world/seoWidget/app_meta.dart';
 import 'package:newers_world/widgets/container_screen.dart';
 import 'package:seo_service/html/seo_controller.dart';
 import 'package:seo_service/html/tree/widget_tree.dart';
-/*import 'package:newers_world/dashboard_screens/dashboard_home_screen.dart';
-import 'package:newers_world/widgets/app_drawer.dart';
-import 'package:newers_world/widgets/page_header.dart';
-import 'package:newers_world/widgets/profile_expandable_list.dart';
-import 'package:newers_world/widgets/profile_list.dart';
-import 'package:newers_world/widgets/stakeholder_list.dart';*/
 
 final empSnapShots = {
   'Legal Entity': 'TO THE NEW Private Limited',
@@ -52,16 +47,7 @@ final profileData1 = {
 };
 
 class MyProfile extends StatefulWidget {
-  final String profileName;
-  final String profileDesignation;
-  final String profileImageUrl;
-
-  const MyProfile(
-      {Key? key,
-      required this.profileName,
-      required this.profileDesignation,
-      required this.profileImageUrl})
-      : super(key: key);
+  const MyProfile({Key? key}) : super(key: key);
 
   @override
   State<MyProfile> createState() => _MyProfileState();
@@ -75,7 +61,8 @@ class _MyProfileState extends State<MyProfile> {
         body: SeoController(
           tree: WidgetTree(context: context),
           child: AppMeta(
-            title: 'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
+            title:
+                'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
             description:
                 'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
             author: 'To The New',
@@ -84,18 +71,18 @@ class _MyProfileState extends State<MyProfile> {
               child: SingleChildScrollView(
                 controller: ScrollController(),
                 child: Wrap(
-                  children: [
-                    const PageHeader(
+                  children: const [
+                    PageHeader(
                       width: double.infinity,
                       title: 'Profile',
                       subtitle: 'Home / Profile',
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
+                      padding: EdgeInsets.only(bottom: 20.0),
                       child: ProfileHeader(
-                        profileName: widget.profileName,
-                        profileDesignation: widget.profileDesignation,
-                        profileImageUrl: widget.profileImageUrl,
+                        profileName: dashboardProfileName,
+                        profileDesignation: profileDesignation,
+                        profileImageUrl: dashboardProfileImage,
                       ),
                     ),
                   ],

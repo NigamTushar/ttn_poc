@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:newers_world/main_router.dart';
+import 'package:newers_world/profile/profile_model.dart';
 import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 
@@ -16,30 +17,24 @@ class StakeholdersList extends StatelessWidget {
         children: [
           ListTile(
             onTap: () {
-              context.router.push(ProfileHomeRoute(
-                  profileId: 1,
-                  profileName: 'Ankit Nigam',
-                  profileDesignation: 'Technical Lead',
-                  profileImageUrl:
-                      'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'));
-            },
+              context.router.push(ProfileHomeRoute(id: 1));
+              },
             leading: const AppImage(
               radius: 40,
-              src:
-                  'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x',
+              src: ankitNigamProfileUrl,
               alt: 'Stakeholder Profile Image',
             ),
-            title: const AppText(text: 'Ankit Nigam', style: TextStyle()),
+            title: const AppText(text: ankitNigam, style: TextStyle()),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 AppText(
-                  text: 'Technical Lead',
+                  text: techLead,
                   headingElement: HeadingText.h2,
                   style: TextStyle(),
                 ),
                 AppText(
-                  text: 'Mentor',
+                  text: mentor,
                   headingElement: HeadingText.h2,
                   style: TextStyle(),
                 ),
@@ -54,29 +49,23 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.router.push(ProfileHomeRoute(
-                  profileId: 2,
-                  profileName: 'Kritika Anand',
-                  profileDesignation: 'Executive - Human Resource',
-                  profileImageUrl:
-                      'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'));
+              context.router.push(ProfileHomeRoute(id: 2));
             },
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
+              backgroundImage: NetworkImage(kritikaAnandProfileUrl),
               radius: 40.0,
             ),
-            title: const Text('Kritika Anand'),
+            title: const Text(kritikaAnand),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
                 AppText(
-                  text: 'Executive - Human Resource',
+                  text: excHR,
                   headingElement: HeadingText.h2,
                   style: TextStyle(),
                 ),
                 AppText(
-                  text: 'HR Spoc',
+                  text: hrSpoc,
                   headingElement: HeadingText.h2,
                   style: TextStyle(),
                 ),
@@ -92,24 +81,18 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.router.push(ProfileHomeRoute(
-                  profileId: 3,
-                  profileName: 'Saurabh Sablok',
-                  profileDesignation: 'Project Manager',
-                  profileImageUrl:
-                      'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'));
+              context.router.push(ProfileHomeRoute(id: 3));
             },
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'),
+              backgroundImage: NetworkImage(saurabhSablokProfileUrl),
               radius: 40.0,
             ),
-            title: const Text('Saurabh Sablok'),
+            title: const Text(saurabhSablok),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Project Manager'),
-                Text('Reporting Manager'),
+                Text(projectManager),
+                Text(reportingManager),
               ],
             ),
           ),
@@ -122,24 +105,18 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.router.push(ProfileHomeRoute(
-                  profileId: 4,
-                  profileName: 'Ashish Kumar',
-                  profileDesignation: 'Associate Tech Lead',
-                  profileImageUrl:
-                      'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'));
+              context.router.push(ProfileHomeRoute(id: 4));
             },
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'),
+              backgroundImage: NetworkImage(ashishKumarProfileUrl),
               radius: 40.0,
             ),
-            title: const Text('Ashish Kumar'),
+            title: const Text(ashishKumar),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Associate Tech Lead'),
-                Text('Mentor'),
+                Text(associateTechLead),
+                Text(mentor),
               ],
             ),
           ),
@@ -152,24 +129,18 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             onTap: () {
-              context.router.push(ProfileHomeRoute(
-                  profileId: 5,
-                  profileName: 'Lokesh Kumar',
-                  profileDesignation: 'Associate Tech Lead',
-                  profileImageUrl:
-                      'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'));
+              context.router.push(ProfileHomeRoute(id: 5));
             },
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'),
+              backgroundImage: NetworkImage(lokeshKumarProfileUrl),
               radius: 40.0,
             ),
-            title: const Text('Lokesh Kumar'),
+            title: const Text(lokeshKumar),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Associate Tech Lead'),
-                Text('Mentor'),
+                Text(associateTechLead),
+                Text(mentor),
               ],
             ),
           ),

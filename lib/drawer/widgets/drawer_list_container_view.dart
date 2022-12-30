@@ -26,10 +26,7 @@ class DrawerListContainerView extends StatelessWidget {
               context.router.push(const DrawerScreenRoute());
               break;
             case DrawerConst.myProfile:
-              context.router.push(MyProfileRoute(
-                  profileName: dashboardProfileName,
-                  profileDesignation: profileDesignation,
-                  profileImageUrl: dashboardProfileImage));
+              context.router.push(const MyProfileRoute());
               break;
             case DrawerConst.attendanceMenu:
               context.router.push(const AttendanceHomeRoute());

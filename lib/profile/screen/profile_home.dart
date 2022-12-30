@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
+import 'package:newers_world/profile/profile_model.dart';
 import 'package:newers_world/screens/profile_header.dart';
 import 'package:newers_world/seoWidget/app_meta.dart';
 import 'package:newers_world/widgets/container_screen.dart';
@@ -51,18 +53,9 @@ final profileData1 = {
 };
 
 class ProfileHome extends StatefulWidget {
-  final int profileId;
-  final String profileName;
-  final String profileDesignation;
-  final String profileImageUrl;
+  final int id;
 
-  const ProfileHome(
-      {Key? key,
-      required this.profileId,
-      required this.profileName,
-      required this.profileDesignation,
-      required this.profileImageUrl})
-      : super(key: key);
+  const ProfileHome({Key? key, @pathParam required this.id}) : super(key: key);
 
   @override
   State<ProfileHome> createState() => _ProfileHomeState();
@@ -71,41 +64,94 @@ class ProfileHome extends StatefulWidget {
 class _ProfileHomeState extends State<ProfileHome> {
   @override
   Widget build(BuildContext context) {
-    return ContainerScreen(
-      child: Scaffold(
-        body: SeoController(
-          tree: WidgetTree(context: context),
-          child: AppMeta(
-            title: 'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
-            description:
-                'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
-            author: 'To The New',
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: SingleChildScrollView(
-                controller: ScrollController(),
-                child: Wrap(
-                  children: [
-                    PageHeader(
-                      width: double.infinity,
-                      title: 'Profile',
-                      subtitle: "Home / ${widget.profileName}'s Profile",
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20.0),
-                      child: ProfileHeader(
-                        profileName: widget.profileName,
-                        profileDesignation: widget.profileDesignation,
-                        profileImageUrl: widget.profileImageUrl,
+    ProfileModel? profileModel = getProfileData();
+    return profileModel != null
+        ? ContainerScreen(
+            child: Scaffold(
+              body: SeoController(
+                tree: WidgetTree(context: context),
+                child: AppMeta(
+                  title:
+                      'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
+                  description:
+                      'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
+                  author: 'To The New',
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height,
+                    child: SingleChildScrollView(
+                      controller: ScrollController(),
+                      child: Wrap(
+                        children: [
+                          PageHeader(
+                            width: double.infinity,
+                            title: 'Profile',
+                            subtitle:
+                                "Home / ${profileModel.profileName}'s Profile",
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20.0),
+                            child: ProfileHeader(
+                              profileName: profileModel.profileName,
+                              profileDesignation:
+                                  profileModel.profileDesignation,
+                              profileImageUrl: profileModel.profileImageUrl,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
-          ),
-        ),
-      ),
-    );
+          )
+        : const SizedBox.shrink();
+  }
+
+  ProfileModel? getProfileData() {
+    ProfileModel? profileModel;
+    switch (widget.id) {
+      case 1:
+        {
+          profileModel = ProfileModel(
+              profileName: ankitNigam,
+              profileDesignation: techLead,
+              profileImageUrl: ankitNigamProfileUrl);
+        }
+        break;
+      case 2:
+        {
+          profileModel = ProfileModel(
+              profileName: kritikaAnand,
+              profileDesignation: excHR,
+              profileImageUrl: kritikaAnandProfileUrl);
+        }
+        break;
+      case 3:
+        {
+          profileModel = ProfileModel(
+              profileName: saurabhSablok,
+              profileDesignation: projectManager,
+              profileImageUrl: saurabhSablokProfileUrl);
+        }
+        break;
+      case 4:
+        {
+          profileModel = ProfileModel(
+              profileName: ashishKumar,
+              profileDesignation: associateTechLead,
+              profileImageUrl: ashishKumarProfileUrl);
+        }
+        break;
+      case 5:
+        {
+          profileModel = ProfileModel(
+              profileName: lokeshKumar,
+              profileDesignation: associateTechLead,
+              profileImageUrl: lokeshKumarProfileUrl);
+        }
+        break;
+    }
+    return profileModel;
   }
 }
