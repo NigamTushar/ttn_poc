@@ -1,4 +1,6 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:newers_world/main_router.dart';
 import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 
@@ -15,10 +17,21 @@ class StakeholdersList extends StatelessWidget {
           ListTile(
             leading: const AppImage(
               radius: 40,
-              src: 'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x',
+              src:
+                  'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x',
               alt: 'Stakeholder Profile Image',
             ),
-            title: const AppText(text: 'Ankit Nigam', style: TextStyle()),
+            title: GestureDetector(
+              child: const AppText(text: 'Ankit Nigam', style: TextStyle()),
+              onTap: () {
+                context.router.push(ProfileHomeRoute(
+                    profileId: 1,
+                    profileName: 'Kritika Anand',
+                    profileDesignation: 'Executive - Human Resource',
+                    profileImageUrl:
+                        'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'));
+              },
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -28,7 +41,7 @@ class StakeholdersList extends StatelessWidget {
                   style: TextStyle(),
                 ),
                 AppText(
-                  text: 'Mentoring and Reporting Manager',
+                  text: 'Mentor',
                   headingElement: HeadingText.h2,
                   style: TextStyle(),
                 ),
@@ -43,10 +56,21 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
+              backgroundImage: NetworkImage(
+                  'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
               radius: 40.0,
             ),
-            title: const Text('Kritika Anand'),
+            title: GestureDetector(
+              child: const Text('Kritika Anand'),
+              onTap: () {
+                context.router.push(ProfileHomeRoute(
+                    profileId: 2,
+                    profileName: 'Kritika Anand',
+                    profileDesignation: 'Executive - Human Resource',
+                    profileImageUrl:
+                        'https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'));
+              },
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
@@ -72,15 +96,26 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'),
+              backgroundImage: NetworkImage(
+                  'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'),
               radius: 40.0,
             ),
-            title: const Text('Ankit Nigam'),
+            title: GestureDetector(
+              child: const Text('Saurabh Sablok'),
+              onTap: () {
+                context.router.push(ProfileHomeRoute(
+                    profileId: 3,
+                    profileName: 'Saurabh Sablok',
+                    profileDesignation: 'Project Manager',
+                    profileImageUrl:
+                        'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=identicon&r=x'));
+              },
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Technical Lead'),
-                Text('Mentoring and Reporting Manager'),
+                Text('Project Manager'),
+                Text('Reporting Manager'),
               ],
             ),
           ),
@@ -93,15 +128,26 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
+              backgroundImage: NetworkImage(
+                  'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'),
               radius: 40.0,
             ),
-            title: const Text('Kritika Anand'),
+            title: GestureDetector(
+              child: const Text('Ashish Kumar'),
+              onTap: () {
+                context.router.push(ProfileHomeRoute(
+                    profileId: 4,
+                    profileName: 'Ashish Kumar',
+                    profileDesignation: 'Associate Tech Lead',
+                    profileImageUrl:
+                        'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=robohash&r=x'));
+              },
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Executive - Human Resource'),
-                Text('HR Spoc'),
+                Text('Associate Tech Lead'),
+                Text('Mentor'),
               ],
             ),
           ),
@@ -114,86 +160,27 @@ class StakeholdersList extends StatelessWidget {
           ),
           ListTile(
             leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'),
+              backgroundImage: NetworkImage(
+                  'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'),
               radius: 40.0,
             ),
-            title: const Text('Ankit Nigam'),
+            title: GestureDetector(
+              child: const Text('Lokesh Kumar'),
+              onTap: () {
+                context.router.push(ProfileHomeRoute(
+                    profileId: 5,
+                    profileName: 'Lokesh Kumar',
+                    profileDesignation: 'Associate Tech Lead',
+                    profileImageUrl:
+                        'https://gravatar.com/avatar/dad1dd564d0d59f6077b83d61b32b57f?s=400&d=monsterid&r=x'));
+              },
+            ),
             subtitle: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: const [
-                Text('Technical Lead'),
-                Text('Mentoring and Reporting Manager'),
+                Text('Associate Tech Lead'),
+                Text('Mentor'),
               ],
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(right: 30.0),
-            child: const Divider(
-              indent: 30.0,
-              color: Colors.blueGrey,
-            ),
-          ),
-          ListTile(
-            leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
-              radius: 40.0,
-            ),
-            title: const Text('Kritika Anand'),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Executive - Human Resource'),
-                Text('HR Spoc'),
-              ],
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(right: 30.0),
-            child: const Divider(
-              indent: 30.0,
-              color: Colors.blueGrey,
-            ),
-          ),
-          ListTile(
-            leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=robohash&r=x'),
-              radius: 40.0,
-            ),
-            title: const Text('Ankit Nigam'),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Technical Lead'),
-                Text('Mentoring and Reporting Manager'),
-              ],
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(right: 30.0),
-            child: const Divider(
-              indent: 30.0,
-              color: Colors.blueGrey,
-            ),
-          ),
-          ListTile(
-            leading: const CircleAvatar(
-              backgroundImage: NetworkImage('https://gravatar.com/avatar/f59e51f892615faded8d5fb3cf18a2c0?s=400&d=identicon&r=x'),
-              radius: 40.0,
-            ),
-            title: const Text('Kritika Anand'),
-            subtitle: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text('Executive - Human Resource'),
-                Text('HR Spoc'),
-              ],
-            ),
-          ),
-          Container(
-            margin: const EdgeInsets.only(right: 30.0),
-            child: const Divider(
-              indent: 30.0,
-              color: Colors.blueGrey,
             ),
           ),
         ],

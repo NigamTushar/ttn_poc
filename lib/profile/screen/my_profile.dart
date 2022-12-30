@@ -50,25 +50,23 @@ final profileData1 = {
   'Let test3': ['Australia & New Zealand (ANZ), we are good mate', 'CC']
 };
 
-class ProfileHome extends StatefulWidget {
-  final int profileId;
+class MyProfile extends StatefulWidget {
   final String profileName;
   final String profileDesignation;
   final String profileImageUrl;
 
-  const ProfileHome(
+  const MyProfile(
       {Key? key,
-      required this.profileId,
       required this.profileName,
       required this.profileDesignation,
       required this.profileImageUrl})
       : super(key: key);
 
   @override
-  State<ProfileHome> createState() => _ProfileHomeState();
+  State<MyProfile> createState() => _MyProfileState();
 }
 
-class _ProfileHomeState extends State<ProfileHome> {
+class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return ContainerScreen(
@@ -86,10 +84,10 @@ class _ProfileHomeState extends State<ProfileHome> {
                 controller: ScrollController(),
                 child: Wrap(
                   children: [
-                    PageHeader(
+                    const PageHeader(
                       width: double.infinity,
                       title: 'Profile',
-                      subtitle: "Home / ${widget.profileName}'s Profile",
+                      subtitle: 'Home / Profile',
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20.0),

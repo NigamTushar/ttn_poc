@@ -8,7 +8,16 @@ import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 
 class ProfileHeader extends StatefulWidget {
-  const ProfileHeader({Key? key}) : super(key: key);
+  final String profileName;
+  final String profileDesignation;
+  final String profileImageUrl;
+
+  const ProfileHeader(
+      {Key? key,
+      required this.profileName,
+      required this.profileDesignation,
+      required this.profileImageUrl})
+      : super(key: key);
 
   @override
   State<StatefulWidget> createState() => ProfileHeaderState();
@@ -100,13 +109,13 @@ class ProfileHeaderState extends State<ProfileHeader>
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       AppText(
-                        text: 'Rahul Sharma',
+                        text: widget.profileName,
                         style: TextStyle(
                             fontSize: Constants.headingFontSize,
                             color: Colors.white),
                       ),
                       AppText(
-                        text: 'Software Engineer',
+                        text: widget.profileDesignation,
                         headingElement: HeadingText.h2,
                         style: TextStyle(
                             fontSize: Constants.subHheadingFontSize,
@@ -126,9 +135,9 @@ class ProfileHeaderState extends State<ProfileHeader>
                           borderRadius:
                               BorderRadius.circular(100), //<-- SEE HERE
                         ),
-                        child: const AppImage(
+                        child: AppImage(
                           radius: 55,
-                          src: 'https://picsum.photos/250?image=2',
+                          src: widget.profileImageUrl,
                           alt: 'Newer Profile Image',
                         ),
                       ),
@@ -188,7 +197,7 @@ class ProfileHeaderState extends State<ProfileHeader>
   Widget getOrgChar(BuildContext context) {
     return Positioned(
       top: ResponsiveWidget.isLargeScreen(context) ? 50 : 40,
-      left: ResponsiveWidget.isLargeScreen(context) ? 320 : 20,
+      left: ResponsiveWidget.isLargeScreen(context) ? 340 : 20,
       child: const Padding(
         padding: EdgeInsets.all(10),
         child: Icon(Icons.add_chart),

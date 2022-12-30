@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 import 'package:newers_world/helper/breakpoint.dart';
 import 'package:newers_world/helper/constants.dart';
 
@@ -143,7 +144,7 @@ Container userDetailDescription(double size) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Rahul Sharma',
+          dashboardProfileName,
           style: TextStyle(
             fontSize: Constants.headingFontSize,
           ),
