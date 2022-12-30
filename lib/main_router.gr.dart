@@ -30,15 +30,9 @@ class _$MainRouter extends RootStackRouter {
       );
     },
     MyProfileRoute.name: (routeData) {
-      final args = routeData.argsAs<MyProfileRouteArgs>();
       return AdaptivePage<dynamic>(
         routeData: routeData,
-        child: MyProfile(
-          key: args.key,
-          profileName: args.profileName,
-          profileDesignation: args.profileDesignation,
-          profileImageUrl: args.profileImageUrl,
-        ),
+        child: const MyProfile(),
       );
     },
     ResumeHomeRoute.name: (routeData) {
@@ -84,15 +78,14 @@ class _$MainRouter extends RootStackRouter {
       );
     },
     ProfileHomeRoute.name: (routeData) {
-      final args = routeData.argsAs<ProfileHomeRouteArgs>();
+      final pathParams = routeData.inheritedPathParams;
+      final args = routeData.argsAs<ProfileHomeRouteArgs>(
+          orElse: () => ProfileHomeRouteArgs(id: pathParams.getInt('id')));
       return AdaptivePage<dynamic>(
         routeData: routeData,
         child: ProfileHome(
           key: args.key,
-          profileId: args.profileId,
-          profileName: args.profileName,
-          profileDesignation: args.profileDesignation,
-          profileImageUrl: args.profileImageUrl,
+          id: args.id,
         ),
       );
     },
@@ -185,46 +178,14 @@ class AttendanceHomeRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [MyProfile]
-class MyProfileRoute extends PageRouteInfo<MyProfileRouteArgs> {
-  MyProfileRoute({
-    Key? key,
-    required String profileName,
-    required String profileDesignation,
-    required String profileImageUrl,
-  }) : super(
+class MyProfileRoute extends PageRouteInfo<void> {
+  const MyProfileRoute()
+      : super(
           MyProfileRoute.name,
           path: '/myProfile',
-          args: MyProfileRouteArgs(
-            key: key,
-            profileName: profileName,
-            profileDesignation: profileDesignation,
-            profileImageUrl: profileImageUrl,
-          ),
         );
 
   static const String name = 'MyProfileRoute';
-}
-
-class MyProfileRouteArgs {
-  const MyProfileRouteArgs({
-    this.key,
-    required this.profileName,
-    required this.profileDesignation,
-    required this.profileImageUrl,
-  });
-
-  final Key? key;
-
-  final String profileName;
-
-  final String profileDesignation;
-
-  final String profileImageUrl;
-
-  @override
-  String toString() {
-    return 'MyProfileRouteArgs{key: $key, profileName: $profileName, profileDesignation: $profileDesignation, profileImageUrl: $profileImageUrl}';
-  }
 }
 
 /// generated route for
@@ -316,20 +277,15 @@ class OrgChartsRoute extends PageRouteInfo<void> {
 class ProfileHomeRoute extends PageRouteInfo<ProfileHomeRouteArgs> {
   ProfileHomeRoute({
     Key? key,
-    required int profileId,
-    required String profileName,
-    required String profileDesignation,
-    required String profileImageUrl,
+    required int id,
   }) : super(
           ProfileHomeRoute.name,
           path: '/profile/:id',
           args: ProfileHomeRouteArgs(
             key: key,
-            profileId: profileId,
-            profileName: profileName,
-            profileDesignation: profileDesignation,
-            profileImageUrl: profileImageUrl,
+            id: id,
           ),
+          rawPathParams: {'id': id},
         );
 
   static const String name = 'ProfileHomeRoute';
@@ -338,24 +294,15 @@ class ProfileHomeRoute extends PageRouteInfo<ProfileHomeRouteArgs> {
 class ProfileHomeRouteArgs {
   const ProfileHomeRouteArgs({
     this.key,
-    required this.profileId,
-    required this.profileName,
-    required this.profileDesignation,
-    required this.profileImageUrl,
+    required this.id,
   });
 
   final Key? key;
 
-  final int profileId;
-
-  final String profileName;
-
-  final String profileDesignation;
-
-  final String profileImageUrl;
+  final int id;
 
   @override
   String toString() {
-    return 'ProfileHomeRouteArgs{key: $key, profileId: $profileId, profileName: $profileName, profileDesignation: $profileDesignation, profileImageUrl: $profileImageUrl}';
+    return 'ProfileHomeRouteArgs{key: $key, id: $id}';
   }
 }

@@ -3,7 +3,6 @@ import 'package:newers_world/attendance/screen/attendance_home_screen.dart';
 import 'package:newers_world/dashboard/screen/dashboard_list_view.dart';
 import 'package:newers_world/drawer/utils/drawer_const.dart';
 import 'package:newers_world/profile/screen/my_profile.dart';
-import 'package:newers_world/profile/screen/profile_home.dart';
 
 const dashboardProfileName = 'Rahul Sharma';
 const profileDesignation = 'Senior Software Engineer';
@@ -21,11 +20,7 @@ class DrawerPages extends StatelessWidget {
       case DrawerConst.myDashBoardMenu:
         return const DashboardListView();
       case DrawerConst.myProfile:
-        return const MyProfile(
-          profileName: dashboardProfileName,
-          profileDesignation: profileDesignation,
-          profileImageUrl: dashboardProfileImage,
-        );
+        return const MyProfile();
       case DrawerConst.attendanceMenu:
         return const AttendanceHome();
     }
