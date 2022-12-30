@@ -6,6 +6,6 @@ class ImportantLinksHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComingSoon();
+    return const ComingSoon(title: 'Newers important links', description: 'Newers important links, All links', author: 'To The New');
   }
 }

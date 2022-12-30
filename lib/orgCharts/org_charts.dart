@@ -6,6 +6,7 @@ class OrgCharts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComingSoon();
+    return const ComingSoon(title: 'Newers org charts', description: 'Newers org charts, My Reporting, Reporting Manager', author: 'To The New');
+
   }
 }

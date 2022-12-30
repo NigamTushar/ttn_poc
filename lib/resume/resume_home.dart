@@ -6,6 +6,6 @@ class ResumeHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const ComingSoon();
+    return const ComingSoon(title: 'Resume Home', description: 'Resume, My Resume, My Info, My Experience', author: 'To The New');
   }
 }
