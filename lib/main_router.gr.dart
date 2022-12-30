@@ -188,19 +188,6 @@ class MyProfileRoute extends PageRouteInfo<void> {
   static const String name = 'MyProfileRoute';
 }
 
-class MyProfileRouteArgs {
-  const MyProfileRouteArgs({
-    this.key
-  });
-
-  final Key? key;
-
-  @override
-  String toString() {
-    return 'MyProfileRouteArgs{key: $key}';
-  }
-}
-
 /// generated route for
 /// [ResumeHome]
 class ResumeHomeRoute extends PageRouteInfo<void> {

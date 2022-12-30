@@ -7,12 +7,6 @@ import 'package:newers_world/seoWidget/app_meta.dart';
 import 'package:newers_world/widgets/container_screen.dart';
 import 'package:seo_service/html/seo_controller.dart';
 import 'package:seo_service/html/tree/widget_tree.dart';
-/*import 'package:newers_world/dashboard_screens/dashboard_home_screen.dart';
-import 'package:newers_world/widgets/app_drawer.dart';
-import 'package:newers_world/widgets/page_header.dart';
-import 'package:newers_world/widgets/profile_expandable_list.dart';
-import 'package:newers_world/widgets/profile_list.dart';
-import 'package:newers_world/widgets/stakeholder_list.dart';*/
 
 final empSnapShots = {
   'Legal Entity': 'TO THE NEW Private Limited',
@@ -105,7 +99,7 @@ class _ProfileHomeState extends State<ProfileHome> {
               ),
             ),
           )
-        : const SizedBox.shrink();
+        : const SizedBox();
   }
 
   ProfileModel? getProfileData() {
