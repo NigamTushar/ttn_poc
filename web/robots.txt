@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: base_url/sitemap.xml
+Sitemap: https://ttn-world.000webhostapp.com/sitemap.xml
