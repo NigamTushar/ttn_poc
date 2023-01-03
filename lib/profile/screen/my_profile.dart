@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
 import 'package:newers_world/drawer/widgets/drawer_pages.dart';
-import 'package:newers_world/screens/coming_soon.dart';
 import 'package:newers_world/screens/profile_header.dart';
-import 'package:newers_world/seoWidget/app_meta.dart';
+import 'package:newers_world/seoWidget/app_head.dart';
 import 'package:newers_world/widgets/container_screen.dart';
-import 'package:seo_service/html/seo_controller.dart';
-import 'package:seo_service/html/tree/widget_tree.dart';
 
 final empSnapShots = {
   'Legal Entity': 'TO THE NEW Private Limited',
@@ -57,37 +54,32 @@ class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return ContainerScreen(
-      child: Scaffold(
-        body: SeoController(
-          tree: WidgetTree(context: context),
-          child: AppMeta(
-            title:
-                'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
-            description:
-                'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
-            author: 'To The New',
-            child: SizedBox(
-              height: MediaQuery.of(context).size.height,
-              child: SingleChildScrollView(
-                controller: ScrollController(),
-                child: Wrap(
-                  children: const [
-                    PageHeader(
-                      width: double.infinity,
-                      title: 'Profile',
-                      subtitle: 'Home / Profile',
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(bottom: 20.0),
-                      child: ProfileHeader(
-                        profileName: dashboardProfileName,
-                        profileDesignation: profileDesignation,
-                        profileImageUrl: dashboardProfileImage,
-                      ),
-                    ),
-                  ],
+      child: AppHead(
+        title:
+            'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
+        description:
+            'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
+        author: 'To The New',
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: SingleChildScrollView(
+            controller: ScrollController(),
+            child: Wrap(
+              children: const [
+                PageHeader(
+                  width: double.infinity,
+                  title: 'Profile',
+                  subtitle: 'Home / Profile',
                 ),
-              ),
+                Padding(
+                  padding: EdgeInsets.only(bottom: 20.0),
+                  child: ProfileHeader(
+                    profileName: dashboardProfileName,
+                    profileDesignation: profileDesignation,
+                    profileImageUrl: dashboardProfileImage,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

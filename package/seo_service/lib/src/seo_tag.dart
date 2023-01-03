@@ -1,22 +1,18 @@
-import 'meta_tag.dart';
+import 'package:seo_service/head_tag.dart';
 
 abstract class SeoTag {
   const SeoTag();
 }
 
+enum TextTagStyle { h1, h2, h3, h4, h5, h6, p }
+
 class TextTag extends SeoTag {
   final String text;
+  final TextTagStyle style;
 
   const TextTag({
     required this.text,
-  });
-}
-
-class TextH2Tag extends SeoTag {
-  final String text;
-
-  const TextH2Tag({
-    required this.text,
+    required this.style,
   });
 }
 
@@ -48,10 +44,10 @@ class LinkTag extends SeoTag {
   });
 }
 
-class MetaTags extends SeoTag {
-  final List<MetaTag> tags;
+class HeadTags extends SeoTag {
+  final List<HeadTag> tags;
 
-  const MetaTags({
+  const HeadTags({
     required this.tags,
   });
 }

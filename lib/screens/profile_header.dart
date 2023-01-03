@@ -6,6 +6,7 @@ import 'package:newers_world/profile/screen/personal_info.dart';
 import 'package:newers_world/profile/screen/profile_details.dart';
 import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
+import 'package:seo_service/seo.dart';
 
 class ProfileHeader extends StatefulWidget {
   final String profileName;
@@ -110,13 +111,14 @@ class ProfileHeaderState extends State<ProfileHeader>
                     children: [
                       AppText(
                         text: widget.profileName,
+                        tagStyle: TextTagStyle.h1,
                         style: TextStyle(
                             fontSize: Constants.headingFontSize,
                             color: Colors.white),
                       ),
                       AppText(
                         text: widget.profileDesignation,
-                        headingElement: HeadingText.h2,
+                        tagStyle: TextTagStyle.h2,
                         style: TextStyle(
                             fontSize: Constants.subHheadingFontSize,
                             color: Colors.white),
@@ -179,9 +181,17 @@ class ProfileHeaderState extends State<ProfileHeader>
                     controller: _tabController,
                     tabs: const [
                       AppText(
-                          text: 'Employment Information', style: TextStyle()),
-                      AppText(text: 'Personal Information', style: TextStyle()),
-                      AppText(text: 'Profile Details', style: TextStyle()),
+                          tagStyle: TextTagStyle.h1,
+                          text: 'Employment Information',
+                          style: TextStyle()),
+                      AppText(
+                          tagStyle: TextTagStyle.h1,
+                          text: 'Personal Information',
+                          style: TextStyle()),
+                      AppText(
+                          tagStyle: TextTagStyle.h1,
+                          text: 'Profile Details',
+                          style: TextStyle()),
                     ],
                   ),
                 ),
