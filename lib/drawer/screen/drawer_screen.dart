@@ -8,12 +8,14 @@ import 'package:newers_world/drawer/widgets/drawer_menu.dart';
 import 'package:newers_world/drawer/widgets/drawer_pages.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_head.dart';
+import 'package:newers_world/tab/tab_home.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    return TabHome();
     return BlocProvider(
       create: (context) => DrawerCubit(),
       child: const DrawerBody(),
