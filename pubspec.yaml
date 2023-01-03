@@ -48,6 +48,7 @@ dependencies:
   seo_service:
     path: ./package/seo_service
   auto_route: ^5.0.3
+  seo: ^0.0.4
 
 dev_dependencies:
   flutter_test:
