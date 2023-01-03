@@ -84,31 +84,6 @@ class _SeoControllerState extends State<SeoController> {
     }
   }
 
-  void _updateHead(SeoHtml html) {
-    final head = document.head;
-    if (head == null) return;
-
-    final hash = html.head.hashCode;
-    if (_headHash == hash) return;
-    _headHash = hash;
-
-    head.children
-        .where((element) => element.attributes.containsKey('flt-seo'))
-        .forEach((element) => element.remove());
-
-    head.insertAdjacentHtml(
-      'beforeEnd',
-      html.head,
-      validator: NodeValidatorBuilder()
-        ..allowHtml5(uriPolicy: _AllowAllUriPolicy())
-        ..allowCustomElement('title', attributes: ['flt-seo'])
-        ..allowCustomElement(
-          'meta',
-          attributes: ['name', 'property', 'content', 'flt-seo'],
-        ),
-    );
-  }
-
   void _resetHead({bool update = false}) {
     if (!mounted) return;
     final head = document.head;
@@ -134,9 +109,38 @@ class _SeoControllerState extends State<SeoController> {
     }
   }
 
+  void _updateHead(SeoHtml html) {
+    final head = document.head;
+    if (head == null) return;
+
+    final hash = html.head.hashCode;
+    if (_headHash == hash) return;
+    _headHash = hash;
+
+    head.children
+        .where((element) => element.attributes.containsKey('flt-seo'))
+        .forEach((element) => element.remove());
+
+    head.insertAdjacentHtml(
+      'beforeEnd',
+      html.head,
+      validator: NodeValidatorBuilder()
+        ..allowHtml5(uriPolicy: _AllowAllUriPolicy())
+        ..allowCustomElement(
+          'meta',
+          attributes: ['name', 'http-equiv', 'content', 'flt-seo'],
+        )
+        ..allowCustomElement(
+          'link',
+          attributes: ['title', 'rel', 'type', 'href', 'media', 'flt-seo'],
+        ),
+    );
+  }
+
   void _updateBody(SeoHtml html) {
     final body = document.body;
     if (body == null) return;
+
     final hash = html.body.hashCode;
     if (_bodyHash == hash) return;
     _bodyHash = hash;
@@ -152,8 +156,13 @@ class _SeoControllerState extends State<SeoController> {
         ..allowHtml5(uriPolicy: _AllowAllUriPolicy())
         ..allowCustomElement('flt-seo')
         ..allowCustomElement('noscript')
-        ..allowCustomElement('h2',attributes: ['style'])
-        ..allowCustomElement('h1', attributes: ['style']),
+        ..allowCustomElement('h1', attributes: ['style'])
+        ..allowCustomElement('h2', attributes: ['style'])
+        ..allowCustomElement('h3', attributes: ['style'])
+        ..allowCustomElement('h4', attributes: ['style'])
+        ..allowCustomElement('h5', attributes: ['style'])
+        ..allowCustomElement('h6', attributes: ['style'])
+        ..allowCustomElement('p', attributes: ['style']),
     );
   }
 
