@@ -6,6 +6,7 @@ import 'package:newers_world/helper/constants.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
+import 'package:seo_service/seo.dart';
 
 class DashboardUserCard extends StatelessWidget {
   const DashboardUserCard({Key? key}) : super(key: key);
@@ -125,13 +126,14 @@ class DashboardUserCard extends StatelessWidget {
             children: [
               AppText(
                 text: dashboardProfileName,
+                tagStyle: TextTagStyle.h1,
                 style: TextStyle(
                   fontSize: Constants.headingFontSize,
                 ),
               ),
               AppText(
                 text: 'Software Engineer',
-                headingElement: HeadingText.h2,
+                tagStyle: TextTagStyle.h2,
                 style: TextStyle(
                   fontSize: Constants.subHheadingFontSize,
                 ),
@@ -145,7 +147,7 @@ class DashboardUserCard extends StatelessWidget {
                 leading: const Icon(Icons.house_outlined),
                 title: AppText(
                   text: 'To The New Private Limited',
-                  headingElement: HeadingText.h2,
+                  tagStyle: TextTagStyle.h2,
                   style: TextStyle(fontSize: Constants.normalTextFontSize),
                 ),
                 iconColor: Colors.black,
@@ -159,7 +161,7 @@ class DashboardUserCard extends StatelessWidget {
                 leading: const Icon(Icons.business),
                 title: AppText(
                   text: 'Digital Native Businesses(DNB)',
-                  headingElement: HeadingText.h2,
+                  tagStyle: TextTagStyle.h2,
                   style: TextStyle(fontSize: Constants.normalTextFontSize),
                 ),
                 iconColor: Colors.black,
@@ -173,7 +175,7 @@ class DashboardUserCard extends StatelessWidget {
                 leading: const Icon(Icons.business_center_outlined),
                 title: AppText(
                   text: 'iOS',
-                  headingElement: HeadingText.h2,
+                  tagStyle: TextTagStyle.h2,
                   style: TextStyle(fontSize: Constants.normalTextFontSize),
                 ),
                 iconColor: Colors.black,

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
+import 'package:seo_service/seo.dart';
 
 class PageHeader extends StatelessWidget {
   final double width;
@@ -25,6 +26,7 @@ class PageHeader extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0,),
             child: AppText(
               text: title,
+              tagStyle: TextTagStyle.h1,
               style: const TextStyle(
                 // color: Colors.blueGrey,
                 fontWeight: FontWeight.w300,

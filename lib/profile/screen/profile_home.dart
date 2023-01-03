@@ -3,10 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:newers_world/dashboard/widgets/page_header.dart';
 import 'package:newers_world/profile/profile_model.dart';
 import 'package:newers_world/screens/profile_header.dart';
-import 'package:newers_world/seoWidget/app_meta.dart';
+import 'package:newers_world/seoWidget/app_head.dart';
 import 'package:newers_world/widgets/container_screen.dart';
-import 'package:seo_service/html/seo_controller.dart';
-import 'package:seo_service/html/tree/widget_tree.dart';
 
 final empSnapShots = {
   'Legal Entity': 'TO THE NEW Private Limited',
@@ -61,39 +59,33 @@ class _ProfileHomeState extends State<ProfileHome> {
     ProfileModel? profileModel = getProfileData();
     return profileModel != null
         ? ContainerScreen(
-            child: Scaffold(
-              body: SeoController(
-                tree: WidgetTree(context: context),
-                child: AppMeta(
-                  title:
-                      'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
-                  description:
-                      'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
-                  author: 'To The New',
-                  child: SizedBox(
-                    height: MediaQuery.of(context).size.height,
-                    child: SingleChildScrollView(
-                      controller: ScrollController(),
-                      child: Wrap(
-                        children: [
-                          PageHeader(
-                            width: double.infinity,
-                            title: 'Profile',
-                            subtitle:
-                                "Home / ${profileModel.profileName}'s Profile",
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 20.0),
-                            child: ProfileHeader(
-                              profileName: profileModel.profileName,
-                              profileDesignation:
-                                  profileModel.profileDesignation,
-                              profileImageUrl: profileModel.profileImageUrl,
-                            ),
-                          ),
-                        ],
+            child: AppHead(
+              title:
+                  'Newer Profile, Personal Information and Details, Document Center. TO THE NEW',
+              description:
+                  'Newer Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW',
+              author: 'To The New',
+              child: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                child: SingleChildScrollView(
+                  controller: ScrollController(),
+                  child: Wrap(
+                    children: [
+                      PageHeader(
+                        width: double.infinity,
+                        title: 'Profile',
+                        subtitle:
+                            "Home / ${profileModel.profileName}'s Profile",
                       ),
-                    ),
+                      Padding(
+                        padding: const EdgeInsets.only(bottom: 20.0),
+                        child: ProfileHeader(
+                          profileName: profileModel.profileName,
+                          profileDesignation: profileModel.profileDesignation,
+                          profileImageUrl: profileModel.profileImageUrl,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),

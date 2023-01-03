@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:seo_service/html/seo_widget.dart';
-import 'package:seo_service/html/widget/meta_tag.dart';
+import 'package:seo_service/seo.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class AppMeta extends StatefulWidget {
+class AppHead extends StatefulWidget {
   final String title;
   final String description;
   final String? author;
-  final List<MetaNameTag> ogTags;
-
+  final List<MetaTag> ogTags;
   final Widget child;
 
-  const AppMeta({
+  const AppHead({
     super.key,
     required this.title,
     required this.description,
@@ -22,10 +20,10 @@ class AppMeta extends StatefulWidget {
   });
 
   @override
-  State<AppMeta> createState() => _AppMetaState();
+  State<AppHead> createState() => _AppHeadState();
 }
 
-class _AppMetaState extends State<AppMeta> {
+class _AppHeadState extends State<AppHead> {
   final _key = UniqueKey();
 
   @override
@@ -37,24 +35,27 @@ class _AppMetaState extends State<AppMeta> {
           SystemChrome.setApplicationSwitcherDescription(
             ApplicationSwitcherDescription(
               label: widget.title,
-              primaryColor: Theme.of(context).primaryColor.value,
+              primaryColor: Theme
+                  .of(context)
+                  .primaryColor
+                  .value,
             ),
           );
         }
       },
-      child: Seo.meta(
+      child: Seo.head(
         tags: widget.ogTags.map((e) => e).toList().also((p0) {
           p0.addAll([
-            MetaNameTag(
+            MetaTag(
               name: 'title',
               content: widget.title,
             ),
-            MetaNameTag(
+            MetaTag(
               name: 'description',
               content: widget.description,
             ),
             if (widget.author != null)
-              MetaNameTag(
+              MetaTag(
                 name: 'author',
                 content: widget.author!,
               ),

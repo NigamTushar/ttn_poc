@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:seo_service/html/seo_widget.dart';
+import 'package:seo_service/seo.dart';
 
 class AppImage extends StatelessWidget {
   final String alt;

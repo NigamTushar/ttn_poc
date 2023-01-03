@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-
-import 'seo_controller.dart';
-import 'widget/meta_tag.dart';
-import 'widget/seo_tag.dart';
+import 'package:seo_service/head_tag.dart' as head_tag;
+import 'package:seo_service/html/seo_controller.dart';
+import 'package:seo_service/src/seo_tag.dart';
 
 class Seo extends StatelessWidget {
   final SeoTag tag;
@@ -11,29 +10,15 @@ class Seo extends StatelessWidget {
   Seo.text({
     super.key,
     required String text,
+    TextTagStyle style = TextTagStyle.p,
     required this.child,
-  }) : tag = TextTag(text: text);
-
-  Seo.textH2({
-    super.key,
-    required String text,
-    required this.child,
-  }) : tag = TextH2Tag(text: text);
+  }) : tag = TextTag(text: text, style: style);
 
   Seo.button({
     super.key,
     required String text,
     required this.child,
   }) : tag = ButtonTag(text: text);
-
-  @override
-  Widget build(BuildContext context) {
-    return SeoController.process(
-      context: context,
-      tag: tag,
-      child: child,
-    );
-  }
 
   Seo.image({
     super.key,
@@ -49,9 +34,18 @@ class Seo extends StatelessWidget {
     required this.child,
   }) : tag = LinkTag(anchor: anchor, href: href);
 
-  Seo.meta({
+  Seo.head({
     super.key,
-    required List<MetaTag> tags,
+    required List<head_tag.HeadTag> tags,
     required this.child,
-  }) : tag = MetaTags(tags: tags);
+  }) : tag = HeadTags(tags: tags);
+
+  @override
+  Widget build(BuildContext context) {
+    return SeoController.process(
+      context: context,
+      tag: tag,
+      child: child,
+    );
+  }
 }

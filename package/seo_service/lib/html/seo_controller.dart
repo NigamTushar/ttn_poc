@@ -1,14 +1,13 @@
 import 'dart:async';
+// ignore: avoid_web_libraries_in_flutter
 import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:rxdart/rxdart.dart';
-import 'package:visibility_detector/visibility_detector.dart';
-
-import 'seo_html.dart';
-import 'widget/seo_tag.dart';
-import 'widget/seo_tree.dart';
+import 'package:seo_service/src/seo_html.dart';
+import 'package:seo_service/src/seo_tag.dart';
+import 'package:seo_service/src/seo_tree.dart';
 
 class SeoController extends StatefulWidget {
   final bool enabled;
@@ -52,6 +51,7 @@ class _SeoControllerState extends State<SeoController> {
   @override
   void didUpdateWidget(covariant SeoController oldWidget) {
     super.didUpdateWidget(oldWidget);
+
     if (oldWidget.enabled != widget.enabled) {
       _subscribe();
     }
@@ -81,31 +81,6 @@ class _SeoControllerState extends State<SeoController> {
     if (html != null) {
       _updateHead(html);
       _updateBody(html);
-    }
-  }
-
-  void _resetHead({bool update = false}) {
-    if (!mounted) return;
-    final head = document.head;
-    if (head == null) return;
-    head.children
-        .where((element) => element.attributes.containsKey('flt-seo'))
-        .forEach((element) => element.remove());
-    if (update) {
-      final html = widget.tree.traverse()?.toHtml();
-      if (html != null) {
-        head.insertAdjacentHtml(
-          'beforeEnd',
-          html.head,
-          validator: NodeValidatorBuilder()
-            ..allowHtml5(uriPolicy: _AllowAllUriPolicy())
-            ..allowCustomElement('title', attributes: [])
-            ..allowCustomElement(
-              'meta',
-              attributes: ['name', 'property', 'content', 'flt-seo'],
-            ),
-        );
-      }
     }
   }
 
@@ -168,25 +143,14 @@ class _SeoControllerState extends State<SeoController> {
 
   @override
   Widget build(BuildContext context) {
-    return VisibilityDetector(
-      key: UniqueKey(),
-      onVisibilityChanged: (info) {
-        if (info.visibleFraction > 0.0) {
-          _resetHead(update: true);
-        } else {
-          _resetHead();
-        }
-      },
-      child: _InheritedSeoTreeWidget(
-        tree: widget.tree,
-        child: widget.child,
-      ),
+    return _InheritedSeoTreeWidget(
+      tree: widget.tree,
+      child: widget.child,
     );
   }
 
   @override
   void dispose() {
-    _resetHead();
     _subscription?.cancel();
     _subscription = null;
     super.dispose();
