@@ -1,63 +1,63 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/dashboard</loc>
+        <loc>http://13.211.126.67:81/#/dashboard</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/myProfile</loc>
+        <loc>http://13.211.126.67:81/#/myProfile</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/profile/1</loc>
+        <loc>http://13.211.126.67:81/#/profile/1</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/profile/2</loc>
+        <loc>http://13.211.126.67:81/#/profile/2</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/profile/3</loc>
+        <loc>http://13.211.126.67:81/#/profile/3</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/profile/4</loc>
+        <loc>http://13.211.126.67:81/#/profile/4</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/profile/5</loc>
+        <loc>http://13.211.126.67:81/#/profile/5</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/attendance</loc>
+        <loc>http://13.211.126.67:81/#/attendance</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/resume</loc>
+        <loc>http://13.211.126.67:81/#/resume</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/whatsNew</loc>
+        <loc>http://13.211.126.67:81/#/whatsNew</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/meetNewi</loc>
+        <loc>http://13.211.126.67:81/#/meetNewi</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/importantLinks</loc>
+        <loc>http://13.211.126.67:81/#/importantLinks</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/myTickets</loc>
+        <loc>http://13.211.126.67:81/#/myTickets</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/newersActions</loc>
+        <loc>http://13.211.126.67:81/#/newersActions</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://ttn-world.000webhostapp.com/#/orgCharts</loc>
+        <loc>http://13.211.126.67:81/#/orgCharts</loc>
         <lastmod>2022-12-29T20:30:00+00:00</lastmod>
     </url>
 </urlset>

@@ -16,51 +16,34 @@ class DashboardListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppHead(
-      title: "Newer Dashboard and other details for a newer. TO THE NEW",
-      description:
-          'Dashboard, Profile, Attendance and leave management system and other important links for a newer. TO THE NEW',
-      ogTags: const [
-        MetaTag(name: "twitter:title", content: "Newer Dashboard"),
-        MetaTag(
-            name: "twitter:description",
-            content:
-                "Dashboard, Profile, Attendance and leave management system and other important links for a newer. TO THE NEW"),
-        MetaTag(
-            name: "twitter:image",
-            content: "https://picsum.photos/250?image=2"),
-        MetaTag(name: "twitter:site", content: "@Site"),
-        MetaTag(name: "twitter:creator", content: "To The New"),
-      ],
-      child: SingleChildScrollView(
-        controller: ScrollController(),
-        child: Wrap(
-          children: const [
-            PageHeader(
-                title: 'Dashboard',
-                subtitle: 'Home / Dashboard',
-                width: double.infinity),
-            DashboardUserCard(),
-            DashboardStackHolderCard(),
-            NewiNotificationCardContent(),
-            DashboardInfoCard(
-              boxTitle: 'My ToDo',
-              cardType: CardType.toDo,
-            ),
-            TeamList(),
-            NewerRecognitionContentCard(
-              width: 600,
-            ),
-            DashboardInfoCard(
-              boxTitle: 'My WatchList',
-              cardType: CardType.watchList,
-            ),
-            SizedBox(
-              height: 60,
-              width: 1,
-            )
-          ],
-        ),
+    return SingleChildScrollView(
+      controller: ScrollController(),
+      child: Wrap(
+        children: const [
+          PageHeader(
+              title: 'Dashboard',
+              subtitle: 'Home / Dashboard',
+              width: double.infinity),
+          DashboardUserCard(),
+          DashboardStackHolderCard(),
+          NewiNotificationCardContent(),
+          DashboardInfoCard(
+            boxTitle: 'My ToDo',
+            cardType: CardType.toDo,
+          ),
+          TeamList(),
+          NewerRecognitionContentCard(
+            width: 600,
+          ),
+          DashboardInfoCard(
+            boxTitle: 'My WatchList',
+            cardType: CardType.watchList,
+          ),
+          SizedBox(
+            height: 60,
+            width: 1,
+          )
+        ],
       ),
     );
   }
