@@ -7,10 +7,6 @@ import 'main_router.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  // if(Platform.isMacOS || Platform.isWindows) {
-  //   setWindowMaxSize(const Size(1024, 768));
-  //   setWindowMinSize(const Size(512, 384));
-  // }
   runApp(MyApp());
 }
 
