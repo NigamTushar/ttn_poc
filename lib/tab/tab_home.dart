@@ -72,27 +72,31 @@ class TabHome extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 15),
-                      child: !ResponsiveWidget.isSmallScreen(context)
-                          ? Row(
-                              children: const [
-                                RacingNextToGo(),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                SportsPopular(),
-                              ],
-                            )
-                          : Column(
-                              children: const [
-                                RacingNextToGo(),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                SportsPopular(),
-                              ],
-                            ),
+                    Container(
+                      width: 1030,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 15),
+                        child: !ResponsiveWidget.isSmallScreen(context)
+                            ? Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                                children: const [
+                                  RacingNextToGo(),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  SportsPopular(),
+                                ],
+                              )
+                            : Column(
+                                children: const [
+                                  RacingNextToGo(),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  SportsPopular(),
+                                ],
+                              ),
+                      ),
                     ),
                   ],
                 ),
