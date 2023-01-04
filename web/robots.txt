@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: http://13.211.126.67:81/sitemap.xml
+Sitemap: https://ttn-world.000webhostapp.com/sitemap.xml
