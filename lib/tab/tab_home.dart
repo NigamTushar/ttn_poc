@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/helper/responsive_widget.dart';
+import 'package:newers_world/tab/racing_next_to_go.dart';
+import 'package:newers_world/tab/sports_popular.dart';
 
 /*Widget build(BuildContext context) {
   return MaterialApp(
@@ -37,13 +40,13 @@ class TabHome extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
             body: Column(
-              children: [
-                _HeaderMenu(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                    Flexible(
+      children: [
+        _HeaderMenu(),
+        Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Flexible(
                 flex: 1,
                 child: Column(
                   children: [
@@ -69,13 +72,37 @@ class TabHome extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 15),
+                      child: !ResponsiveWidget.isSmallScreen(context)
+                          ? Row(
+                              children: const [
+                                RacingNextToGo(),
+                                SizedBox(
+                                  width: 10,
+                                ),
+                                SportsPopular(),
+                              ],
+                            )
+                          : Column(
+                              children: const [
+                                RacingNextToGo(),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                SportsPopular(),
+                              ],
+                            ),
+                    ),
                   ],
                 ),
-                    ),
-                  Container(width: 380,child: _BetSlip()),
-                  ]),
-              ],
-            )));
+              ),
+              if (ResponsiveWidget.isLargeScreen(context)) ...[
+                Container(width: 380, child: _BetSlip()),
+              ]
+            ]),
+      ],
+    )));
   }
 }
 
@@ -233,14 +260,21 @@ class _BetSlip extends StatelessWidget {
           Card(
             elevation: 10,
             child: Container(
-      decoration: BoxDecoration(border: Border.all(color: Color.fromRGBO(58, 152, 44, 1)), borderRadius: BorderRadius.all(Radius.circular(5.0))),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Color.fromRGBO(58, 152, 44, 1)),
+                  borderRadius: BorderRadius.all(Radius.circular(5.0))),
               child: Row(
                 children: [
                   Expanded(
                     child: Container(
-                      decoration: BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
+                      decoration:
+                          BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
                       height: 40,
-                      child: Center(child: Text('Bet Slip', style: TextStyle(color: Colors.white),)),
+                      child: Center(
+                          child: Text(
+                        'Bet Slip',
+                        style: TextStyle(color: Colors.white),
+                      )),
                     ),
                   ),
                   Expanded(
@@ -252,11 +286,17 @@ class _BetSlip extends StatelessWidget {
               ),
             ),
           ),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Image.asset('assets/help_centre.jpg'),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Image.asset('assets/lock_in_your_limits.jpg'),
-          SizedBox(height: 10,),
+          SizedBox(
+            height: 10,
+          ),
           Image.asset('assets/play_central.jpg'),
         ],
       ),
