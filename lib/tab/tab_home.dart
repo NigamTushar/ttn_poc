@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:newers_world/helper/responsive_widget.dart';
+import 'package:newers_world/tab/racing_next_to_go.dart';
+import 'package:newers_world/tab/sports_popular.dart';
 
 /*Widget build(BuildContext context) {
   return MaterialApp(
