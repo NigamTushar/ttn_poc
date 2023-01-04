@@ -21,6 +21,8 @@ class AppText extends StatelessWidget {
       style: tagStyle ?? TextTagStyle.p,
       child: Text(
         text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: style,
       ),
     );
