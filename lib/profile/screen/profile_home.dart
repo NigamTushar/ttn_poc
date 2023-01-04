@@ -61,9 +61,9 @@ class _ProfileHomeState extends State<ProfileHome> {
         ? ContainerScreen(
             child: AppHead(
               title:
-              "${profileModel.profileName}'s Profile, Personal Information and Details. TO THE NEW",
+                  "${profileModel.profileName}'s Profile, Designation:- ${profileModel.profileDesignation}, Personal Information and Details. TO THE NEW",
               description:
-              "${profileModel.profileName}'s Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. TO THE NEW",
+                  "${profileModel.profileName}'s Employment Information, Personal Information, Profile Details, Document Center, In-Out Details. Designation:- ${profileModel.profileDesignation} TO THE NEW",
               author: "TO THE NEW",
               child: SizedBox(
                 height: MediaQuery.of(context).size.height,
