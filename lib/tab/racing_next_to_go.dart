@@ -12,13 +12,8 @@ class RacingNextToGo extends StatelessWidget {
       elevation: 10.0,
       child: Container(
         constraints: BoxConstraints(
-            minWidth: ResponsiveWidget.isLargeScreen(context)
-                ? 400
-                : ResponsiveWidget.isMediumScreen(context)
-                    ? 300
-                    : 450,
             maxWidth: ResponsiveWidget.isLargeScreen(context)
-                ? screenSize.width / 3
+                ? screenSize.width / 3.45
                 : ResponsiveWidget.isMediumScreen(context)
                     ? screenSize.width / 2.2
                     : 500),
