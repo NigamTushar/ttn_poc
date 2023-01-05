@@ -3,36 +3,9 @@ import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 import 'package:newers_world/tab/racing_next_to_go.dart';
 import 'package:newers_world/tab/sports_popular.dart';
+import 'package:seo_service/seo.dart';
 
-/*Widget build(BuildContext context) {
-  return MaterialApp(
-      home: Scaffold(
-          body: Container(
-            child: Center(
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      _HeaderMenu(),
-                      _HeaderBetsMenu(),
-                      Stack(
-                        children: [
-                          Card(elevation:5.0, child: Image.asset('assets/race_banner.jpg')),
-                          Positioned.fill(
-                            child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(padding: EdgeInsets.only(right: 20), child: Icon(Icons.arrow_forward_ios, color: Colors.white,size: 30,))),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  _BetSlip(),
-                ],
-              ),
-            ),
-          )));
-}*/
+
 class TabHome extends StatelessWidget {
   const TabHome({Key? key}) : super(key: key);
 
@@ -41,10 +14,10 @@ class TabHome extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         home: Scaffold(
-          floatingActionButton: !ResponsiveWidget.isLargeScreen(context)?_BetButton(): SizedBox.shrink(),
+          floatingActionButton: !ResponsiveWidget.isLargeScreen(context)?const _BetButton():const  SizedBox.shrink(),
             body: Column(
       children: [
-        _HeaderMenu(),
+        const _HeaderMenu(),
         Expanded(
           child: SingleChildScrollView(
             child: Stack(
@@ -57,15 +30,15 @@ class TabHome extends StatelessWidget {
                         flex: 1,
                         child: Column(
                           children: [
-                            _HeaderBetsMenu(),
-                            Container(
+                            const  _HeaderBetsMenu(),
+                            SizedBox(
                               width: 1030,
                               child: Stack(
                                 children: [
                                   Card(
                                       elevation: 5.0,
                                       child: Image.asset('assets/race_banner.jpg')),
-                                  Positioned.fill(
+                                  const  Positioned.fill(
                                     child: Align(
                                         alignment: Alignment.centerRight,
                                         child: Padding(
@@ -79,7 +52,7 @@ class TabHome extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Container(
+                            SizedBox(
                               width: 1030,
                               child: Padding(
                                 padding: const EdgeInsets.only(top: 15),
@@ -105,12 +78,12 @@ class TabHome extends StatelessWidget {
                                       ),
                               ),
                             ),
-                            _TermAndCondition(),
+                            const _TermAndCondition(),
                           ],
                         ),
                       ),
                       if (ResponsiveWidget.isLargeScreen(context)) ...[
-                        Container(width: 380, child: _BetSlip()),
+                        const  SizedBox(width: 380, child: _BetSlip()),
                       ]
                     ]),
               ],
@@ -130,17 +103,18 @@ class _HeaderMenu extends StatelessWidget {
     return Container(
       height: 50,
       width: double.infinity,
-      color: Color.fromRGBO(0, 133, 56, 1),
+      color: const Color.fromRGBO(0, 133, 56, 1),
       child: Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
         Row(children: [
           menuContainer(
             child: Row(
               children: [
                 Image.asset('assets/menu.png'),
-                SizedBox(
+                const SizedBox(
                   width: 5,
                 ),
-                AppText(
+                const  AppText(
+                  tagStyle: TextTagStyle.h1,
                   text: 'MENU',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
@@ -149,6 +123,7 @@ class _HeaderMenu extends StatelessWidget {
           ),
           menuContainer(
             child: AppText(
+              tagStyle: TextTagStyle.h1,
               text:
               'IN-PLAY',
               style: menuTextStyle(),
@@ -158,26 +133,27 @@ class _HeaderMenu extends StatelessWidget {
             child: Image.asset('assets/tab_logo.png'),
           ),
            Padding(
-            padding: EdgeInsets.all(8),
-            child: (!ResponsiveWidget.isLargeScreen(context))? Icon(
+            padding: const EdgeInsets.all(8),
+            child: (!ResponsiveWidget.isLargeScreen(context))?const  Icon(
               Icons.search,
               color: Colors.white,
             ) : Container(
               decoration: BoxDecoration(
-                  color: Color.fromRGBO(0, 113, 56, 1),
+                  color: const Color.fromRGBO(0, 113, 56, 1),
                   border: Border.all(
-                    color: Color.fromRGBO(0, 113, 56, 1),
+                    color:const  Color.fromRGBO(0, 113, 56, 1),
                   ),
-                  borderRadius: BorderRadius.all(Radius.circular(5))),
-              padding: EdgeInsets.symmetric(horizontal: 8),
+                  borderRadius: const BorderRadius.all(Radius.circular(5))),
+              padding: const EdgeInsets.symmetric(horizontal: 8),
               width: 500,
               child: Center(
-                child: Row(children: [
+                child: Row(children:const [
                   Icon(
                     Icons.search,
                     color: Colors.white,
                   ),
                   AppText(
+                    tagStyle: TextTagStyle.h1,
                     text:
                     'Search for jockeys, trainers, horses, matches and more...',
                     style: TextStyle(color: Colors.white70),
@@ -199,6 +175,7 @@ class _HeaderMenu extends StatelessWidget {
           ),
           menuContainer(
             child: AppText(
+              tagStyle: TextTagStyle.h1,
               text:
               'Login',
               style: menuTextStyle(),
@@ -206,6 +183,7 @@ class _HeaderMenu extends StatelessWidget {
           ),
           menuContainer(
             child: AppText(
+              tagStyle: TextTagStyle.h1,
               text:
               'Join',
               style: menuTextStyle(),
@@ -216,13 +194,13 @@ class _HeaderMenu extends StatelessWidget {
     );
   }
 
-  TextStyle menuTextStyle() => TextStyle(color: Colors.white, fontSize: 15);
+  TextStyle menuTextStyle() =>  const TextStyle(color: Colors.white, fontSize: 15);
 
   Container menuContainer({required Widget child}) {
     return Container(
       height: double.infinity,
-      padding: EdgeInsets.all(8),
-      decoration: BoxDecoration(
+      padding: const EdgeInsets.all(8),
+      decoration: const BoxDecoration(
           border: Border(right: BorderSide(width: 1, color: Colors.black12))),
       child: Center(
         child: child,
@@ -245,7 +223,7 @@ class _HeaderBetsMenu extends StatelessWidget {
               .map((menuData) => Container(
                     height: 92,
                     width: 128,
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         color: Colors.white,
                         border: Border(
                             left: BorderSide(width: 1, color: Colors.black12))),
@@ -254,13 +232,14 @@ class _HeaderBetsMenu extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image.asset(menuData.imagePath),
-                        SizedBox(
+                        const SizedBox(
                           height: 8,
                         ),
                         AppText(
+                          tagStyle: TextTagStyle.h1,
                           text:
                           menuData.name,
-                          style: TextStyle(),
+                          style: const TextStyle(),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -279,7 +258,7 @@ class _BetSlip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color.fromRGBO(242, 242, 242, 1),
+      color:const  Color.fromRGBO(242, 242, 242, 1),
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0),
@@ -289,60 +268,60 @@ class _BetSlip extends StatelessWidget {
               elevation: 10,
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color: Color.fromRGBO(58, 152, 44, 1)),
-                    borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                    border: Border.all(color:const  Color.fromRGBO(58, 152, 44, 1)),
+                    borderRadius:const  BorderRadius.all(Radius.circular(5.0))),
                 child: Row(
                   children: [
                     Expanded(
                       child: Container(
                         decoration:
-                            BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
+                        const BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
                         height: 40,
-                        child: Center(
+                        child: const Center(
                             child: AppText(
+                              tagStyle: TextTagStyle.h1,
                           text: 'Bet Slip',
                           style: TextStyle(color: Colors.white),
                         )),
                       ),
                     ),
-                    Expanded(
-                      child: Container(
-                        child: Center(child: AppText(
-                            text: 'Pending Bets', style: TextStyle(),)),
-                      ),
+                    const  Expanded(
+                      child: Center(child: AppText(
+                        tagStyle: TextTagStyle.h1,
+                          text: 'Pending Bets', style: TextStyle(),)),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(
+            const    SizedBox(
               height: 10,
             ),
             Container(
-              margin: EdgeInsets.symmetric(horizontal: 10),
-              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-              decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.all(Radius.circular(5))),
+              margin:const  EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+              decoration:const  BoxDecoration(color: Colors.white,borderRadius: BorderRadius.all(Radius.circular(5))),
               child: Row(children: [
                 Image.asset('assets/info.png'),
-                SizedBox(width: 8,),
+                const   SizedBox(width: 8,),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                  AppText(text: 'Click a price to add a bet', style: TextStyle()),
-                  SizedBox(height: 2,),
-                  AppText(text: 'Add more selection to start a   multi', style: TextStyle())
+                  children:const  [
+                      AppText( tagStyle: TextTagStyle.h1,text: 'Click a price to add a bet', style: TextStyle()),
+                       SizedBox(height: 2,),
+                      AppText( tagStyle: TextTagStyle.h1,text: 'Add more selection to start a   multi', style: TextStyle())
                 ],)
               ]),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Image.asset('assets/help_centre.jpg'),
-            SizedBox(
+            const  SizedBox(
               height: 10,
             ),
             Image.asset('assets/lock_in_your_limits.jpg'),
-            SizedBox(
+            const   SizedBox(
               height: 10,
             ),
             Image.asset('assets/play_central.jpg'),
@@ -361,8 +340,8 @@ class _TermAndCondition extends StatelessWidget {
     return Container(
       height: 55,
        width: 1030,
-       color: Color.fromRGBO(0, 133, 56, 1),
-      child: Center(child: AppText(text: 'Betting Rules - Terms of Use - Privacy - @Tabcorp Holdings Limited 2021', style: TextStyle(color: Colors.white,),)),
+       color: const Color.fromRGBO(0, 133, 56, 1),
+      child: const Center(child: AppText( tagStyle: TextTagStyle.h1,text: 'Betting Rules - Terms of Use - Privacy - @Tabcorp Holdings Limited 2021', style: TextStyle(color: Colors.white,),)),
     );
   }
 }
@@ -375,8 +354,8 @@ class _BetButton extends StatelessWidget {
     return Container(
       width: 60,
       height: 60,
-      child: Center(child: AppText(text: 'B', style: TextStyle(color: Colors.white,fontSize: 20),)),
-      decoration: BoxDecoration(
+      child: const Center(child: AppText( tagStyle: TextTagStyle.h1,text: 'B', style: TextStyle(color: Colors.white,fontSize: 20),)),
+      decoration:const  BoxDecoration(
           color: Color.fromRGBO(0, 133, 56, 1),
           shape: BoxShape.circle
       ),);
