@@ -99,10 +99,7 @@ class ProfileHeaderState extends State<ProfileHeader>
                 ),
                 ResponsiveWidget.isLargeScreen(context)
                     ? getOrgChar(context)
-                    : Align(
-                        alignment: Alignment.topRight,
-                        child: getOrgChar(context),
-                      ),
+                    : getOrgCharForRight(context),
                 Positioned(
                   top: ResponsiveWidget.isLargeScreen(context) ? 60 : 160,
                   left: ResponsiveWidget.isLargeScreen(context) ? 140 : 25,
@@ -206,9 +203,19 @@ class ProfileHeaderState extends State<ProfileHeader>
 
   Widget getOrgChar(BuildContext context) {
     return Positioned(
-      top: ResponsiveWidget.isLargeScreen(context) ? 50 : 40,
-      left: ResponsiveWidget.isLargeScreen(context) ? 340 : 20,
+      top: ResponsiveWidget.isLargeScreen(context) ? 50 : 0,
+      left: ResponsiveWidget.isLargeScreen(context) ? 340 : 0,
       child: const Padding(
+        padding: EdgeInsets.all(10),
+        child: Icon(Icons.add_chart),
+      ),
+    );
+  }
+
+  Widget getOrgCharForRight(BuildContext context) {
+    return const Align(
+      alignment: Alignment.topRight,
+      child: Padding(
         padding: EdgeInsets.all(10),
         child: Icon(Icons.add_chart),
       ),
