@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 
+class RacingNextToGoConstant {
+  static const double containerWidth = 1030;
+}
+
 class RacingNextToGo extends StatelessWidget {
   const RacingNextToGo({super.key});
 
@@ -78,7 +82,7 @@ class RacingNextToGo extends StatelessWidget {
         child: Row(
           children: [
             Icon(model.icon),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
             SizedBox(
               width: 30,
               child: Text(
@@ -98,7 +102,7 @@ class RacingNextToGo extends StatelessWidget {
                 fontWeight: FontWeight.w600,
               ),
             ),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
             Expanded(
               child: AppText(
                 text: model.racerName,
@@ -109,7 +113,7 @@ class RacingNextToGo extends StatelessWidget {
               ),
             ),
             Icon(model.weatherIcon),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
             Text(
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -175,7 +179,7 @@ class NextToGoModel {
             raceTiming: '17:22',
             raceNumber: 'R3',
             racerName: 'KENILWORTH (ZAF)',
-            distance: '1407m GOOD'),
+            distance: '407m GOOD'),
         NextToGoModel(
             icon: Icons.moving_rounded,
             weatherIcon: Icons.cloud,
