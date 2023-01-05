@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 import 'package:newers_world/tab/racing_next_to_go.dart';
+import 'package:newers_world/tab/sports_list.dart';
 import 'package:newers_world/tab/sports_popular.dart';
 import 'package:seo_service/seo.dart';
-
 
 class TabHome extends StatelessWidget {
   const TabHome({Key? key}) : super(key: key);
@@ -12,86 +12,105 @@ class TabHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
-          floatingActionButton: !ResponsiveWidget.isLargeScreen(context)?const _BetButton():const  SizedBox.shrink(),
+            floatingActionButton: !ResponsiveWidget.isLargeScreen(context)
+                ? const _BetButton()
+                : const SizedBox.shrink(),
             body: Column(
-      children: [
-        const _HeaderMenu(),
-        Expanded(
-          child: SingleChildScrollView(
-            child: Stack(
               children: [
-                Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Flexible(
-                        flex: 1,
-                        child: Column(
-                          children: [
-                            const  _HeaderBetsMenu(),
-                            SizedBox(
-                              width: 1030,
-                              child: Stack(
-                                children: [
-                                  Card(
-                                      elevation: 5.0,
-                                      child: Image.asset('assets/race_banner.jpg')),
-                                  const  Positioned.fill(
-                                    child: Align(
-                                        alignment: Alignment.centerRight,
-                                        child: Padding(
-                                            padding: EdgeInsets.only(right: 20),
-                                            child: Icon(
-                                              Icons.arrow_forward_ios,
-                                              color: Colors.white,
-                                              size: 30,
-                                            ))),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 1030,
-                              child: Padding(
-                                padding: const EdgeInsets.only(top: 15),
-                                child: !ResponsiveWidget.isSmallScreen(context)
-                                    ? Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                        children: const [
-                                          Expanded(child: RacingNextToGo()),
-                                          SizedBox(
-                                            width: 10,
+                const _HeaderMenu(),
+                Expanded(
+                  child: SingleChildScrollView(
+                    child: Stack(
+                      children: [
+                        Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Flexible(
+                                flex: 1,
+                                child: Column(
+                                  children: [
+                                    const _HeaderBetsMenu(),
+                                    SizedBox(
+                                      width: 1030,
+                                      child: Stack(
+                                        children: [
+                                          Card(
+                                              elevation: 5.0,
+                                              child: Image.asset(
+                                                  'assets/race_banner.jpg')),
+                                          const Positioned.fill(
+                                            child: Align(
+                                                alignment:
+                                                    Alignment.centerRight,
+                                                child: Padding(
+                                                    padding: EdgeInsets.only(
+                                                        right: 20),
+                                                    child: Icon(
+                                                      Icons.arrow_forward_ios,
+                                                      color: Colors.white,
+                                                      size: 30,
+                                                    ))),
                                           ),
-                                          Expanded(child: SportsPopular()),
-                                        ],
-                                      )
-                                    : Column(
-                                        children: const [
-                                          RacingNextToGo(),
-                                          SizedBox(
-                                            height: 10,
-                                          ),
-                                          SportsPopular(),
                                         ],
                                       ),
+                                    ),
+                                    SizedBox(
+                                      width: 1030,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            vertical: 15, horizontal: 5),
+                                        child: !ResponsiveWidget.isSmallScreen(
+                                                context)
+                                            ? Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.center,
+                                                children: const [
+                                                  Expanded(
+                                                      child: RacingNextToGo()),
+                                                  SizedBox(
+                                                    width: 10,
+                                                  ),
+                                                  Expanded(
+                                                      child: SportsPopular()),
+                                                ],
+                                              )
+                                            : Column(
+                                                children: const [
+                                                  RacingNextToGo(),
+                                                  SizedBox(
+                                                    height: 10,
+                                                  ),
+                                                  SportsPopular(),
+                                                ],
+                                              ),
+                                      ),
+                                    ),
+                                    const Padding(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 5),
+                                      child: SportsList(),
+                                    ),
+                                    const Padding(
+                                      padding: EdgeInsets.symmetric(
+                                          vertical: 10, horizontal: 5),
+                                      child: _TermAndCondition(),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            const _TermAndCondition(),
-                          ],
-                        ),
-                      ),
-                      if (ResponsiveWidget.isLargeScreen(context)) ...[
-                        const  SizedBox(width: 380, child: _BetSlip()),
-                      ]
-                    ]),
+                              if (ResponsiveWidget.isLargeScreen(context)) ...[
+                                const SizedBox(width: 380, child: _BetSlip()),
+                              ]
+                            ]),
+                      ],
+                    ),
+                  ),
+                ),
               ],
-            ),
-          ),
-        ),
-      ],
-    )));
+            )));
   }
 }
 
@@ -113,7 +132,7 @@ class _HeaderMenu extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                const  AppText(
+                const AppText(
                   tagStyle: TextTagStyle.h1,
                   text: 'MENU',
                   style: TextStyle(color: Colors.white, fontSize: 18),
@@ -124,68 +143,70 @@ class _HeaderMenu extends StatelessWidget {
           menuContainer(
             child: AppText(
               tagStyle: TextTagStyle.h1,
-              text:
-              'IN-PLAY',
+              text: 'IN-PLAY',
               style: menuTextStyle(),
             ),
           ),
           menuContainer(
             child: Image.asset('assets/tab_logo.png'),
           ),
-           Padding(
+          Padding(
             padding: const EdgeInsets.all(8),
-            child: (!ResponsiveWidget.isLargeScreen(context))?const  Icon(
-              Icons.search,
-              color: Colors.white,
-            ) : Container(
-              decoration: BoxDecoration(
-                  color: const Color.fromRGBO(0, 113, 56, 1),
-                  border: Border.all(
-                    color:const  Color.fromRGBO(0, 113, 56, 1),
-                  ),
-                  borderRadius: const BorderRadius.all(Radius.circular(5))),
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              width: 500,
-              child: Center(
-                child: Row(children:const [
-                  Icon(
+            child: (!ResponsiveWidget.isLargeScreen(context))
+                ? const Icon(
                     Icons.search,
                     color: Colors.white,
-                  ),
-                  AppText(
-                    tagStyle: TextTagStyle.h1,
-                    text:
-                    'Search for jockeys, trainers, horses, matches and more...',
-                    style: TextStyle(color: Colors.white70),
                   )
-                ]),
-              ),
-            ),
+                : Container(
+                    decoration: BoxDecoration(
+                        color: const Color.fromRGBO(0, 113, 56, 1),
+                        border: Border.all(
+                          color: const Color.fromRGBO(0, 113, 56, 1),
+                        ),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(5))),
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    width: 500,
+                    child: Center(
+                      child: Row(children: const [
+                        Icon(
+                          Icons.search,
+                          color: Colors.white,
+                        ),
+                        AppText(
+                          tagStyle: TextTagStyle.h1,
+                          text:
+                              'Search for jockeys, trainers, horses, matches and more...',
+                          style: TextStyle(color: Colors.white70),
+                        )
+                      ]),
+                    ),
+                  ),
           ),
         ]),
         Row(children: [
           menuContainer(
             child: Image.asset('assets/sky.png'),
           ),
-         if(!(ResponsiveWidget.isSmallScreen(context))) menuContainer(
-            child: Image.asset('assets/audio.png'),
-          ),
-          if(!(ResponsiveWidget.isSmallScreen(context))) menuContainer(
-            child: Image.asset('assets/video.png'),
-          ),
+          if (!(ResponsiveWidget.isSmallScreen(context)))
+            menuContainer(
+              child: Image.asset('assets/audio.png'),
+            ),
+          if (!(ResponsiveWidget.isSmallScreen(context)))
+            menuContainer(
+              child: Image.asset('assets/video.png'),
+            ),
           menuContainer(
             child: AppText(
               tagStyle: TextTagStyle.h1,
-              text:
-              'Login',
+              text: 'Login',
               style: menuTextStyle(),
             ),
           ),
           menuContainer(
             child: AppText(
               tagStyle: TextTagStyle.h1,
-              text:
-              'Join',
+              text: 'Join',
               style: menuTextStyle(),
             ),
           )
@@ -194,7 +215,8 @@ class _HeaderMenu extends StatelessWidget {
     );
   }
 
-  TextStyle menuTextStyle() =>  const TextStyle(color: Colors.white, fontSize: 15);
+  TextStyle menuTextStyle() =>
+      const TextStyle(color: Colors.white, fontSize: 15);
 
   Container menuContainer({required Widget child}) {
     return Container(
@@ -237,8 +259,7 @@ class _HeaderBetsMenu extends StatelessWidget {
                         ),
                         AppText(
                           tagStyle: TextTagStyle.h1,
-                          text:
-                          menuData.name,
+                          text: menuData.name,
                           style: const TextStyle(),
                           textAlign: TextAlign.center,
                         )
@@ -258,7 +279,7 @@ class _BetSlip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color:const  Color.fromRGBO(242, 242, 242, 1),
+      color: const Color.fromRGBO(242, 242, 242, 1),
       elevation: 5,
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 12.0),
@@ -268,60 +289,77 @@ class _BetSlip extends StatelessWidget {
               elevation: 10,
               child: Container(
                 decoration: BoxDecoration(
-                    border: Border.all(color:const  Color.fromRGBO(58, 152, 44, 1)),
-                    borderRadius:const  BorderRadius.all(Radius.circular(5.0))),
+                    border:
+                        Border.all(color: const Color.fromRGBO(58, 152, 44, 1)),
+                    borderRadius: const BorderRadius.all(Radius.circular(5.0))),
                 child: Row(
                   children: [
                     Expanded(
                       child: Container(
-                        decoration:
-                        const BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
+                        decoration: const BoxDecoration(
+                            color: Color.fromRGBO(58, 152, 44, 1)),
                         height: 40,
                         child: const Center(
                             child: AppText(
-                              tagStyle: TextTagStyle.h1,
+                          tagStyle: TextTagStyle.h1,
                           text: 'Bet Slip',
                           style: TextStyle(color: Colors.white),
                         )),
                       ),
                     ),
-                    const  Expanded(
-                      child: Center(child: AppText(
+                    const Expanded(
+                      child: Center(
+                          child: AppText(
                         tagStyle: TextTagStyle.h1,
-                          text: 'Pending Bets', style: TextStyle(),)),
+                        text: 'Pending Bets',
+                        style: TextStyle(),
+                      )),
                     ),
                   ],
                 ),
               ),
             ),
-            const    SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Container(
-              margin:const  EdgeInsets.symmetric(horizontal: 10),
+              margin: const EdgeInsets.symmetric(horizontal: 10),
               padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-              decoration:const  BoxDecoration(color: Colors.white,borderRadius: BorderRadius.all(Radius.circular(5))),
+              decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(5))),
               child: Row(children: [
                 Image.asset('assets/info.png'),
-                const   SizedBox(width: 8,),
+                const SizedBox(
+                  width: 8,
+                ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children:const  [
-                      AppText( tagStyle: TextTagStyle.h1,text: 'Click a price to add a bet', style: TextStyle()),
-                       SizedBox(height: 2,),
-                      AppText( tagStyle: TextTagStyle.h1,text: 'Add more selection to start a   multi', style: TextStyle())
-                ],)
+                  children: const [
+                    AppText(
+                        tagStyle: TextTagStyle.h1,
+                        text: 'Click a price to add a bet',
+                        style: TextStyle()),
+                    SizedBox(
+                      height: 2,
+                    ),
+                    AppText(
+                        tagStyle: TextTagStyle.h1,
+                        text: 'Add more selection to start a   multi',
+                        style: TextStyle())
+                  ],
+                )
               ]),
             ),
             const SizedBox(
               height: 10,
             ),
             Image.asset('assets/help_centre.jpg'),
-            const  SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Image.asset('assets/lock_in_your_limits.jpg'),
-            const   SizedBox(
+            const SizedBox(
               height: 10,
             ),
             Image.asset('assets/play_central.jpg'),
@@ -339,9 +377,17 @@ class _TermAndCondition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-       width: 1030,
-       color: const Color.fromRGBO(0, 133, 56, 1),
-      child: const Center(child: AppText( tagStyle: TextTagStyle.h1,text: 'Betting Rules - Terms of Use - Privacy - @Tabcorp Holdings Limited 2021', style: TextStyle(color: Colors.white,),)),
+      width: 1030,
+      color: const Color.fromRGBO(0, 133, 56, 1),
+      child: const Center(
+          child: AppText(
+        tagStyle: TextTagStyle.h1,
+        text:
+            'Betting Rules - Terms of Use - Privacy - @Tabcorp Holdings Limited 2021',
+        style: TextStyle(
+          color: Colors.white,
+        ),
+      )),
     );
   }
 }
@@ -354,15 +400,17 @@ class _BetButton extends StatelessWidget {
     return Container(
       width: 60,
       height: 60,
-      child: const Center(child: AppText( tagStyle: TextTagStyle.h1,text: 'B', style: TextStyle(color: Colors.white,fontSize: 20),)),
-      decoration:const  BoxDecoration(
-          color: Color.fromRGBO(0, 133, 56, 1),
-          shape: BoxShape.circle
-      ),);
+      child: const Center(
+          child: AppText(
+        tagStyle: TextTagStyle.h1,
+        text: 'B',
+        style: TextStyle(color: Colors.white, fontSize: 20),
+      )),
+      decoration: const BoxDecoration(
+          color: Color.fromRGBO(0, 133, 56, 1), shape: BoxShape.circle),
+    );
   }
 }
-
-
 
 ////////Model////////////
 class HeaderMenuModel {

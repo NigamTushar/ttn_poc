@@ -15,7 +15,7 @@ class SportsList extends StatelessWidget {
       child: Container(
         constraints: BoxConstraints(
             maxWidth: ResponsiveWidget.isLargeScreen(context)
-                ? RacingNextToGoConstant.containerWidth - 10
+                ? RacingNextToGoConstant.containerWidth - 5
                 : screenSize.width),
         child: Column(
           children: [
@@ -95,8 +95,7 @@ class SportsList extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Wrap(
               children: const [
                 AppText(
                   text: 'In Play  |  ',
@@ -104,7 +103,7 @@ class SportsList extends StatelessWidget {
                   style: TextStyle(fontSize: 12, color: Colors.black54),
                 ),
                 AppText(
-                  text: 'Bet by phone 1300 408 773   ',
+                  text: 'Bet by phone 1300 408 773  ',
                   tagStyle: TextTagStyle.h2,
                   style: TextStyle(
                       fontSize: 12, color: Color.fromRGBO(225, 120, 75, 1)),
@@ -115,7 +114,7 @@ class SportsList extends StatelessWidget {
                   size: 15,
                 ),
                 Text(
-                  '   |   ',
+                  '  |  ',
                   style: TextStyle(fontSize: 12, color: Colors.black54),
                 ),
                 Icon(
@@ -124,17 +123,17 @@ class SportsList extends StatelessWidget {
                   size: 15,
                 ),
                 AppText(
-                  text: '   Market is Suspended',
+                  text: '  Market is Suspended',
                   tagStyle: TextTagStyle.h2,
                   style: TextStyle(
                       fontSize: 12, color: Color.fromRGBO(225, 120, 75, 1)),
                 ),
                 Text(
-                  '   |   ',
+                  '  |  ',
                   style: TextStyle(fontSize: 12, color: Colors.black54),
                 ),
                 AppText(
-                  text: 'Head To Head   ',
+                  text: 'Head To Head  ',
                   tagStyle: TextTagStyle.h2,
                   style: TextStyle(fontSize: 12, color: Colors.black54),
                 ),
@@ -201,7 +200,7 @@ class SportsList extends StatelessWidget {
               '${model.raceTiming} | Tab.com.au',
               style: const TextStyle(
                 fontSize: 12,
-                color: Colors.black26,
+                color: Colors.black54,
               ),
             ),
           ),
