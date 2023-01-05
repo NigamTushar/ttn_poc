@@ -10,30 +10,22 @@ class SportsPopular extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
     return Card(
       elevation: 10.0,
-      child: Container(
-        constraints: BoxConstraints(
-            maxWidth: ResponsiveWidget.isLargeScreen(context)
-                ? screenSize.width / 3.45
-                : ResponsiveWidget.isMediumScreen(context)
-                    ? screenSize.width / 2.2
-                    : 500),
-        child: Column(
-          children: NextToGoModel.getHeaderMenuData()
-              .map(
-                (model) => Column(
-                  children: [
-                    model.isHeader ? getHeader(model) : buildSizedBox(model),
-                    if (!model.isHeader && !model.isLastIndex) ...[
-                      const Divider(
-                        height: 5,
-                        color: Colors.black26,
-                      )
-                    ]
-                  ],
-                ),
-              )
-              .toList(),
-        ),
+      child: Column(
+        children: NextToGoModel.getHeaderMenuData()
+            .map(
+              (model) => Column(
+                children: [
+                  model.isHeader ? getHeader(model) : buildSizedBox(model),
+                  if (!model.isHeader && !model.isLastIndex) ...[
+                    const Divider(
+                      height: 5,
+                      color: Colors.black26,
+                    )
+                  ]
+                ],
+              ),
+            )
+            .toList(),
       ),
     );
   }
