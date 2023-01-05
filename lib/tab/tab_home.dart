@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
+import 'package:newers_world/seoWidget/app_text.dart';
 import 'package:newers_world/tab/racing_next_to_go.dart';
 import 'package:newers_world/tab/sports_popular.dart';
 
@@ -38,6 +39,7 @@ class TabHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
         home: Scaffold(
             body: Column(
       children: [
@@ -98,6 +100,7 @@ class TabHome extends StatelessWidget {
                               ),
                       ),
                     ),
+                    _TermAndCondition(),
                   ],
                 ),
               ),
@@ -128,15 +131,16 @@ class _HeaderMenu extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Text(
-                  'MENU',
+                AppText(
+                  text: 'MENU',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),
               ],
             ),
           ),
           menuContainer(
-            child: Text(
+            child: AppText(
+              text:
               'IN-PLAY',
               style: menuTextStyle(),
             ),
@@ -161,7 +165,8 @@ class _HeaderMenu extends StatelessWidget {
                     Icons.search,
                     color: Colors.white,
                   ),
-                  Text(
+                  AppText(
+                    text:
                     'Search for jockeys, trainers, horses, matches and more...',
                     style: TextStyle(color: Colors.white70),
                   )
@@ -181,13 +186,15 @@ class _HeaderMenu extends StatelessWidget {
             child: Image.asset('assets/video.png'),
           ),
           menuContainer(
-            child: Text(
+            child: AppText(
+              text:
               'Login',
               style: menuTextStyle(),
             ),
           ),
           menuContainer(
-            child: Text(
+            child: AppText(
+              text:
               'Join',
               style: menuTextStyle(),
             ),
@@ -238,8 +245,10 @@ class _HeaderBetsMenu extends StatelessWidget {
                         SizedBox(
                           height: 8,
                         ),
-                        Text(
+                        AppText(
+                          text:
                           menuData.name,
+                          style: TextStyle(),
                           textAlign: TextAlign.center,
                         )
                       ],
@@ -258,55 +267,94 @@ class _BetSlip extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Color.fromRGBO(242, 242, 242, 1),
       elevation: 5,
-      child: Column(
-        children: [
-          Card(
-            elevation: 10,
-            child: Container(
-              decoration: BoxDecoration(
-                  border: Border.all(color: Color.fromRGBO(58, 152, 44, 1)),
-                  borderRadius: BorderRadius.all(Radius.circular(5.0))),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Container(
-                      decoration:
-                          BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
-                      height: 40,
-                      child: Center(
-                          child: Text(
-                        'Bet Slip',
-                        style: TextStyle(color: Colors.white),
-                      )),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 12.0),
+        child: Column(
+          children: [
+            Card(
+              elevation: 10,
+              child: Container(
+                decoration: BoxDecoration(
+                    border: Border.all(color: Color.fromRGBO(58, 152, 44, 1)),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration:
+                            BoxDecoration(color: Color.fromRGBO(58, 152, 44, 1)),
+                        height: 40,
+                        child: Center(
+                            child: AppText(
+                          text: 'Bet Slip',
+                          style: TextStyle(color: Colors.white),
+                        )),
+                      ),
                     ),
-                  ),
-                  Expanded(
-                    child: Container(
-                      child: Center(child: Text('Pending Bets')),
+                    Expanded(
+                      child: Container(
+                        child: Center(child: AppText(
+                            text: 'Pending Bets', style: TextStyle(),)),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 10,
-          ),
-          Image.asset('assets/help_centre.jpg'),
-          SizedBox(
-            height: 10,
-          ),
-          Image.asset('assets/lock_in_your_limits.jpg'),
-          SizedBox(
-            height: 10,
-          ),
-          Image.asset('assets/play_central.jpg'),
-        ],
+            SizedBox(
+              height: 10,
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              padding: EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+              decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.all(Radius.circular(5))),
+              child: Row(children: [
+                Image.asset('assets/info.png'),
+                SizedBox(width: 8,),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                  AppText(text: 'Click a price to add a bet', style: TextStyle()),
+                  SizedBox(height: 2,),
+                  AppText(text: 'Add more selection to start a   multi', style: TextStyle())
+                ],)
+              ]),
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Image.asset('assets/help_centre.jpg'),
+            SizedBox(
+              height: 10,
+            ),
+            Image.asset('assets/lock_in_your_limits.jpg'),
+            SizedBox(
+              height: 10,
+            ),
+            Image.asset('assets/play_central.jpg'),
+          ],
+        ),
       ),
     );
   }
 }
+
+class _TermAndCondition extends StatelessWidget {
+  const _TermAndCondition({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 55,
+       width: 1030,
+       color: Color.fromRGBO(0, 133, 56, 1),
+      child: Center(child: AppText(text: 'Betting Rules - Terms of Use - Privacy - @Tabcorp Holdings Limited 2021', style: TextStyle(color: Colors.white,),)),
+    );
+  }
+}
+
 
 ////////Model////////////
 class HeaderMenuModel {

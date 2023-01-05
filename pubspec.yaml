@@ -88,6 +88,7 @@ flutter:
     - assets/menu.png
     - assets/sky.png
     - assets/video.png
+    - assets/info.png
     - assets/lock_in_your_limits.jpg
     - assets/play_central.jpg
     - assets/help_centre.jpg
