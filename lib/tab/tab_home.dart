@@ -41,73 +41,82 @@ class TabHome extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
         home: Scaffold(
+          floatingActionButton: !ResponsiveWidget.isLargeScreen(context)?_BetButton(): SizedBox.shrink(),
             body: Column(
       children: [
         _HeaderMenu(),
-        Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Flexible(
-                flex: 1,
-                child: Column(
-                  children: [
-                    _HeaderBetsMenu(),
-                    Container(
-                      width: 1030,
-                      child: Stack(
-                        children: [
-                          Card(
-                              elevation: 5.0,
-                              child: Image.asset('assets/race_banner.jpg')),
-                          Positioned.fill(
-                            child: Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(
-                                    padding: EdgeInsets.only(right: 20),
-                                    child: Icon(
-                                      Icons.arrow_forward_ios,
-                                      color: Colors.white,
-                                      size: 30,
-                                    ))),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      width: 1030,
-                      child: Padding(
-                        padding: const EdgeInsets.only(top: 15),
-                        child: !ResponsiveWidget.isSmallScreen(context)
-                            ? Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                                children: const [
-                                  RacingNextToGo(),
-                                  SizedBox(
-                                    width: 10,
+        Expanded(
+          child: SingleChildScrollView(
+            child: Stack(
+              children: [
+                Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Flexible(
+                        flex: 1,
+                        child: Column(
+                          children: [
+                            _HeaderBetsMenu(),
+                            Container(
+                              width: 1030,
+                              child: Stack(
+                                children: [
+                                  Card(
+                                      elevation: 5.0,
+                                      child: Image.asset('assets/race_banner.jpg')),
+                                  Positioned.fill(
+                                    child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: Padding(
+                                            padding: EdgeInsets.only(right: 20),
+                                            child: Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: Colors.white,
+                                              size: 30,
+                                            ))),
                                   ),
-                                  SportsPopular(),
-                                ],
-                              )
-                            : Column(
-                                children: const [
-                                  RacingNextToGo(),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  SportsPopular(),
                                 ],
                               ),
+                            ),
+                            Container(
+                              width: 1030,
+                              child: Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: !ResponsiveWidget.isSmallScreen(context)
+                                    ? Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                        children: const [
+                                          Expanded(child: RacingNextToGo()),
+                                          SizedBox(
+                                            width: 10,
+                                          ),
+                                          Expanded(child: SportsPopular()),
+                                        ],
+                                      )
+                                    : Column(
+                                        children: const [
+                                          RacingNextToGo(),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          SportsPopular(),
+                                        ],
+                                      ),
+                              ),
+                            ),
+                            _TermAndCondition(),
+                          ],
+                        ),
                       ),
-                    ),
-                    _TermAndCondition(),
-                  ],
-                ),
-              ),
-              if (ResponsiveWidget.isLargeScreen(context)) ...[
-                Container(width: 380, child: _BetSlip()),
-              ]
-            ]),
+                      if (ResponsiveWidget.isLargeScreen(context)) ...[
+                        Container(width: 380, child: _BetSlip()),
+                      ]
+                    ]),
+              ],
+            ),
+          ),
+        ),
       ],
     )));
   }
@@ -148,9 +157,12 @@ class _HeaderMenu extends StatelessWidget {
           menuContainer(
             child: Image.asset('assets/tab_logo.png'),
           ),
-          Padding(
+           Padding(
             padding: EdgeInsets.all(8),
-            child: Container(
+            child: (!ResponsiveWidget.isLargeScreen(context))? Icon(
+              Icons.search,
+              color: Colors.white,
+            ) : Container(
               decoration: BoxDecoration(
                   color: Color.fromRGBO(0, 113, 56, 1),
                   border: Border.all(
@@ -179,10 +191,10 @@ class _HeaderMenu extends StatelessWidget {
           menuContainer(
             child: Image.asset('assets/sky.png'),
           ),
-          menuContainer(
+         if(!(ResponsiveWidget.isSmallScreen(context))) menuContainer(
             child: Image.asset('assets/audio.png'),
           ),
-          menuContainer(
+          if(!(ResponsiveWidget.isSmallScreen(context))) menuContainer(
             child: Image.asset('assets/video.png'),
           ),
           menuContainer(
@@ -354,6 +366,23 @@ class _TermAndCondition extends StatelessWidget {
     );
   }
 }
+
+class _BetButton extends StatelessWidget {
+  const _BetButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 60,
+      height: 60,
+      child: Center(child: AppText(text: 'B', style: TextStyle(color: Colors.white,fontSize: 20),)),
+      decoration: BoxDecoration(
+          color: Color.fromRGBO(0, 133, 56, 1),
+          shape: BoxShape.circle
+      ),);
+  }
+}
+
 
 
 ////////Model////////////
