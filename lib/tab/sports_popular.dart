@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
+import 'package:seo_service/seo.dart';
 
 class SportsPopular extends StatelessWidget {
   const SportsPopular({super.key});
@@ -38,6 +39,7 @@ class SportsPopular extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: AppText(
             text: model.title,
+            tagStyle: TextTagStyle.h1,
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -65,6 +67,7 @@ class SportsPopular extends StatelessWidget {
                 children: [
                   AppText(
                     text: model.title,
+                    tagStyle: TextTagStyle.h2,
                     style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
@@ -72,6 +75,7 @@ class SportsPopular extends StatelessWidget {
                   ),
                   AppText(
                     text: model.description,
+                    tagStyle: TextTagStyle.h1,
                     style: const TextStyle(
                       fontSize: 12,
                       fontWeight: FontWeight.normal,

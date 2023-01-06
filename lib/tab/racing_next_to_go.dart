@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
+import 'package:seo_service/seo.dart';
 
 class RacingNextToGo extends StatelessWidget {
   const RacingNextToGo({super.key});
@@ -33,6 +34,7 @@ class RacingNextToGo extends StatelessWidget {
               alignment: Alignment.center,
               child: AppText(
                 text: "See Today's Racing >",
+                tagStyle: TextTagStyle.h2,
                 style: TextStyle(
                     fontSize: 15,
                     color: Colors.green,
@@ -55,6 +57,7 @@ class RacingNextToGo extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: AppText(
             text: model.racerName,
+            tagStyle: TextTagStyle.h1,
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
@@ -98,6 +101,7 @@ class RacingNextToGo extends StatelessWidget {
             Expanded(
               child: AppText(
                 text: model.racerName,
+                tagStyle: TextTagStyle.h2,
                 style: const TextStyle(
                   fontSize: 15,
                   fontWeight: FontWeight.w600,
