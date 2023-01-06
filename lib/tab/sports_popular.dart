@@ -61,6 +61,7 @@ class SportsPopular extends StatelessWidget {
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   AppText(
                     text: model.title,

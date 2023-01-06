@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_head.dart';
+import 'package:newers_world/seoWidget/app_image.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 import 'package:newers_world/tab/racing_next_to_go.dart';
 import 'package:newers_world/tab/sports_list.dart';
@@ -46,8 +47,12 @@ class TabHome extends StatelessWidget {
                                               constraints: BoxConstraints(minHeight: (ResponsiveWidget.isLargeScreen(context))?160 : 130),
                                               child: Card(
                                                   elevation: 5.0,
-                                                  child: Image.asset(fit: BoxFit.fill,
-                                                      'assets/race_banner.jpg')),
+                                                  child: Seo.image(
+                                                    alt: 'Race banner image',
+                                                    src: 'assets/race_banner.jpg',
+                                                    child: Image.asset(fit: BoxFit.fill,
+                                                        'assets/race_banner.jpg'),
+                                                  )),
                                             ),
                                             const Positioned.fill(
                                               child: Align(
@@ -144,7 +149,7 @@ class _HeaderMenu extends StatelessWidget {
                 const SizedBox(
                   width: 5,
                 ),
-                const AppText(
+               if((!ResponsiveWidget.isSmallScreen(context))) const AppText(
                   tagStyle: TextTagStyle.h1,
                   text: 'MENU',
                   style: TextStyle(color: Colors.white, fontSize: 18),
@@ -291,92 +296,95 @@ class _BetSlip extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: const Color.fromRGBO(242, 242, 242, 1),
-      elevation: 5,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12.0),
-        child: Column(
-          children: [
-            Card(
-              elevation: 10,
-              child: Container(
-                decoration: BoxDecoration(
-                    border:
-                        Border.all(color: const Color.fromRGBO(58, 152, 44, 1)),
-                    borderRadius: const BorderRadius.all(Radius.circular(5.0))),
-                child: Row(
-                  children: [
-                    Expanded(
-                      child: Container(
-                        decoration: const BoxDecoration(
-                            color: Color.fromRGBO(58, 152, 44, 1)),
-                        height: 40,
-                        child: const Center(
+    return SizedBox(
+      height: MediaQuery.of(context).size.height,
+      child: Card(
+        color: const Color.fromRGBO(242, 242, 242, 1),
+        elevation: 5,
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 12.0),
+          child: Column(
+            children: [
+              Card(
+                elevation: 10,
+                child: Container(
+                  decoration: BoxDecoration(
+                      border:
+                          Border.all(color: const Color.fromRGBO(58, 152, 44, 1)),
+                      borderRadius: const BorderRadius.all(Radius.circular(5.0))),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Container(
+                          decoration: const BoxDecoration(
+                              color: Color.fromRGBO(58, 152, 44, 1)),
+                          height: 40,
+                          child: const Center(
+                              child: AppText(
+                            tagStyle: TextTagStyle.h1,
+                            text: 'Bet Slip',
+                            style: TextStyle(color: Colors.white),
+                          )),
+                        ),
+                      ),
+                      const Expanded(
+                        child: Center(
                             child: AppText(
                           tagStyle: TextTagStyle.h1,
-                          text: 'Bet Slip',
-                          style: TextStyle(color: Colors.white),
+                          text: 'Pending Bets',
+                          style: TextStyle(),
                         )),
                       ),
-                    ),
-                    const Expanded(
-                      child: Center(
-                          child: AppText(
-                        tagStyle: TextTagStyle.h1,
-                        text: 'Pending Bets',
-                        style: TextStyle(),
-                      )),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 10),
-              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
-              decoration: const BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(5))),
-              child: Row(children: [
-                Image.asset('assets/info.png'),
-                const SizedBox(
-                  width: 8,
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    AppText(
-                        tagStyle: TextTagStyle.h1,
-                        text: 'Click a price to add a bet',
-                        style: TextStyle()),
-                    SizedBox(
-                      height: 2,
-                    ),
-                    AppText(
-                        tagStyle: TextTagStyle.h1,
-                        text: 'Add more selection to start a   multi',
-                        style: TextStyle())
-                  ],
-                )
-              ]),
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Image.asset('assets/help_centre.jpg'),
-            const SizedBox(
-              height: 10,
-            ),
-            Image.asset('assets/lock_in_your_limits.jpg'),
-            const SizedBox(
-              height: 10,
-            ),
-            Image.asset('assets/play_central.jpg'),
-          ],
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 8),
+                decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                child: Row(children: [
+                  Image.asset('assets/info.png'),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      AppText(
+                          tagStyle: TextTagStyle.h1,
+                          text: 'Click a price to add a bet',
+                          style: TextStyle()),
+                      SizedBox(
+                        height: 2,
+                      ),
+                      AppText(
+                          tagStyle: TextTagStyle.h1,
+                          text: 'Add more selection to start a   multi',
+                          style: TextStyle())
+                    ],
+                  )
+                ]),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Image.asset('assets/help_centre.jpg'),
+              const SizedBox(
+                height: 10,
+              ),
+              Image.asset('assets/lock_in_your_limits.jpg'),
+              const SizedBox(
+                height: 10,
+              ),
+              Image.asset('assets/play_central.jpg'),
+            ],
+          ),
         ),
       ),
     );
