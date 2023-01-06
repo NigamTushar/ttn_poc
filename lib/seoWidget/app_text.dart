@@ -6,12 +6,14 @@ class AppText extends StatelessWidget {
   final TextTagStyle? tagStyle;
 
   final TextStyle? style;
+  final TextAlign? textAlign;
 
   const AppText({
     super.key,
     required this.text,
     this.tagStyle,
     required this.style,
+    this.textAlign,
   });
 
   @override
@@ -21,7 +23,10 @@ class AppText extends StatelessWidget {
       style: tagStyle ?? TextTagStyle.p,
       child: Text(
         text,
+        maxLines: 1,
+        overflow: TextOverflow.ellipsis,
         style: style,
+        textAlign: textAlign,
       ),
     );
   }
