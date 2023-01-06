@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:newers_world/helper/responsive_widget.dart';
+import 'package:newers_world/seoWidget/app_head.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 import 'package:newers_world/tab/racing_next_to_go.dart';
 import 'package:newers_world/tab/sports_list.dart';
@@ -17,102 +18,110 @@ class TabHome extends StatelessWidget {
             floatingActionButton: !ResponsiveWidget.isLargeScreen(context)
                 ? const _BetButton()
                 : const SizedBox.shrink(),
-            body: Column(
-              children: [
-                const _HeaderMenu(),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Stack(
-                      children: [
-                        Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Flexible(
-                                flex: 1,
-                                child: Column(
-                                  children: [
-                                    const _HeaderBetsMenu(),
-                                    SizedBox(
-                                      width: TabHomeConstant.containerWidth,
-                                      child: Stack(
-                                        children: [
-                                          Card(
-                                              elevation: 5.0,
-                                              child: Image.asset(
-                                                  'assets/race_banner.jpg')),
-                                          const Positioned.fill(
-                                            child: Align(
-                                                alignment:
-                                                    Alignment.centerRight,
-                                                child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                        right: 20),
-                                                    child: Icon(
-                                                      Icons.arrow_forward_ios,
-                                                      color: Colors.white,
-                                                      size: 30,
-                                                    ))),
-                                          ),
-                                        ],
+            body: AppHead(
+              title: "Online Sports & Horse Racing Betting Australia | TAB",
+              description:
+              'Bet live and online with TAB, Australia’s number 1 racing and sports betting website. Get the latest odds on all horse racing, AFL, NRL, EPL, NBA &amp; more here',
+              child: Column(
+                children: [
+                  const _HeaderMenu(),
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Stack(
+                        children: [
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Flexible(
+                                  flex: 1,
+                                  child: Column(
+                                    children: [
+                                      const _HeaderBetsMenu(),
+                                      SizedBox(
+                                        width: TabHomeConstant.containerWidth,
+                                        child: Stack(
+                                          children: [
+                                            Container(
+                                              constraints: BoxConstraints(minHeight: (ResponsiveWidget.isLargeScreen(context))?160 : 130),
+                                              child: Card(
+                                                  elevation: 5.0,
+                                                  child: Image.asset(fit: BoxFit.fill,
+                                                      'assets/race_banner.jpg')),
+                                            ),
+                                            const Positioned.fill(
+                                              child: Align(
+                                                  alignment:
+                                                      Alignment.centerRight,
+                                                  child: Padding(
+                                                      padding: EdgeInsets.only(
+                                                          right: 20),
+                                                      child: Icon(
+                                                        Icons.arrow_forward_ios,
+                                                        color: Colors.white,
+                                                        size: 30,
+                                                      ))),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(
-                                      width: TabHomeConstant.containerWidth,
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                            vertical: 15, horizontal: 5),
-                                        child: !ResponsiveWidget.isSmallScreen(
-                                                context)
-                                            ? Row(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                children: const [
-                                                  Expanded(
-                                                      child: RacingNextToGo()),
-                                                  SizedBox(
-                                                    width: 10,
-                                                  ),
-                                                  Expanded(
-                                                      child: SportsPopular()),
-                                                ],
-                                              )
-                                            : Column(
-                                                children: const [
-                                                  RacingNextToGo(),
-                                                  SizedBox(
-                                                    height: 10,
-                                                  ),
-                                                  SportsPopular(),
-                                                ],
-                                              ),
+                                      SizedBox(
+                                        width: TabHomeConstant.containerWidth,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                              vertical: 15, horizontal: 5),
+                                          child: !ResponsiveWidget.isSmallScreen(
+                                                  context)
+                                              ? Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: const [
+                                                    Expanded(
+                                                        child: RacingNextToGo()),
+                                                    SizedBox(
+                                                      width: 10,
+                                                    ),
+                                                    Expanded(
+                                                        child: SportsPopular()),
+                                                  ],
+                                                )
+                                              : Column(
+                                                  children: const [
+                                                    RacingNextToGo(),
+                                                    SizedBox(
+                                                      height: 10,
+                                                    ),
+                                                    SportsPopular(),
+                                                  ],
+                                                ),
+                                        ),
                                       ),
-                                    ),
-                                    const SizedBox(
-                                      width: TabHomeConstant.containerWidth,
-                                      child: Padding(
-                                        padding:
-                                            EdgeInsets.symmetric(horizontal: 5),
-                                        child: SportsList(),
+                                      const SizedBox(
+                                        width: TabHomeConstant.containerWidth,
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsets.symmetric(horizontal: 5),
+                                          child: SportsList(),
+                                        ),
                                       ),
-                                    ),
-                                    const Padding(
-                                      padding: EdgeInsets.symmetric(
-                                          vertical: 10, horizontal: 5),
-                                      child: _TermAndCondition(),
-                                    ),
-                                  ],
+                                      const Padding(
+                                        padding: EdgeInsets.symmetric(
+                                            vertical: 10, horizontal: 5),
+                                        child: _TermAndCondition(),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                              if (ResponsiveWidget.isLargeScreen(context)) ...[
-                                const SizedBox(width: 380, child: _BetSlip()),
-                              ]
-                            ]),
-                      ],
+                                if (ResponsiveWidget.isLargeScreen(context)) ...[
+                                  const SizedBox(width: 380, child: _BetSlip()),
+                                ]
+                              ]),
+                        ],
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             )));
   }
 }
@@ -188,6 +197,7 @@ class _HeaderMenu extends StatelessWidget {
           ),
         ]),
         Row(children: [
+          if (!(ResponsiveWidget.isSmallScreen(context)))
           menuContainer(
             child: Image.asset('assets/sky.png'),
           ),
