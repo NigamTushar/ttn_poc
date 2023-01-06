@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
 
 class SportsPopular extends StatelessWidget {
@@ -7,7 +6,6 @@ class SportsPopular extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Card(
       elevation: 10.0,
       child: Column(
