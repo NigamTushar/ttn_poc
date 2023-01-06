@@ -33,6 +33,7 @@ class SportsList extends StatelessWidget {
             child: Align(
               alignment: Alignment.center,
               child: AppText(
+                tagStyle: TextTagStyle.h1,
                 text: "See All Matches >",
                 style: TextStyle(
                     fontSize: 15,
@@ -56,6 +57,7 @@ class SportsList extends StatelessWidget {
           alignment: Alignment.centerLeft,
           child: AppText(
             text: model.title,
+            tagStyle: TextTagStyle.h1,
             style: const TextStyle(
               fontSize: 15,
               fontWeight: FontWeight.w600,
