@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:newers_world/helper/responsive_widget.dart';
 import 'package:newers_world/seoWidget/app_text.dart';
-
-class RacingNextToGoConstant {
-  static const double containerWidth = 1030;
-}
 
 class RacingNextToGo extends StatelessWidget {
   const RacingNextToGo({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = MediaQuery.of(context).size;
     return Card(
       elevation: 10.0,
       child: Column(
@@ -21,9 +15,7 @@ class RacingNextToGo extends StatelessWidget {
                 .map(
                   (model) => Column(
                     children: [
-                      model.isHeader
-                          ? getHeader(model)
-                          : buildSizedBox(model),
+                      model.isHeader ? getHeader(model) : buildSizedBox(model),
                       if (!model.isHeader) ...[
                         const Divider(
                           height: 5,

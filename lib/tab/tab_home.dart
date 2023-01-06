@@ -34,7 +34,7 @@ class TabHome extends StatelessWidget {
                                   children: [
                                     const _HeaderBetsMenu(),
                                     SizedBox(
-                                      width: 1030,
+                                      width: TabHomeConstant.containerWidth,
                                       child: Stack(
                                         children: [
                                           Card(
@@ -58,7 +58,7 @@ class TabHome extends StatelessWidget {
                                       ),
                                     ),
                                     SizedBox(
-                                      width: 1030,
+                                      width: TabHomeConstant.containerWidth,
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                             vertical: 15, horizontal: 5),
@@ -88,10 +88,13 @@ class TabHome extends StatelessWidget {
                                               ),
                                       ),
                                     ),
-                                    const Padding(
-                                      padding:
-                                          EdgeInsets.symmetric(horizontal: 5),
-                                      child: SportsList(),
+                                    const SizedBox(
+                                      width: TabHomeConstant.containerWidth,
+                                      child: Padding(
+                                        padding:
+                                            EdgeInsets.symmetric(horizontal: 5),
+                                        child: SportsList(),
+                                      ),
                                     ),
                                     const Padding(
                                       padding: EdgeInsets.symmetric(
@@ -377,7 +380,7 @@ class _TermAndCondition extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 55,
-      width: 1030,
+      width: TabHomeConstant.containerWidth,
       color: const Color.fromRGBO(0, 133, 56, 1),
       child: const Center(
           child: AppText(
@@ -430,4 +433,8 @@ class HeaderMenuModel {
         HeaderMenuModel(
             name: 'Test Cricket Aus vs SA', imagePath: 'assets/wicket.png'),
       ];
+}
+
+class TabHomeConstant {
+  static const double containerWidth = 1030;
 }
